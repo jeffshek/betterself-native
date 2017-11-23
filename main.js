@@ -1,23 +1,23 @@
-import Expo from 'expo';
-import React from 'react';
-import { View, Image, Dimensions, Platform } from 'react-native';
-import { DrawerNavigator, DrawerItems } from 'react-navigation';
+import Expo from "expo";
+import React from "react";
+import { View, Image, Dimensions, Platform } from "react-native";
+import { DrawerNavigator, DrawerItems } from "react-navigation";
 
-import Home from './src/drawer/home';
-import Ratings from './src/drawer/ratings';
-import Pricing from './src/drawer/pricing';
-import Playground from './src/drawer/playground';
+import SupplementsHome from "./src/drawer/home";
+import Ratings from "./src/drawer/ratings";
+import Pricing from "./src/drawer/pricing";
+import Playground from "./src/drawer/playground";
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_WIDTH = Dimensions.get("window").width;
 
 const CustomDrawerContentComponent = props => (
-  <View style={{ flex: 1, backgroundColor: '#193441' }}>
+  <View style={{ flex: 1, backgroundColor: "#193441" }}>
     <View
-      style={{ marginTop: 40, justifyContent: 'center', alignItems: 'center' }}
+      style={{ marginTop: 40, justifyContent: "center", alignItems: "center" }}
     >
       <Image
-        source={require('./src/images/logo.png')}
-        style={{ width: SCREEN_WIDTH * 0.6 }}
+        source={require("./src/images/white_logo_transparent_background_small.png")}
+        style={{ width: SCREEN_WIDTH * 0.5 }}
         resizeMode="contain"
       />
     </View>
@@ -27,46 +27,46 @@ const CustomDrawerContentComponent = props => (
 
 const MainNavigator = DrawerNavigator(
   {
-    Home: {
-      path: '/home',
-      screen: Home,
+    SupplementsHome: {
+      path: "/home",
+      screen: SupplementsHome
     },
     Ratings: {
-      path: '/ratings',
-      screen: Ratings,
+      path: "/ratings",
+      screen: Ratings
     },
     Pricing: {
-      path: '/pricing',
-      screen: Pricing,
+      path: "/pricing",
+      screen: Pricing
     },
     Playground: {
-      path: '/playground',
+      path: "/playground",
       screen: Playground
     }
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: "SupplementsHome",
     contentOptions: {
-      activeTintColor: '#548ff7',
-      activeBackgroundColor: 'transparent',
-      inactiveTintColor: '#ffffff',
-      inactiveBackgroundColor: 'transparent',
+      activeTintColor: "#548ff7",
+      activeBackgroundColor: "transparent",
+      inactiveTintColor: "#ffffff",
+      inactiveBackgroundColor: "transparent",
       labelStyle: {
         fontSize: 15,
-        marginLeft: 0,
-      },
+        marginLeft: 0
+      }
     },
     drawerWidth: SCREEN_WIDTH * 0.6,
-    contentComponent: CustomDrawerContentComponent,
+    contentComponent: CustomDrawerContentComponent
   }
 );
 
-const MainRoot = () => <View style={{ flex: 1 }}>
-  {
-    Platform.OS === 'android' &&
-    <View style={{ height: Expo.Constants.statusBarHeight }}/>
-  }
-  <MainNavigator/>
-</View>;
+const MainRoot = () => (
+  <View style={{ flex: 1 }}>
+    {Platform.OS === "android" &&
+      <View style={{ height: Expo.Constants.statusBarHeight }} />}
+    <MainNavigator />
+  </View>
+);
 
 Expo.registerRootComponent(MainRoot);

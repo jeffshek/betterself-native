@@ -56,7 +56,7 @@ const MainNavigator = DrawerNavigator(
         marginLeft: 0
       }
     },
-    drawerWidth: SCREEN_WIDTH * 0.6,
+    drawerWidth: SCREEN_WIDTH * 0.7,
     contentComponent: CustomDrawerContentComponent
   }
 );

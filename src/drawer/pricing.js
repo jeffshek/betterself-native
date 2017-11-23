@@ -28,10 +28,10 @@ PricingDrawerItem.navigationOptions = {
   drawerIcon: ({ tintColor }) => (
     <Icon
       name="attach-money"
-      size={30}
+      size={25}
       style={{
-        width: 50,
-        height: 50,
+        width: 20,
+        height: 40,
         alignItems: 'center',
         justifyContent: 'center',
       }}

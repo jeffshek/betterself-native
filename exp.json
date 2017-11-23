@@ -1,9 +1,9 @@
 {
-  "name": "react-native-elements-app",
-  "description": "A demo app for React Native Elements UI Library",
-  "slug": "react-native-elements-app",
+  "name": "BetterSelf",
+  "description": "BetterSelf - Your Body's Dashboard",
+  "slug": "betterself-app",
   "privacy": "public",
-  "sdkVersion": "21.0.0",
+  "sdkVersion": "1.0.0",
   "version": "1.0.0",
   "orientation": "portrait",
   "primaryColor": "#cccccc",

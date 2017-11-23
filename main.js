@@ -7,6 +7,7 @@ import SupplementsHome from "./src/drawer/home";
 import Ratings from "./src/drawer/ratings";
 import Pricing from "./src/drawer/pricing";
 import Playground from "./src/drawer/playground";
+import { MoodDrawerItem } from "./src/drawer/mood";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
@@ -42,6 +43,10 @@ const MainNavigator = DrawerNavigator(
     Playground: {
       path: "/playground",
       screen: Playground
+    },
+    Mood: {
+      path: "/playground",
+      screen: MoodDrawerItem
     }
   },
   {

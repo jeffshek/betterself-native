@@ -1,18 +1,18 @@
-import Expo from 'expo';
-import React from 'react';
-import { StackNavigator } from 'react-navigation';
-import { Icon } from 'react-native-elements';
+import Expo from "expo";
+import React from "react";
+import { StackNavigator } from "react-navigation";
+import { Icon } from "react-native-elements";
 
-import Ratings from '../views/ratings';
+import Ratings from "../views/ratings";
 
 const RatingsDrawerItem = StackNavigator({
   Ratings: {
-    screen: Ratings,
-  },
+    screen: Ratings
+  }
 });
 
 RatingsDrawerItem.navigationOptions = {
-  drawerLabel: 'Ratings',
+  drawerLabel: "Sleep",
   drawerIcon: ({ tintColor }) => (
     <Icon
       name="star"
@@ -20,13 +20,13 @@ RatingsDrawerItem.navigationOptions = {
       style={{
         width: 20,
         height: 40,
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: "center",
+        justifyContent: "center"
       }}
       type="material"
       color={tintColor}
     />
-  ),
+  )
 };
 
 export default RatingsDrawerItem;

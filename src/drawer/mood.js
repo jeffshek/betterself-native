@@ -5,13 +5,13 @@ import { Icon } from "react-native-elements";
 
 import Pricing from "../views/pricing";
 
-const EventsLabel = "Events";
+const MoodLabel = "Mood";
 
-const PricingDrawerItem = StackNavigator({
+export const MoodDrawerItem = StackNavigator({
   Pricing: {
     screen: Pricing,
     navigationOptions: ({ navigation }) => ({
-      title: EventsLabel,
+      title: MoodLabel,
       headerLeft: (
         <Icon
           name="menu"
@@ -25,8 +25,8 @@ const PricingDrawerItem = StackNavigator({
   }
 });
 
-PricingDrawerItem.navigationOptions = {
-  drawerLabel: EventsLabel,
+MoodDrawerItem.navigationOptions = {
+  drawerLabel: MoodLabel,
   drawerIcon: ({ tintColor }) => (
     <Icon
       name="attach-money"
@@ -42,5 +42,3 @@ PricingDrawerItem.navigationOptions = {
     />
   )
 };
-
-export default PricingDrawerItem;

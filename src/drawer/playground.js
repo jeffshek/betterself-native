@@ -1,30 +1,32 @@
-import Expo from 'expo';
-import React from 'react';
-import { StackNavigator } from 'react-navigation';
-import { Icon } from 'react-native-elements';
+import Expo from "expo";
+import React from "react";
+import { StackNavigator } from "react-navigation";
+import { Icon } from "react-native-elements";
 
-import Playground from '../views/playground';
+import Playground from "../views/playground";
+
+const DrawerLabel = "Productivity";
 
 const PlaygroundDrawerItem = StackNavigator({
   Playground: {
     screen: Playground,
     navigationOptions: ({ navigation }) => ({
-      title: 'Playground',
+      title: DrawerLabel,
       headerLeft: (
         <Icon
           name="menu"
           size={30}
           type="entypo"
           style={{ paddingLeft: 10 }}
-          onPress={() => navigation.navigate('DrawerOpen')}
+          onPress={() => navigation.navigate("DrawerOpen")}
         />
-      ),
-    }),
-  },
+      )
+    })
+  }
 });
 
 PlaygroundDrawerItem.navigationOptions = {
-  drawerLabel: 'Playground',
+  drawerLabel: DrawerLabel,
   drawerIcon: ({ tintColor }) => (
     <Icon
       name="brush"
@@ -32,13 +34,13 @@ PlaygroundDrawerItem.navigationOptions = {
       style={{
         width: 20,
         height: 40,
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: "center",
+        justifyContent: "center"
       }}
       type="material"
       color={tintColor}
     />
-  ),
+  )
 };
 
 export default PlaygroundDrawerItem;

@@ -1,0 +1,19 @@
+repos:
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    sha: v0.9.3
+    hooks:
+    # keep ids alphabetical! see http://pre-commit.com/hooks.html
+    -   id: check-merge-conflict
+    -   id: check-json
+    -   id: check-added-large-files
+    -   id: check-xml
+    -   id: double-quote-string-fixer
+    -   id: end-of-file-fixer
+        files: \.(py|sh)$
+    -   id: trailing-whitespace
+        files: \.(py|sh|yaml|txt)$
+-   repo: https://github.com/awebdeveloper/pre-commit-prettier
+    sha: v0.0.1
+    hooks:
+    -   id: prettier
+        additional_dependencies: ['prettier@1.1.0']

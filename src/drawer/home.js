@@ -50,21 +50,21 @@ const SupplementsHome = TabNavigator(
         )
       }
     },
-    FontsTab: {
-      screen: FontsTab,
-      path: "/fonts",
-      navigationOptions: {
-        tabBarLabel: "Fonts",
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Icon
-            name={focused ? "font" : "font"}
-            size={30}
-            type="font-awesome"
-            color={tintColor}
-          />
-        )
-      }
-    }
+    //FontsTab: {
+    //  screen: FontsTab,
+    //  path: "/fonts",
+    //  navigationOptions: {
+    //    tabBarLabel: "Fonts",
+    //    tabBarIcon: ({ tintColor, focused }) => (
+    //      <Icon
+    //        name={focused ? "font" : "font"}
+    //        size={30}
+    //        type="font-awesome"
+    //        color={tintColor}
+    //      />
+    //    )
+    //  }
+    //}
   },
   {
     initialRouteName: "ButtonsTab",
@@ -77,18 +77,18 @@ const SupplementsHome = TabNavigator(
 );
 
 SupplementsHome.navigationOptions = {
-  drawerLabel: "Supplements & Medication",
+  drawerLabel: "Supplements & Medications",
   drawerIcon: ({ tintColor }) => (
     <Icon
       name="home"
-      size={30}
+      size={25}
       style={{
-        width: 50,
-        height: 50,
+        width: 20,
+        height: 40,
         alignItems: "center",
         justifyContent: "center"
       }}
-      type="material-commnity"
+      type="material-community"
       color={tintColor}
     />
   )

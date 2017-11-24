@@ -73,8 +73,14 @@ export const SupplementsDrawer = TabNavigator(
     initialRouteName: "SupplementsLogTab",
     animationEnabled: false,
     swipeEnabled: true,
+    // Android's default option is on the top
+    tabBarPosition: "bottom",
     tabBarOptions: {
-      activeTintColor: "#e91e63"
+      activeTintColor: "#e91e63",
+      // Android's default showing of icons is false whereas
+      // iOS is true
+      showIcon: true,
+      tabBarPosition: "bottom"
     }
   }
 );

@@ -15,14 +15,14 @@ import {
   RemindersCheckboxIcon,
   SelectedTintColor
 } from "../constants/icons";
-import { SupplementsLogStack } from "../tabs/supplements/log";
+import { SupplementsLogTab } from "../tabs/supplements/log";
 
 const label = "Supplements & Medications";
 
 export const SupplementsDrawer = TabNavigator(
   {
     SupplementsLogTab: {
-      screen: SupplementsLogStack,
+      screen: SupplementsLogTab,
       path: "/buttons",
       navigationOptions: {
         tabBarLabel: LogLabel,

@@ -9,6 +9,8 @@ import ButtonsHome from "../../views/buttons_home";
 import ButtonsDetails from "../../views/buttons_detail";
 import { HamburgerIconSize } from "../../constants/icons";
 import { HamburgerIconNavigation } from "../../constants/icons";
+import { SupplmentsLogLabel } from "../../constants/labels";
+import { SupplementLogViewConstant } from "../../views/supplements/log";
 
 const ButtonsTabView = ({ navigation }) => (
   <ButtonsHome navigation={navigation} />
@@ -21,18 +23,19 @@ const ButtonsDetailTabView = ({ navigation }) => (
   />
 );
 
-export const SupplementsLogStack = StackNavigator({
+export const SupplementsLogTab = StackNavigator({
   Buttons: {
     screen: ButtonsTabView,
     path: "/",
     navigationOptions: ({ navigation }) => ({
-      title: "Supplement Logs",
+      title: SupplmentsLogLabel,
       headerLeft: <HamburgerIconNavigation navigation={navigation} />
     })
   },
-  Button_Detail: {
-    screen: ButtonsDetailTabView,
-    path: "/buttons_detail",
+  [SupplementLogViewConstant.name]: {
+    screen: SupplementLogViewConstant,
+    //path: "/buttons_detail",
+    path: `/${SupplementLogViewConstant.name}`,
     navigationOptions: {
       title: "Buttons Detail"
     }

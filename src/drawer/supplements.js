@@ -11,7 +11,7 @@ import { HistoryLabel, LogLabel, RemindersLabel } from "../constants/labels";
 
 const label = "Supplements & Medications";
 
-export const TrueSupplementsHome = TabNavigator(
+export const SupplementsDrawer = TabNavigator(
   {
     SupplementsLogTab: {
       screen: ButtonsTab,
@@ -79,7 +79,7 @@ export const TrueSupplementsHome = TabNavigator(
   }
 );
 
-TrueSupplementsHome.navigationOptions = {
+SupplementsDrawer.navigationOptions = {
   drawerLabel: label,
   drawerIcon: ({ tintColor }) => (
     <Icon

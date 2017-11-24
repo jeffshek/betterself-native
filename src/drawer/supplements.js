@@ -73,7 +73,7 @@ export const SupplementsDrawer = TabNavigator(
     initialRouteName: "SupplementsLogTab",
     animationEnabled: false,
     swipeEnabled: true,
-    // Android's default option is on the top
+    // Android's default option displays tabBars on top, but iOS is bottom
     tabBarPosition: "bottom",
     tabBarOptions: {
       activeTintColor: "#e91e63",

@@ -84,16 +84,4 @@ export const SupplementsDrawer = TabNavigator(
 SupplementsDrawer.navigationOptions = {
   drawerLabel: label,
   drawerIcon: ({ tintColor }) => <HomeIcon tintColor={tintColor} />
-  //<Icon
-  //  name="home"
-  //  size={25}
-  //  style={{
-  //    width: 20,
-  //    height: 40,
-  //    alignItems: "center",
-  //    justifyContent: "center"
-  //  }}
-  //  type="material-community"
-  //  color={tintColor}
-  ///>
 };

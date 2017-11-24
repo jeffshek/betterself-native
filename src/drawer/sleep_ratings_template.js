@@ -19,7 +19,7 @@ RatingsDrawerItem.navigationOptions = {
     <Icon
       name="star"
       size={25}
-      style={{
+      iconStyle={{
         width: 20,
         height: 40,
         alignItems: "center",

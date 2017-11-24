@@ -17,7 +17,7 @@ export const MoodDrawerItem = StackNavigator({
           name="menu"
           size={30}
           type="entypo"
-          style={{ paddingLeft: 10 }}
+          iconStyle={{ paddingLeft: 10 }}
           onPress={() => navigation.navigate("DrawerOpen")}
         />
       )
@@ -31,7 +31,7 @@ MoodDrawerItem.navigationOptions = {
     <Icon
       name="attach-money"
       size={25}
-      style={{
+      iconStyle={{
         width: 20,
         height: 40,
         alignItems: "center",

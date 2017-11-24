@@ -7,6 +7,7 @@ import { Icon } from "react-native-elements";
 
 import ButtonsHome from "../views/buttons_home";
 import ButtonsDetails from "../views/buttons_detail";
+import { HamburgerIconSize } from "../constants/icons";
 
 const ButtonsTabView = ({ navigation }) => (
   <ButtonsHome navigation={navigation} />
@@ -28,9 +29,9 @@ const ButtonsTab = StackNavigator({
       headerLeft: (
         <Icon
           name="menu"
-          size={40}
+          size={HamburgerIconSize}
           type="entypo"
-          style={{ paddingLeft: 20 }}
+          iconStyle={{ paddingLeft: 15 }}
           onPress={() => navigation.navigate("DrawerOpen")}
         />
       )

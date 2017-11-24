@@ -2,6 +2,7 @@ import { Icon } from "react-native-elements";
 import React from "react";
 
 const IconSize = 25;
+export const HamburgerIconSize = 40;
 
 export const LogCheckboxIcon = ({ tintColor }) => {
   return (

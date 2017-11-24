@@ -31,7 +31,7 @@ PlaygroundDrawerItem.navigationOptions = {
     <Icon
       name="brush"
       size={25}
-      style={{
+      iconStyle={{
         width: 20,
         height: 40,
         alignItems: "center",

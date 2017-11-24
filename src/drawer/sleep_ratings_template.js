@@ -5,7 +5,7 @@ import { Icon } from "react-native-elements";
 
 import Ratings from "../views/ratings";
 
-const SleepLabel = "sleep";
+const SleepLabel = "Sleep Template";
 
 const RatingsDrawerItem = StackNavigator({
   Ratings: {

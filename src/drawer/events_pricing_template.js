@@ -5,7 +5,7 @@ import { Icon } from "react-native-elements";
 
 import Pricing from "../views/pricing";
 
-const EventsLabel = "Events";
+const EventsLabel = "Events Template";
 
 const PricingDrawerItem = StackNavigator({
   Pricing: {

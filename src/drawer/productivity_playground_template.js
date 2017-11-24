@@ -5,7 +5,7 @@ import { Icon } from "react-native-elements";
 
 import Playground from "../views/playground";
 
-const DrawerLabel = "Productivity";
+const DrawerLabel = "Productivity Template";
 
 const PlaygroundDrawerItem = StackNavigator({
   Playground: {

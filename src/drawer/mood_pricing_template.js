@@ -5,7 +5,7 @@ import { Icon } from "react-native-elements";
 
 import Pricing from "../views/pricing";
 
-const MoodLabel = "Mood";
+const MoodLabel = "Mood Template";
 
 export const MoodDrawerItem = StackNavigator({
   Pricing: {

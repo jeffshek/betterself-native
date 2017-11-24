@@ -8,7 +8,12 @@ import ListsTab from "../tabs/lists";
 import FormsTab from "../tabs/forms";
 import FontsTab from "../tabs/fonts";
 import { HistoryLabel, LogLabel, RemindersLabel } from "../constants/labels";
-import { LogCheckboxIcon } from "../constants/icons";
+import {
+  HistoryCheckboxIcon,
+  HomeIcon,
+  LogCheckboxIcon,
+  RemindersCheckboxIcon
+} from "../constants/icons";
 
 const label = "Supplements & Medications";
 
@@ -30,7 +35,7 @@ export const SupplementsDrawer = TabNavigator(
       navigationOptions: {
         tabBarLabel: HistoryLabel,
         tabBarIcon: ({ tintColor, focused }) => (
-          <Icon name="list" size={30} type="entypo" color={tintColor} />
+          <HistoryCheckboxIcon tintColor={tintColor} />
         )
       }
     },
@@ -40,12 +45,7 @@ export const SupplementsDrawer = TabNavigator(
       navigationOptions: {
         tabBarLabel: RemindersLabel,
         tabBarIcon: ({ tintColor, focused }) => (
-          <Icon
-            name="wpforms"
-            size={30}
-            type="font-awesome"
-            color={tintColor}
-          />
+          <RemindersCheckboxIcon tintColor={tintColor} />
         )
       }
     }
@@ -83,18 +83,17 @@ export const SupplementsDrawer = TabNavigator(
 
 SupplementsDrawer.navigationOptions = {
   drawerLabel: label,
-  drawerIcon: ({ tintColor }) => (
-    <Icon
-      name="home"
-      size={25}
-      style={{
-        width: 20,
-        height: 40,
-        alignItems: "center",
-        justifyContent: "center"
-      }}
-      type="material-community"
-      color={tintColor}
-    />
-  )
+  drawerIcon: ({ tintColor }) => <HomeIcon tintColor={tintColor} />
+  //<Icon
+  //  name="home"
+  //  size={25}
+  //  style={{
+  //    width: 20,
+  //    height: 40,
+  //    alignItems: "center",
+  //    justifyContent: "center"
+  //  }}
+  //  type="material-community"
+  //  color={tintColor}
+  ///>
 };

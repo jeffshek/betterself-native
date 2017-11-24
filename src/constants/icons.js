@@ -3,6 +3,7 @@ import React from "react";
 
 const IconSize = 25;
 export const HamburgerIconSize = 40;
+export const SelectedTintColor = "#e91e63";
 
 export const LogCheckboxIcon = ({ tintColor }) => {
   return (

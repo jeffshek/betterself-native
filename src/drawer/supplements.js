@@ -12,7 +12,8 @@ import {
   HistoryCheckboxIcon,
   HomeIcon,
   LogCheckboxIcon,
-  RemindersCheckboxIcon
+  RemindersCheckboxIcon,
+  SelectedTintColor
 } from "../constants/icons";
 
 const label = "Supplements & Medications";
@@ -72,11 +73,10 @@ export const SupplementsDrawer = TabNavigator(
     // Android's default option displays tabBars on top, but iOS is bottom
     tabBarPosition: "bottom",
     tabBarOptions: {
-      activeTintColor: "#e91e63",
+      activeTintColor: SelectedTintColor,
       // Android's default showing of icons is false whereas
       // iOS is true
-      showIcon: true,
-      tabBarPosition: "bottom"
+      showIcon: true
     }
   }
 );

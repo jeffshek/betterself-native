@@ -1,0 +1,98 @@
+import Expo from "expo";
+import React from "react";
+import { TabNavigator } from "react-navigation";
+import { Icon } from "react-native-elements";
+
+import ButtonsTab from "../tabs/buttons";
+import ListsTab from "../tabs/lists";
+import FormsTab from "../tabs/forms";
+import FontsTab from "../tabs/fonts";
+import { HistoryLabel, LogLabel, RemindersLabel } from "../constants/labels";
+
+const label = "Supplements & Medications";
+
+export const TrueSupplementsHome = TabNavigator(
+  {
+    SupplementsLogTab: {
+      screen: ButtonsTab,
+      path: "/buttons",
+      navigationOptions: {
+        tabBarLabel: LogLabel,
+        tabBarIcon: ({ tintColor, focused }) => (
+          <Icon
+            name={focused ? "emoticon-cool" : "emoticon-neutral"}
+            size={30}
+            type="material-community"
+            color={tintColor}
+          />
+        )
+      }
+    },
+    SupplementsHistoryTab: {
+      screen: ListsTab,
+      path: "/lists",
+      navigationOptions: {
+        tabBarLabel: HistoryLabel,
+        tabBarIcon: ({ tintColor, focused }) => (
+          <Icon name="list" size={30} type="entypo" color={tintColor} />
+        )
+      }
+    },
+    SupplementRemindersTab: {
+      screen: FormsTab,
+      path: "/forms",
+      navigationOptions: {
+        tabBarLabel: RemindersLabel,
+        tabBarIcon: ({ tintColor, focused }) => (
+          <Icon
+            name="wpforms"
+            size={30}
+            type="font-awesome"
+            color={tintColor}
+          />
+        )
+      }
+    }
+    //FontsTab: {
+    //  screen: FontsTab,
+    //  path: "/fonts",
+    //  navigationOptions: {
+    //    tabBarLabel: "Fonts",
+    //    tabBarIcon: ({ tintColor, focused }) => (
+    //      <Icon
+    //        name={focused ? "font" : "font"}
+    //        size={30}
+    //        type="font-awesome"
+    //        color={tintColor}
+    //      />
+    //    )
+    //  }
+    //}
+  },
+  {
+    initialRouteName: "SupplementsLogTab",
+    animationEnabled: false,
+    swipeEnabled: true,
+    tabBarOptions: {
+      activeTintColor: "#e91e63"
+    }
+  }
+);
+
+TrueSupplementsHome.navigationOptions = {
+  drawerLabel: label,
+  drawerIcon: ({ tintColor }) => (
+    <Icon
+      name="home"
+      size={25}
+      style={{
+        width: 20,
+        height: 40,
+        alignItems: "center",
+        justifyContent: "center"
+      }}
+      type="material-community"
+      color={tintColor}
+    />
+  )
+};

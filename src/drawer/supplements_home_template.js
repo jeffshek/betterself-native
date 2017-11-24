@@ -49,7 +49,7 @@ const SupplementsHome = TabNavigator(
           />
         )
       }
-    },
+    }
     //FontsTab: {
     //  screen: FontsTab,
     //  path: "/fonts",
@@ -77,7 +77,7 @@ const SupplementsHome = TabNavigator(
 );
 
 SupplementsHome.navigationOptions = {
-  drawerLabel: "Supplements & Medications",
+  drawerLabel: "Supplements fake Medications (temp)",
   drawerIcon: ({ tintColor }) => (
     <Icon
       name="home"

@@ -5,6 +5,8 @@ import { Icon } from "react-native-elements";
 
 import Ratings from "../views/ratings";
 
+const SleepLabel = "sleep";
+
 const RatingsDrawerItem = StackNavigator({
   Ratings: {
     screen: Ratings
@@ -12,7 +14,7 @@ const RatingsDrawerItem = StackNavigator({
 });
 
 RatingsDrawerItem.navigationOptions = {
-  drawerLabel: "Sleep",
+  drawerLabel: SleepLabel,
   drawerIcon: ({ tintColor }) => (
     <Icon
       name="star"

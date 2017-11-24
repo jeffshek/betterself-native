@@ -47,3 +47,15 @@ export const HomeIcon = ({ tintColor }) => {
     />
   );
 };
+
+export const HamburgerIconNavigation = ({ navigation }) => {
+  return (
+    <Icon
+      name="menu"
+      size={HamburgerIconSize}
+      type="entypo"
+      iconStyle={{ paddingLeft: 15 }}
+      onPress={() => navigation.navigate("DrawerOpen")}
+    />
+  );
+};

@@ -1,6 +1,6 @@
-export const LogLabel = "Logs 16";
+export const LogLabel = "Logs 5 ...";
 export const HistoryLabel = "History";
 export const RemindersLabel = "Reminders";
 
-export const SupplementLabel = "Supplements";
-export const SupplmentsLogLabel = `${SupplementLabel} ${LogLabel}`;
+export const SupplementLabel = "Supplement";
+export const SupplementsLogLabel = `${SupplementLabel} ${LogLabel}`;

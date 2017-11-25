@@ -2,6 +2,7 @@ import Expo, { Font } from "expo";
 import React, { Component } from "react";
 import { View, ScrollView, StyleSheet, Platform } from "react-native";
 import { createIconSetFromFontello } from "react-native-vector-icons";
+import { FormLabel, FormInput } from "react-native-elements";
 
 import {
   registerCustomIconType,
@@ -17,9 +18,15 @@ import socialColors from "HSSocialColors";
 import fonts from "HSFonts";
 import fontelloConfig from "../../assets/fontello/config.json";
 import { SupplementLogViewConstant } from "./supplements/log";
+import { SearchBar } from "react-native-elements";
 
 const log = () => {
   console.log("Attach a method here.");
+};
+
+const searchStyleIcon = {
+  color: "white",
+  background: "white"
 };
 
 class Buttons extends Component {
@@ -42,415 +49,55 @@ class Buttons extends Component {
       this.setState({ fontLoaded: true });
     });
   }
-  //render() {
-  //  const { navigation } = this.props;
-  //
-  //  return (
-  //    <ScrollView>
-  //      <View style={styles.hero}>
-  //        <Icon color="white" name="whatshot" size={62} type="material" />
-  //        <Text style={styles.heading}>Buttons & Icons</Text>
-  //      </View>
-  //      <Button
-  //        buttonStyle={styles.button}
-  //        backgroundColor={socialColors.facebook}
-  //        icon={{ name: 'account', type: 'material-community' }}
-  //        onPress={() =>
-  //          navigation.navigate('Button_Detail', { name: 'Jordan' })}
-  //        title="Got to Buttons Detail View"
-  //      />
-  //      <Button
-  //        backgroundColor={socialColors.stumbleupon}
-  //        onPress={() => log()}
-  //        title="BUTTON"
-  //        buttonStyle={styles.button}
-  //      />
-  //      <Button
-  //        buttonStyle={styles.button}
-  //        backgroundColor={socialColors.quora}
-  //        iconRight={{ name: 'snapchat-ghost', type: 'font-awesome' }}
-  //        onPress={() => log()}
-  //        title="BUTTON WITH RIGHT ICON"
-  //      />
-  //      <Button
-  //        buttonStyle={styles.button}
-  //        rightIcon={{ name: 'account', type: 'material-community' }}
-  //        backgroundColor={socialColors.tumblr}
-  //        onPress={() => log()}
-  //        title="BUTTON WITH RIGHT ICON"
-  //      />
-  //      <Button
-  //        buttonStyle={styles.button}
-  //        raised
-  //        backgroundColor={socialColors.foursquare}
-  //        icon={{ name: 'card-travel' }}
-  //        onPress={() => log()}
-  //        title="BUTTON RAISED"
-  //      />
-  //      <Button
-  //        buttonStyle={styles.button}
-  //        raised
-  //        backgroundColor={socialColors.vimeo}
-  //        icon={{ name: 'touch-app' }}
-  //        onPress={() => log()}
-  //        title="BUTTON RAISED"
-  //      />
-  //      <Button
-  //        buttonStyle={styles.button}
-  //        raised
-  //        backgroundColor={socialColors.twitter}
-  //        icon={{ name: 'new-releases' }}
-  //        onPress={() => log()}
-  //        title="BUTTON RAISED"
-  //      />
-  //      <Button
-  //        buttonStyle={styles.button}
-  //        raised
-  //        backgroundColor={socialColors.linkedin}
-  //        icon={{ name: 'business' }}
-  //        onPress={() => log()}
-  //        title="BUTTON RAISED"
-  //      />
-  //      <Button
-  //        buttonStyle={styles.button}
-  //        raised
-  //        backgroundColor={socialColors.pinterest}
-  //        icon={{ name: 'send' }}
-  //        onPress={() => log()}
-  //        title="BUTTON RAISED"
-  //      />
-  //      <Button
-  //        buttonStyle={styles.button}
-  //        raised
-  //        onPress={() => log()}
-  //        title="BUTTON RAISED"
-  //      />
-  //      <Button
-  //        large={true}
-  //        buttonStyle={styles.button}
-  //        onPress={() => log()}
-  //        backgroundColor={socialColors.facebook}
-  //        title="LARGE BUTTON"
-  //      />
-  //      <Button
-  //        large={true}
-  //        buttonStyle={styles.button}
-  //        backgroundColor={socialColors.stumbleupon}
-  //        icon={{ name: 'cached' }}
-  //        title="LARGE BUTTON WITH ICON"
-  //      />
-  //      <Button
-  //        large={true}
-  //        buttonStyle={styles.button}
-  //        backgroundColor={socialColors.quora}
-  //        raised
-  //        icon={{ name: 'album' }}
-  //        title="LARGE RAISED WITH ICON"
-  //      />
-  //      <Button
-  //        large={true}
-  //        buttonStyle={styles.button}
-  //        raised
-  //        iconRight={{ name: 'account', type: 'material-community' }}
-  //        backgroundColor={socialColors.tumblr}
-  //        icon={{ name: 'accessibility' }}
-  //        title="LARGE RAISED RIGHT ICON"
-  //      />
-  //      <Button
-  //        large={true}
-  //        buttonStyle={styles.button}
-  //        raised
-  //        iconRight={{ name: 'account', type: 'material-community' }}
-  //        backgroundColor={socialColors.foursquare}
-  //        leftIcon={{ name: 'account-balance' }}
-  //        title="LARGE RAISED RIGHT ICON"
-  //      />
-  //      <Button
-  //        large={true}
-  //        buttonStyle={styles.button}
-  //        raised
-  //        backgroundColor={socialColors.vimeo}
-  //        icon={{ name: 'change-history' }}
-  //        title="LARGE RAISED WITH ICON"
-  //      />
-  //      <Button
-  //        large={true}
-  //        buttonStyle={[{ marginBottom: 15, marginTop: 15 }]}
-  //        icon={{ name: 'code' }}
-  //        backgroundColor={socialColors.twitter}
-  //        title="LARGE ANOTHER BUTTON"
-  //      />
-  //      <Card title="ICONS" containerStyle={{ marginTop: 15 }}>
-  //        <View style={[styles.socialRow, { marginVertical: 10 }]}>
-  //          <Icon
-  //            onPress={() => navigation.navigate('Icons_Detail')}
-  //            type="font-awesome"
-  //            color="#e14329"
-  //            name="hashtag"
-  //          />
-  //          <Icon
-  //            onPress={() => console.log('hello')}
-  //            type="font-awesome"
-  //            color="#02b875"
-  //            name="rocket"
-  //          />
-  //          <Icon
-  //            onPress={() => console.log('hello')}
-  //            color="#000000"
-  //            name="snapchat-ghost"
-  //            type="font-awesome"
-  //          />
-  //          <Icon
-  //            color="#6441A5"
-  //            name="btc"
-  //            type="font-awesome"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            color="#f50"
-  //            name="heartbeat"
-  //            type="font-awesome"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //        </View>
-  //        <View style={[styles.socialRow, { marginVertical: 10 }]}>
-  //          <Icon
-  //            name="rowing"
-  //            color="#673AB7"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            name="g-translate"
-  //            color="#03A9F4"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            color="#009688"
-  //            name="sc-telegram"
-  //            type="evilicon"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            color="#8BC34A"
-  //            name="social-apple"
-  //            type="foundation"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            color="#FFC107"
-  //            name="ios-american-football"
-  //            type="ionicon"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //        </View>
-  //        <View style={styles.socialRow}>
-  //          <Icon
-  //            raised
-  //            name="vpn-key"
-  //            color="#E91E63"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            raised
-  //            name="ring-volume"
-  //            color="#3F51B5"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            raised
-  //            color="#00BCD4"
-  //            name="weekend"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            raised
-  //            color="#CDDC39"
-  //            name="bubble-chart"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            raised
-  //            color="#FF5722"
-  //            name="burst-mode"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //        </View>
-  //        <View style={styles.socialRow}>
-  //          <Icon
-  //            reverse
-  //            raised
-  //            name="account-balance"
-  //            color="#673AB7"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            reverse
-  //            raised
-  //            name="android"
-  //            color="#03A9F4"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            reverse
-  //            raised
-  //            color="#009688"
-  //            name="code"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            reverse
-  //            raised
-  //            color="#8BC34A"
-  //            name="card-travel"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            reverse
-  //            raised
-  //            color="#FF9800"
-  //            name="extension"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //        </View>
-  //        <View style={styles.socialRow}>
-  //          <Icon
-  //            reverse
-  //            name="group-work"
-  //            color="#E91E63"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            reverse
-  //            name="lightbulb-outline"
-  //            color="#3F51B5"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            reverse
-  //            color="#00BCD4"
-  //            name="pets"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            reverse
-  //            color="#CDDC39"
-  //            name="polymer"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //          <Icon
-  //            reverse
-  //            color="#FF5722"
-  //            name="touch-app"
-  //            onPress={() => console.log('hello')}
-  //          />
-  //        </View>
-  //      </Card>
-  //      <Card title="CUSTOM ICONS" containerStyle={{ marginTop: 15 }}>
-  //        <View style={[styles.socialRow, { marginVertical: 10 }]}>
-  //          {!this.state.fontLoaded && <Text>Loading Custom Font</Text>}
-  //          {this.state.fontLoaded && (
-  //            <Icon
-  //              onPress={() => navigation.navigate('Icons_Detail')}
-  //              type="fontello"
-  //              color="#e14329"
-  //              name="magic"
-  //            />
-  //          )}
-  //        </View>
-  //      </Card>
-  //      <Card
-  //        title="SOCIAL ICONS"
-  //        containerStyle={[
-  //          styles.socialRow,
-  //          { marginTop: 15, marginBottom: 15 },
-  //        ]}
-  //      >
-  //        <View style={styles.socialRow}>
-  //          <SocialIcon
-  //            raised={false}
-  //            type="gitlab"
-  //            onPress={() => console.log('hi!')}
-  //          />
-  //          <SocialIcon type="medium" onPress={() => console.log('hi2!')} />
-  //          <SocialIcon type="github-alt" onPress={() => console.log('hi3!')} />
-  //          <SocialIcon type="twitch" />
-  //          <SocialIcon type="soundcloud" />
-  //        </View>
-  //        <View style={styles.socialRow}>
-  //          <SocialIcon
-  //            raised={false}
-  //            type="facebook"
-  //            onPress={() => console.log('hi!')}
-  //          />
-  //          <SocialIcon type="twitter" onPress={() => console.log('hi2!')} />
-  //          <SocialIcon type="instagram" onPress={() => console.log('hi3!')} />
-  //          <SocialIcon raised={false} type="codepen" />
-  //          <SocialIcon raised={false} type="youtube" />
-  //        </View>
-  //      </Card>
-  //      <Card
-  //        title="LIGHT SOCIAL ICONS"
-  //        containerStyle={{ marginTop: 15, marginBottom: 15 }}
-  //      >
-  //        <View style={styles.socialRow}>
-  //          <SocialIcon
-  //            light
-  //            raised={false}
-  //            type="gitlab"
-  //            onPress={() => console.log('hi!')}
-  //          />
-  //          <SocialIcon
-  //            light
-  //            type="medium"
-  //            onPress={() => console.log('hi2!')}
-  //          />
-  //          <SocialIcon
-  //            light
-  //            type="github-alt"
-  //            onPress={() => console.log('hi3!')}
-  //          />
-  //          <SocialIcon light type="twitch" />
-  //          <SocialIcon light type="soundcloud" />
-  //        </View>
-  //      </Card>
-  //      <Card
-  //        containerStyle={{ marginTop: 15, marginBottom: 15 }}
-  //        title="SOCIAL BUTTONS"
-  //      >
-  //        <SocialIcon button type="medium" />
-  //        <SocialIcon button type="twitch" />
-  //        <SocialIcon
-  //          title="Sign In With Facebook"
-  //          button
-  //          fontWeight="400"
-  //          type="facebook"
-  //        />
-  //        <SocialIcon title="Some Twitter Message" button type="twitter" />
-  //        <SocialIcon
-  //          light
-  //          button
-  //          title="Some Instagram Message"
-  //          type="instagram"
-  //        />
-  //      </Card>
-  //    </ScrollView>
-  //  );
-  //}
+
   render() {
     const { navigation } = this.props;
 
     return (
-      <View>
-        <Button
-          buttonStyle={styles.button}
-          backgroundColor={socialColors.facebook}
-          icon={{ name: "account", type: "material-community" }}
-          onPress={() =>
-            navigation.navigate(SupplementLogViewConstant.name, {
-              name: "Jordan"
-            })}
-          title="Got to Buttons Detail View"
+      <View style={styles.searchBoxContainerStyle}>
+        <Text />
+        <Text h4 style={styles.title}>Record Supplement</Text>
+        <Text />
+        {/*<Button*/}
+        {/*buttonStyle={styles.button}*/}
+        {/*backgroundColor={socialColors.facebook}*/}
+        {/*icon={{ name: "account", type: "material-community" }}*/}
+        {/*onPress={() =>*/}
+        {/*navigation.navigate(SupplementLogViewConstant.name, {*/}
+        {/*name: "Jordan"*/}
+        {/*})}*/}
+        {/*title="Add A New Supplement or Medication"*/}
+        {/*/>*/}
+
+        <SearchBar
+          lightTheme
+          round
+          //onChangeText={someMethod}
+          //onClearText={someMethod}
+          inputStyle={styles.searchBoxInputStyle}
+          placeholder="Supplement Name?"
         />
+        <SearchBar
+          lightTheme
+          round
+          inputStyle={styles.searchBoxInputStyle}
+          //onChangeText={someMethod}
+          //onClearText={someMethod}
+          placeholder="Quantity?"
+        />
+        <SearchBar
+          round
+          //onChangeText={someMethod}
+          //onClearText={someMethod}
+          placeholder="At What Time?"
+          inputStyle={styles.searchBoxInputStyle}
+          //containerStyle={styles.searchBoxInputStyle}
+          textStyle={{ color: "white" }}
+        />
+        <Text />
+        <Button title={"Add"} />
+        <FormLabel>Name</FormLabel>
+
       </View>
     );
   }
@@ -484,6 +131,14 @@ const styles = StyleSheet.create({
   socialRow: {
     flexDirection: "row",
     justifyContent: "space-around"
+  },
+  searchBoxInputStyle: {
+    color: "white",
+    backgroundColor: "white"
+  },
+  searchBoxContainerStyle: {
+    color: "white",
+    backgroundColor: "white"
   }
 });
 

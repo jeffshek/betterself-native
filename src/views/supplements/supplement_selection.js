@@ -73,11 +73,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-around"
   },
   searchBoxInputStyle: {
-    color: "white",
     backgroundColor: "white"
   },
   searchBoxContainerStyle: {
-    color: "white",
     backgroundColor: "white"
   }
 });

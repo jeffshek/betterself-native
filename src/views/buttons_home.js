@@ -20,15 +20,6 @@ import fontelloConfig from "../../assets/fontello/config.json";
 import { SupplementLogViewConstant } from "./supplements/log";
 import { SearchBar } from "react-native-elements";
 
-const log = () => {
-  console.log("Attach a method here.");
-};
-
-const searchStyleIcon = {
-  color: "white",
-  background: "white"
-};
-
 class Buttons extends Component {
   constructor() {
     super();
@@ -133,11 +124,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-around"
   },
   searchBoxInputStyle: {
-    color: "white",
     backgroundColor: "white"
   },
   searchBoxContainerStyle: {
-    color: "white",
     backgroundColor: "white"
   }
 });

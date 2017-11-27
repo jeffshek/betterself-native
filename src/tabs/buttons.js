@@ -8,6 +8,9 @@ import { Icon } from "react-native-elements";
 import ButtonsHome from "../views/buttons_home";
 import ButtonsDetails from "../views/buttons_detail";
 import { HamburgerIconSize } from "../constants/icons";
+import {
+  SupplementSelectionView
+} from "../views/supplements/supplement_selection";
 
 const ButtonsTabView = ({ navigation }) => (
   <ButtonsHome navigation={navigation} />
@@ -43,6 +46,22 @@ const ButtonsTab = StackNavigator({
     navigationOptions: {
       title: "Buttons Detail"
     }
+  },
+  [SupplementSelectionView.name]: {
+    screen: SupplementSelectionView,
+    path: "/supplement_selection",
+    navigationOptions: ({ navigation }) => ({
+      title: "Supplements Selection",
+      headerLeft: (
+        <Icon
+          name="menu"
+          size={HamburgerIconSize}
+          type="entypo"
+          iconStyle={{ paddingLeft: 15 }}
+          onPress={() => navigation.navigate("DrawerOpen")}
+        />
+      )
+    })
   }
 });
 

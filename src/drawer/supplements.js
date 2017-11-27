@@ -68,6 +68,7 @@ export const SupplementsDrawer = TabNavigator(
     //}
   },
   {
+    // Unable to dynamically compute this, not sure why
     initialRouteName: "SupplementsLogTab",
     animationEnabled: false,
     swipeEnabled: true,

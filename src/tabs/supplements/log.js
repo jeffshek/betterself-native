@@ -11,21 +11,14 @@ import { HamburgerIconSize } from "../../constants/icons";
 import { HamburgerIconNavigation } from "../../constants/icons";
 import { SupplementsLogLabel } from "../../constants/labels";
 import { SupplementLogViewConstant } from "../../views/supplements/log";
-
-const ButtonsTabView = ({ navigation }) => (
-  <ButtonsHome navigation={navigation} />
-);
-
-const ButtonsDetailTabView = ({ navigation }) => (
-  <ButtonsDetails
-    banner={`${navigation.state.params.name}s Profile`}
-    navigation={navigation}
-  />
-);
+import {
+  SupplementSelectionView
+} from "../../views/supplements/supplement_selection";
 
 export const SupplementsLogTab = StackNavigator({
   Buttons: {
-    screen: ButtonsTabView,
+    //screen: ButtonsTabView,
+    screen: SupplementSelectionView,
     path: "/",
     navigationOptions: ({ navigation }) => ({
       title: SupplementsLogLabel,

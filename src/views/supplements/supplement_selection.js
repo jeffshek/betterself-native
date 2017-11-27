@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
-import {
-  Button,
-  FormLabel,
-  registerCustomIconType,
-  SearchBar,
-  Text
-} from "react-native-elements";
+import { Button, FormLabel, SearchBar, Text } from "react-native-elements";
 
 export class SupplementSelectionView extends Component {
   constructor() {
@@ -19,18 +13,8 @@ export class SupplementSelectionView extends Component {
     return (
       <View style={styles.searchBoxContainerStyle}>
         <Text />
-        <Text h4 style={styles.title}>Record Supplement I'm Here</Text>
+        <Text h4 style={styles.title}>Select Supplement</Text>
         <Text />
-        {/*<Button*/}
-        {/*buttonStyle={styles.button}*/}
-        {/*backgroundColor={socialColors.facebook}*/}
-        {/*icon={{ name: "account", type: "material-community" }}*/}
-        {/*onPress={() =>*/}
-        {/*navigation.navigate(SupplementLogViewConstant.name, {*/}
-        {/*name: "Jordan"*/}
-        {/*})}*/}
-        {/*title="Add A New Supplement or Medication"*/}
-        {/*/>*/}
 
         <SearchBar
           lightTheme

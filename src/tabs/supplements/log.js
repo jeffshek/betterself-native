@@ -1,13 +1,6 @@
-import Expo from "expo";
-import React, { Component } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import React from "react";
 
 import { StackNavigator } from "react-navigation";
-import { Icon } from "react-native-elements";
-
-import ButtonsHome from "../../views/buttons_home";
-import ButtonsDetails from "../../views/buttons_detail";
-import { HamburgerIconSize } from "../../constants/icons";
 import { HamburgerIconNavigation } from "../../constants/icons";
 import { SupplementsLogLabel } from "../../constants/labels";
 import { SupplementLogViewConstant } from "../../views/supplements/log";
@@ -16,10 +9,9 @@ import {
 } from "../../views/supplements/supplement_selection";
 
 export const SupplementsLogTab = StackNavigator({
-  Buttons: {
-    //screen: ButtonsTabView,
+  [SupplementSelectionView.name]: {
     screen: SupplementSelectionView,
-    path: "/",
+    path: `/${SupplementSelectionView.name}`,
     navigationOptions: ({ navigation }) => ({
       title: SupplementsLogLabel,
       headerLeft: <HamburgerIconNavigation navigation={navigation} />
@@ -27,7 +19,6 @@ export const SupplementsLogTab = StackNavigator({
   },
   [SupplementLogViewConstant.name]: {
     screen: SupplementLogViewConstant,
-    //path: "/buttons_detail",
     path: `/${SupplementLogViewConstant.name}`,
     navigationOptions: {
       title: "Buttons Detail"

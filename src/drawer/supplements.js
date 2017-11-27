@@ -1,12 +1,7 @@
-import Expo from "expo";
 import React from "react";
 import { TabNavigator } from "react-navigation";
-import { Icon } from "react-native-elements";
-
-import ButtonsTab from "../tabs/buttons";
 import ListsTab from "../tabs/lists";
 import FormsTab from "../tabs/forms";
-import FontsTab from "../tabs/fonts";
 import { HistoryLabel, LogLabel, RemindersLabel } from "../constants/labels";
 import {
   HistoryCheckboxIcon,
@@ -23,7 +18,7 @@ export const SupplementsDrawer = TabNavigator(
   {
     SupplementsLogTab: {
       screen: SupplementsLogTab,
-      path: "/buttons",
+      path: "/supplementSelect",
       navigationOptions: {
         tabBarLabel: LogLabel,
         tabBarIcon: ({ tintColor, focused }) => (
@@ -51,21 +46,6 @@ export const SupplementsDrawer = TabNavigator(
         )
       }
     }
-    //FontsTab: {
-    //  screen: FontsTab,
-    //  path: "/fonts",
-    //  navigationOptions: {
-    //    tabBarLabel: "Fonts",
-    //    tabBarIcon: ({ tintColor, focused }) => (
-    //      <Icon
-    //        name={focused ? "font" : "font"}
-    //        size={30}
-    //        type="font-awesome"
-    //        color={tintColor}
-    //      />
-    //    )
-    //  }
-    //}
   },
   {
     // Unable to dynamically compute this, not sure why

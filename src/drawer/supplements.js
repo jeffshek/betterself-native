@@ -14,6 +14,7 @@ import {
 } from "../constants/icons";
 import { SupplementsLogTab } from "../tabs/supplements/log";
 import { SupplementsHistoryTab } from "../tabs/supplements/history";
+import { SupplementsRemindersTab } from "../tabs/supplements/reminders";
 
 const label = "Supplements & Medications";
 
@@ -39,9 +40,9 @@ export const SupplementsDrawer = TabNavigator(
         )
       }
     },
-    SupplementRemindersTab: {
-      screen: SupplementsLogTab,
-      path: "/forms",
+    [SupplementsRemindersTab.viewName]: {
+      screen: SupplementsRemindersTab,
+      path: "/supplementReminders",
       navigationOptions: {
         tabBarLabel: RemindersLabel,
         tabBarIcon: ({ tintColor, focused }) => (

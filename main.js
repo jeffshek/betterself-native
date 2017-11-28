@@ -3,10 +3,6 @@ import React from "react";
 import { View, Image, Dimensions, Platform } from "react-native";
 import { DrawerNavigator, DrawerItems } from "react-navigation";
 
-import Ratings from "./src/drawer/sleep_ratings_template";
-import Pricing from "./src/drawer/events_pricing_template";
-import Playground from "./src/drawer/productivity_playground_template";
-import { MoodDrawerItem } from "./src/drawer/mood_pricing_template";
 import { SupplementsDrawer } from "./src/drawer/supplements";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
@@ -31,22 +27,6 @@ const MainNavigator = DrawerNavigator(
     [SupplementsDrawer.name]: {
       path: "/home",
       screen: SupplementsDrawer
-    },
-    Ratings: {
-      path: "/ratings",
-      screen: Ratings
-    },
-    Pricing: {
-      path: "/pricing",
-      screen: Pricing
-    },
-    Playground: {
-      path: "/playground",
-      screen: Playground
-    },
-    Mood: {
-      path: "/playground",
-      screen: MoodDrawerItem
     }
   },
   {

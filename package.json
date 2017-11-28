@@ -1,8 +1,8 @@
 {
-  "name": "react-native-elements-app",
+  "name": "betterself-native",
   "version": "1.0.0",
-  "description": "Demo app for React Native Elements UI Library",
-  "author": "Monte Thakkar",
+  "description": "BetterSelf App",
+  "author": "Jeff Shek",
   "private": true,
   "main": "main.js",
   "dependencies": {

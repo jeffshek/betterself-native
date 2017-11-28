@@ -1,7 +1,5 @@
 import React from "react";
 import { TabNavigator } from "react-navigation";
-import ListsTab from "../tabs/lists";
-import FormsTab from "../tabs/forms";
 import { HistoryLabel, LogLabel, RemindersLabel } from "../constants/labels";
 import {
   HistoryCheckboxIcon,
@@ -16,7 +14,7 @@ const label = "Supplements & Medications";
 
 export const SupplementsDrawer = TabNavigator(
   {
-    SupplementsLogTab: {
+    [SupplementsLogTab.name]: {
       screen: SupplementsLogTab,
       path: "/supplementSelect",
       navigationOptions: {
@@ -27,7 +25,7 @@ export const SupplementsDrawer = TabNavigator(
       }
     },
     SupplementsHistoryTab: {
-      screen: ListsTab,
+      screen: SupplementsLogTab,
       path: "/lists",
       navigationOptions: {
         tabBarLabel: HistoryLabel,
@@ -37,7 +35,7 @@ export const SupplementsDrawer = TabNavigator(
       }
     },
     SupplementRemindersTab: {
-      screen: FormsTab,
+      screen: SupplementsLogTab,
       path: "/forms",
       navigationOptions: {
         tabBarLabel: RemindersLabel,
@@ -49,7 +47,7 @@ export const SupplementsDrawer = TabNavigator(
   },
   {
     // Unable to dynamically compute this, not sure why
-    initialRouteName: "SupplementsLogTab",
+    initialRouteName: SupplementsLogTab.name,
     animationEnabled: false,
     swipeEnabled: true,
     // Android's default option displays tabBars on top, but iOS is bottom

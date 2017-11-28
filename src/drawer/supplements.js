@@ -1,10 +1,6 @@
 import React from "react";
 import { TabNavigator } from "react-navigation";
-import {
-  LogLabel,
-  RemindersLabel,
-  SupplementsHistoryLabel
-} from "../constants/labels";
+import { HistoryLabel, LogLabel, RemindersLabel } from "../constants/labels";
 import {
   HistoryCheckboxIcon,
   HomeIcon,
@@ -34,7 +30,7 @@ export const SupplementsDrawer = TabNavigator(
       screen: SupplementsHistoryTab,
       path: "/supplementHistory",
       navigationOptions: {
-        tabBarLabel: SupplementsHistoryLabel,
+        tabBarLabel: HistoryLabel,
         tabBarIcon: ({ tintColor, focused }) => (
           <HistoryCheckboxIcon tintColor={tintColor} />
         )

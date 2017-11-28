@@ -8,7 +8,7 @@ import {
   RemindersCheckboxIcon,
   SelectedTintColor
 } from "../constants/icons";
-import { SupplementsLogTab } from "../tabs/supplements/log";
+import { SupplementsLogTab } from "../tabs/supplements/select_and_log";
 import { SupplementsHistoryTab } from "../tabs/supplements/history";
 import { SupplementsRemindersTab } from "../tabs/supplements/reminders";
 

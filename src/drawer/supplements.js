@@ -1,7 +1,6 @@
 import React from "react";
 import { TabNavigator } from "react-navigation";
 import {
-  HistoryLabel,
   LogLabel,
   RemindersLabel,
   SupplementsHistoryLabel
@@ -52,7 +51,6 @@ export const SupplementsDrawer = TabNavigator(
     }
   },
   {
-    // Unable to dynamically compute this, not sure why
     initialRouteName: SupplementsLogTab.viewName,
     animationEnabled: false,
     swipeEnabled: true,

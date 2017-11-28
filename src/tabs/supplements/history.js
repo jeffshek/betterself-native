@@ -3,26 +3,16 @@ import React from "react";
 import { StackNavigator } from "react-navigation";
 import { HamburgerIconNavigation } from "../../constants/icons";
 import { SupplementsLogLabel } from "../../constants/labels";
-import { SupplementLogViewConstant } from "../../views/supplements/log";
-import {
-  SupplementSelectionView
-} from "../../views/supplements/supplement_selection";
+import { SupplementHistoryView } from "../../views/supplements/history";
 
 export const SupplementsHistoryTab = StackNavigator({
-  [SupplementSelectionView.name]: {
-    screen: SupplementSelectionView,
-    path: `/${SupplementSelectionView.name}`,
+  [SupplementHistoryView.viewName]: {
+    screen: SupplementHistoryView,
+    path: `/${SupplementHistoryView.viewName}`,
     navigationOptions: ({ navigation }) => ({
       title: SupplementsLogLabel,
       headerLeft: <HamburgerIconNavigation navigation={navigation} />
     })
-  },
-  [SupplementLogViewConstant.name]: {
-    screen: SupplementLogViewConstant,
-    path: `/${SupplementLogViewConstant.name}`,
-    navigationOptions: {
-      title: "Buttons Detail"
-    }
   }
 });
 

@@ -3,6 +3,8 @@ import { StyleSheet, View } from "react-native";
 import { Button, FormLabel, SearchBar, Text } from "react-native-elements";
 
 export class SupplementSelectionView extends Component {
+  viewName = "SupplementSelectionView";
+
   constructor() {
     super();
   }

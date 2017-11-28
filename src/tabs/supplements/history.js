@@ -8,7 +8,7 @@ import {
   SupplementSelectionView
 } from "../../views/supplements/supplement_selection";
 
-export const SupplementsLogTab = StackNavigator({
+export const SupplementsHistoryTab = StackNavigator({
   [SupplementSelectionView.name]: {
     screen: SupplementSelectionView,
     path: `/${SupplementSelectionView.name}`,
@@ -26,4 +26,4 @@ export const SupplementsLogTab = StackNavigator({
   }
 });
 
-SupplementsLogTab.viewName = "SupplementsLogTab";
+SupplementsHistoryTab.viewName = "SupplementsHistoryTab";

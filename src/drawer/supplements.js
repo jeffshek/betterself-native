@@ -1,6 +1,11 @@
 import React from "react";
 import { TabNavigator } from "react-navigation";
-import { HistoryLabel, LogLabel, RemindersLabel } from "../constants/labels";
+import {
+  HistoryLabel,
+  LogLabel,
+  RemindersLabel,
+  SupplementsHistoryLabel
+} from "../constants/labels";
 import {
   HistoryCheckboxIcon,
   HomeIcon,
@@ -9,12 +14,13 @@ import {
   SelectedTintColor
 } from "../constants/icons";
 import { SupplementsLogTab } from "../tabs/supplements/log";
+import { SupplementsHistoryTab } from "../tabs/supplements/history";
 
 const label = "Supplements & Medications";
 
 export const SupplementsDrawer = TabNavigator(
   {
-    [SupplementsLogTab.name]: {
+    [SupplementsLogTab.viewName]: {
       screen: SupplementsLogTab,
       path: "/supplementSelect",
       navigationOptions: {
@@ -24,11 +30,11 @@ export const SupplementsDrawer = TabNavigator(
         )
       }
     },
-    SupplementsHistoryTab: {
-      screen: SupplementsLogTab,
-      path: "/lists",
+    [SupplementsHistoryTab.viewName]: {
+      screen: SupplementsHistoryTab,
+      path: "/supplementHistory",
       navigationOptions: {
-        tabBarLabel: HistoryLabel,
+        tabBarLabel: SupplementsHistoryLabel,
         tabBarIcon: ({ tintColor, focused }) => (
           <HistoryCheckboxIcon tintColor={tintColor} />
         )
@@ -47,7 +53,7 @@ export const SupplementsDrawer = TabNavigator(
   },
   {
     // Unable to dynamically compute this, not sure why
-    initialRouteName: SupplementsLogTab.name,
+    initialRouteName: SupplementsLogTab.viewName,
     animationEnabled: false,
     swipeEnabled: true,
     // Android's default option displays tabBars on top, but iOS is bottom

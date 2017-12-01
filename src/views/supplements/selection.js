@@ -58,7 +58,6 @@ export class SupplementSelectionView extends Component {
     this.state = {
       selectedIndex: 0,
       value: 0.5
-      //dataSource: ds.cloneWithRows(list1)
     };
   }
 

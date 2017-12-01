@@ -1,12 +1,14 @@
+import Expo from "expo";
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import { FormLabel, Text } from "react-native-elements";
 
 export class SupplementLogView extends Component {
-  viewName = "SupplementLogView";
+  static viewName = "SupplementLogView";
 
   constructor() {
     super();
+    console.log(this.props);
   }
 
   render() {
@@ -15,7 +17,7 @@ export class SupplementLogView extends Component {
     return (
       <View style={styles.searchBoxContainerStyle}>
         <Text />
-        <Text h4 style={styles.title}>Supplement Reminders</Text>
+        <Text h4 style={styles.title}>Supplement Log View</Text>
         <Text />
 
         <FormLabel>Reminders</FormLabel>

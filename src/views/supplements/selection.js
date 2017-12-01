@@ -5,8 +5,12 @@ import { View, ScrollView, StyleSheet } from "react-native";
 import { Text, List, ListItem } from "react-native-elements";
 
 import colors from "HSColors";
+import { SupplementLogView } from "./log";
 
-const log = () => console.log("this is an example method");
+const log = something => {
+  console.log(something);
+  console.log("this is an example method");
+};
 
 const SupplementStackSelection = [
   {
@@ -50,7 +54,7 @@ const SupplementSelection = [
 ];
 
 export class SupplementSelectionView extends Component {
-  viewName = "SupplementSelectionView";
+  static viewName = "SupplementSelectionView";
 
   constructor() {
     super();
@@ -62,6 +66,9 @@ export class SupplementSelectionView extends Component {
   }
 
   renderSupplementStacks() {
+    const { navigation } = this.props;
+    const routeName = SupplementLogView.viewName;
+
     return (
       <ScrollView>
         <View style={styles.headerContainer}>
@@ -71,9 +78,9 @@ export class SupplementSelectionView extends Component {
           {SupplementStackSelection.map((l, i) => (
             <ListItem
               key={i}
-              onPress={log}
               title={l.name}
               subtitle={l.subtitle}
+              onPress={() => navigation.navigate(routeName)}
             />
           ))}
         </List>

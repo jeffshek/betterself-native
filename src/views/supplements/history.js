@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { Button, FormLabel, SearchBar, Text } from "react-native-elements";
 
 export class SupplementHistoryView extends Component {
-  viewName = "SupplementHistoryView";
+  static viewName = "SupplementHistoryView";
 
   constructor() {
     super();

@@ -8,17 +8,17 @@ import { SupplementLogView } from "../../views/supplements/log";
 
 export const SupplementsAndLogTab = StackNavigator(
   {
-    [SupplementSelectionView.name]: {
+    [SupplementSelectionView.viewName]: {
       screen: SupplementSelectionView,
-      path: `/${SupplementSelectionView.name}`,
+      path: `/${SupplementSelectionView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: SupplementsLogLabel,
         headerLeft: <HamburgerIconNavigation navigation={navigation} />
       })
     },
-    [SupplementLogView.name]: {
+    SupplementLogView: {
       screen: SupplementLogView,
-      path: `/${SupplementLogView.name}`,
+      path: `${SupplementLogView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: SupplementsLogLabel,
         headerLeft: <HamburgerIconNavigation navigation={navigation} />
@@ -26,7 +26,7 @@ export const SupplementsAndLogTab = StackNavigator(
     }
   },
   {
-    initialRouteName: SupplementSelectionView.viewName
+    initialRouteName: "SupplementSelectionView"
   }
 );
 

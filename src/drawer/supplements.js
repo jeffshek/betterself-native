@@ -54,7 +54,7 @@ export const SupplementsDrawer = TabNavigator(
     // Android's default option displays tabBars on top, but iOS is bottom
     tabBarPosition: "bottom",
     tabBarOptions: {
-      activeTintColor: SelectedTintColor,
+      activeTintColor: "white",
       // Android's default showing of icons is false whereas
       // iOS is true
       showIcon: true

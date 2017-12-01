@@ -32,7 +32,8 @@ const MainNavigator = DrawerNavigator(
   {
     initialRouteName: SupplementsDrawer.name,
     contentOptions: {
-      activeTintColor: "#548ff7",
+      //activeTintColor: "#548ff7",
+      activeTintColor: "white",
       activeBackgroundColor: "transparent",
       inactiveTintColor: "#ffffff",
       inactiveBackgroundColor: "transparent",

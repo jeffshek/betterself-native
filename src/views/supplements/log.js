@@ -1,10 +1,56 @@
 import Expo from "expo";
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Button } from "react-native";
 import { FormLabel, FormInput, Text } from "react-native-elements";
+import t from "tcomb-form-native";
+import colors from "HSColors";
+
+const Form = t.form.Form;
 
 const log = input => {
   console.log(input);
+};
+
+const SupplementLogModel = t.struct({
+  quantity: t.Number,
+  time: t.Date
+});
+
+const formStyles = {
+  ...Form.stylesheet,
+  formGroup: {
+    normal: {
+      marginBottom: 10
+    }
+  },
+  controlLabel: {
+    normal: {
+      color: "#193441",
+      fontSize: 18,
+      marginBottom: 7,
+      fontWeight: "600"
+    },
+    // the style applied when a validation error occours
+    error: {
+      color: "red",
+      fontSize: 18,
+      marginBottom: 7,
+      fontWeight: "600"
+    }
+  }
+};
+
+const options = {
+  fields: {
+    quantity: {
+      error: "Without an email address how are you going to reset your password when you forget it?"
+    },
+    time: {
+      mode: "datetime",
+      error: "Choose something you use on a dozen other sites or something you won't remember"
+    }
+  },
+  stylesheet: formStyles
 };
 
 export class SupplementLogView extends Component {
@@ -21,22 +67,18 @@ export class SupplementLogView extends Component {
     const postFix = pageNameIncludedStack ? "" : " Stack";
 
     return (
-      <View style={styles.searchBoxContainerStyle}>
-        <Text />
-        <Text />
-        <Text h2 style={styles.title}>
-          Log {navigation.state.params.name} {postFix}
-        </Text>
-        <Text />
-
-        <FormLabel labelStyle={styles.formLabelStyle}>Quantity</FormLabel>
-        <FormInput onChangeText={log} />
-        <FormLabel labelStyle={styles.formLabelStyle}>Time</FormLabel>
-        <FormInput onChangeText={log} />
-        {/*<FormLabel>Name</FormLabel>*/}
-        {/*<FormInput onChangeText={log}/>*/}
-        {/*<FormValidationMessage>Error message</FormValidationMessage>*/}
-
+      <View style={styles.container}>
+        <View style={styles.shadedContainer}>
+          <Text h2 style={styles.title}>
+            Log {navigation.state.params.name} {postFix}
+          </Text>
+        </View>
+        <Form
+          ref={c => this._form = c}
+          type={SupplementLogModel}
+          options={options}
+        />
+        <Button title="Log Stack!" onPress={this.handleSubmit} />
       </View>
     );
   }
@@ -48,24 +90,20 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 40
   },
-  formLabelStyle: {
-    fontSize: 25
-  },
   titleContainer: {},
   button: {
     marginTop: 15
   },
   title: {
-    textAlign: "center"
+    textAlign: "center",
+    marginBottom: 20,
+    color: "#193441"
   },
-  socialRow: {
-    flexDirection: "row",
-    justifyContent: "space-around"
-  },
-  searchBoxInputStyle: {
-    backgroundColor: "white"
-  },
-  searchBoxContainerStyle: {
-    backgroundColor: "white"
+  shadedContainer: {},
+  container: {
+    justifyContent: "center",
+    marginTop: 0,
+    padding: 20,
+    backgroundColor: "#ffffff"
   }
 });

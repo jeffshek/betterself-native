@@ -1,24 +1,8 @@
 import Expo from "expo";
 import React, { Component } from "react";
-import {
-  View,
-  ScrollView,
-  StyleSheet,
-  Image,
-  TouchableHighlight,
-  ListView
-} from "react-native";
+import { View, ScrollView, StyleSheet } from "react-native";
 
-import {
-  Text,
-  Card,
-  ButtonGroup,
-  Tile,
-  Icon,
-  List,
-  ListItem,
-  Avatar
-} from "react-native-elements";
+import { Text, List, ListItem } from "react-native-elements";
 
 import colors from "HSColors";
 

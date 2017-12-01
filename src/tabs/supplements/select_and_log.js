@@ -6,7 +6,7 @@ import { SupplementsLogLabel } from "../../constants/labels";
 import { SupplementSelectionView } from "../../views/supplements/selection";
 import { SupplementLogView } from "../../views/supplements/log";
 
-export const SupplementsLogTab = StackNavigator(
+export const SupplementsAndLogTab = StackNavigator(
   {
     [SupplementSelectionView.name]: {
       screen: SupplementSelectionView,
@@ -30,4 +30,4 @@ export const SupplementsLogTab = StackNavigator(
   }
 );
 
-SupplementsLogTab.viewName = "SupplementsLogTab";
+SupplementsAndLogTab.viewName = "SupplementsAndLogTab";

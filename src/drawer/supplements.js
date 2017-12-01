@@ -8,7 +8,7 @@ import {
   RemindersCheckboxIcon,
   SelectedTintColor
 } from "../constants/icons";
-import { SupplementsLogTab } from "../tabs/supplements/select_and_log";
+import { SupplementsAndLogTab } from "../tabs/supplements/select_and_log";
 import { SupplementsHistoryTab } from "../tabs/supplements/history";
 import { SupplementsRemindersTab } from "../tabs/supplements/reminders";
 
@@ -16,8 +16,8 @@ const label = "Supplements & Medications";
 
 export const SupplementsDrawer = TabNavigator(
   {
-    [SupplementsLogTab.viewName]: {
-      screen: SupplementsLogTab,
+    [SupplementsAndLogTab.viewName]: {
+      screen: SupplementsAndLogTab,
       path: "/supplementSelect",
       navigationOptions: {
         tabBarLabel: LogLabel,
@@ -48,7 +48,7 @@ export const SupplementsDrawer = TabNavigator(
     }
   },
   {
-    initialRouteName: SupplementsLogTab.viewName,
+    initialRouteName: SupplementsAndLogTab.viewName,
     animationEnabled: false,
     swipeEnabled: true,
     // Android's default option displays tabBars on top, but iOS is bottom

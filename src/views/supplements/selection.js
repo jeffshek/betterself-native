@@ -71,31 +71,12 @@ export class SupplementSelectionView extends Component {
   constructor() {
     super();
 
-    //const ds = new ListView.DataSource({
-    //  rowHasChanged: (r1, r2) => r1 !== r2
-    //});
-
     this.state = {
       selectedIndex: 0,
       value: 0.5
       //dataSource: ds.cloneWithRows(list1)
     };
   }
-
-  updateIndex(selectedIndex) {
-    this.setState({ selectedIndex });
-  }
-
-  //renderRow(rowData, sectionID) {
-  //  return (
-  //    <ListItem
-  //      key={sectionID}
-  //      onPress={log}
-  //      title={rowData.title}
-  //      icon={{ name: rowData.icon }}
-  //    />
-  //  );
-  //}
 
   renderSupplementStacks() {
     return (

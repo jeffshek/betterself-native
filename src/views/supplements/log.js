@@ -1,26 +1,41 @@
 import Expo from "expo";
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
-import { FormLabel, Text } from "react-native-elements";
+import { FormLabel, FormInput, Text } from "react-native-elements";
+
+const log = input => {
+  console.log(input);
+};
 
 export class SupplementLogView extends Component {
   static viewName = "SupplementLogView";
 
   constructor() {
     super();
-    console.log(this.props);
   }
 
   render() {
     const { navigation } = this.props;
+    const pageName = navigation.state.params.name;
+    const pageNameIncludedStack = pageName.toLowerCase().includes("stack");
+    const postFix = pageNameIncludedStack ? "" : " Stack";
 
     return (
       <View style={styles.searchBoxContainerStyle}>
         <Text />
-        <Text h4 style={styles.title}>Supplement Log View</Text>
+        <Text />
+        <Text h2 style={styles.title}>
+          Log {navigation.state.params.name} {postFix}
+        </Text>
         <Text />
 
-        <FormLabel>Reminders</FormLabel>
+        <FormLabel labelStyle={styles.formLabelStyle}>Quantity</FormLabel>
+        <FormInput onChangeText={log} />
+        <FormLabel labelStyle={styles.formLabelStyle}>Time</FormLabel>
+        <FormInput onChangeText={log} />
+        {/*<FormLabel>Name</FormLabel>*/}
+        {/*<FormInput onChangeText={log}/>*/}
+        {/*<FormValidationMessage>Error message</FormValidationMessage>*/}
 
       </View>
     );
@@ -31,12 +46,10 @@ const styles = StyleSheet.create({
   heading: {
     color: "white",
     marginTop: 10,
-    fontSize: 22
+    fontSize: 40
   },
-  hero: {
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 40
+  formLabelStyle: {
+    fontSize: 25
   },
   titleContainer: {},
   button: {

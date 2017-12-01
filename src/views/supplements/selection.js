@@ -80,7 +80,7 @@ export class SupplementSelectionView extends Component {
               key={i}
               title={l.name}
               subtitle={l.subtitle}
-              onPress={() => navigation.navigate(routeName)}
+              onPress={() => navigation.navigate(routeName, { name: l.name })}
             />
           ))}
         </List>

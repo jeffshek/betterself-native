@@ -3,7 +3,7 @@
  */
 
 export default {
-  primary: "#397af8",
+  primary: "#193441",
   primary1: "#4d86f7",
   primary2: "#6296f9",
   secondary: "#8F0CE8",
@@ -16,5 +16,6 @@ export default {
   grey5: "#e1e8ee",
   dkGreyBg: "#232323",
   greyOutline: "#cbd2d9",
-  background: "#193441"
+  background: "#193441",
+  backgroundColorComplimentary: "#788E99"
 };

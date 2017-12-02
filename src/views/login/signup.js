@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { Icon } from "react-native-elements";
+import { Button } from "react-native-elements";
 
 import t from "tcomb-form-native"; // 0.6.9
 import colors from "HSColors";
@@ -23,12 +24,12 @@ const formStyles = {
   },
   controlLabel: {
     normal: {
-      color: "white",
+      color: colors.primary,
       fontSize: 18,
       marginBottom: 7,
       fontWeight: "600"
     },
-    // the style applied when a validation error occours
+    // the style applied when a validation error occurs
     error: {
       color: "red",
       fontSize: 18,
@@ -53,13 +54,6 @@ const options = {
   stylesheet: formStyles
 };
 
-const users = [
-  {
-    name: "brynn",
-    avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg"
-  }
-];
-
 export class SignupView extends Component {
   static viewName = "SignupView";
 
@@ -71,29 +65,23 @@ export class SignupView extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {/*<Card title="CARD WITH DIVIDER">*/}
-        {/*{*/}
-        {/*users.map((u, i) => {*/}
-        {/*return (*/}
-        {/*<View key={i} style={styles.user}>*/}
-        {/*<Image*/}
-        {/*//style={styles.image}*/}
-        {/*resizeMode="cover"*/}
-        {/*source={{uri: u.avatar}}*/}
-        {/*/>*/}
-        {/*<Text style={styles.name}>{u.name}</Text>*/}
-        {/*</View>*/}
-        {/*);*/}
-        {/*})*/}
-        {/*}*/}
-        {/*</Card>*/}
         <View style={styles.hero}>
-          <Icon color="white" name="whatshot" size={62} type="material" />
-          <Text style={styles.heading}>Sign Up</Text>
+          <Image
+            source={require("../../images/color_logo_transparent_background_small.png")}
+            resizeMode="contain"
+            style={styles.betterSelfLogo}
+          />
         </View>
         <View style={styles.form}>
           <Form ref={c => this._form = c} type={User} options={options} />
-          <Button title="Sign Up!" onPress={this.handleSubmit} />
+          <Button
+            large
+            icon={{ name: "cached" }}
+            title="Sign Up!"
+            backgroundColor={colors.backgroundColorComplimentary}
+            style={styles.buttonStyle}
+            onPress={this.handleSubmit}
+          />
         </View>
       </View>
     );
@@ -101,27 +89,33 @@ export class SignupView extends Component {
 }
 
 const styles = StyleSheet.create({
+  betterSelfLogo: {
+    marginBottom: 30
+  },
   container: {
     justifyContent: "center",
     marginTop: 0,
     padding: 20,
-    backgroundColor: colors.background,
+    backgroundColor: "white",
     flex: 1
   },
   form: {
     justifyContent: "center",
-    backgroundColor: colors.background
+    backgroundColor: "white"
   },
   heading: {
-    color: "white",
-    marginTop: 10,
-    fontSize: 22
+    color: colors.primary,
+    marginTop: 30,
+    fontSize: 25
+  },
+  buttonStyle: {
+    marginTop: 20
+    //fontWeight: 35
   },
   hero: {
     justifyContent: "center",
     alignItems: "center",
-    padding: 40,
-    backgroundColor: colors.background
+    padding: 40
   },
   titleContainer: {},
   button: {
@@ -129,19 +123,10 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: "center",
-    color: colors.grey2
-    //...Platform.select({
-    //  ios: {
-    //    fontFamily: fonts.ios.black,
-    //  },
-    //}),
+    color: colors.primary
   },
   socialRow: {
     flexDirection: "row",
     justifyContent: "space-around"
   }
 });
-//
-//const styles = StyleSheet.create({
-//
-//});

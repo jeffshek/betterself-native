@@ -4,7 +4,7 @@ import { View, Image, Dimensions, Platform } from "react-native";
 import { DrawerNavigator, DrawerItems } from "react-navigation";
 
 import { SupplementsDrawer } from "./src/drawer/supplements";
-import { SignupView } from "./src/views/login/login";
+import { SignupView } from "./src/views/login/signup";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 

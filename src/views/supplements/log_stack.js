@@ -4,11 +4,6 @@ import { StyleSheet, View, Button } from "react-native";
 import { FormLabel, FormInput, Text } from "react-native-elements";
 import t from "tcomb-form-native";
 import colors from "HSColors";
-import moment from "momentjs";
-
-const datetimeFormat = (format, datetime) => {
-  return moment(datetime).format(format);
-};
 
 const Form = t.form.Form;
 
@@ -52,11 +47,15 @@ const defaultValues = {
 const options = {
   fields: {
     quantity: {
-      error: "Without an email address how are you going to reset your password when you forget it?"
+      error: "Let's try and keep it below 9000."
     },
     time: {
       mode: "datetime",
-      error: "Choose something you use on a dozen other sites or something you won't remember"
+      error: "It's time for you to get a watch instead of a smartphone. Invalid time entered."
+      // At the moment you can't change datetime formats
+      //config: {
+      //  format: datetimeFormat("DD MMM YYYY")
+      //}
     }
   },
   stylesheet: formStyles

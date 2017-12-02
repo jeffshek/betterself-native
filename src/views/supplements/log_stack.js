@@ -52,7 +52,7 @@ const options = {
     time: {
       mode: "datetime",
       error: "It's time for you to get a watch instead of a smartphone. Invalid time entered."
-      // At the moment you can't change datetime formats
+      // At the moment you can't change datetime formats, only dates. So this is worthless
       //config: {
       //  format: datetimeFormat("DD MMM YYYY")
       //}
@@ -77,7 +77,7 @@ export class SupplementLogView extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.shadedContainer}>
-          <Text h2 style={styles.title}>
+          <Text h3 style={styles.title}>
             Log {navigation.state.params.name} {postFix}
           </Text>
         </View>

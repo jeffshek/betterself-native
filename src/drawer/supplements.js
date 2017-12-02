@@ -66,3 +66,5 @@ SupplementsDrawer.navigationOptions = {
   drawerLabel: label,
   drawerIcon: ({ tintColor }) => <HomeIcon tintColor={tintColor} />
 };
+
+SupplementsDrawer.viewName = "SupplementsDrawer";

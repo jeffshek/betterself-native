@@ -4,6 +4,7 @@ import { View, Image, Dimensions, Platform } from "react-native";
 import { DrawerNavigator, DrawerItems } from "react-navigation";
 
 import { SupplementsDrawer } from "./src/drawer/supplements";
+import { SignupView } from "./src/views/login/login";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
@@ -24,13 +25,17 @@ const CustomDrawerContentComponent = props => (
 
 const MainNavigator = DrawerNavigator(
   {
-    [SupplementsDrawer.name]: {
+    [SupplementsDrawer.viewName]: {
       path: "/home",
       screen: SupplementsDrawer
+    },
+    [SignupView.viewName]: {
+      path: "/signUp",
+      screen: SignupView
     }
   },
   {
-    initialRouteName: SupplementsDrawer.name,
+    initialRouteName: SignupView.viewName,
     contentOptions: {
       //activeTintColor: "#548ff7",
       activeTintColor: "white",

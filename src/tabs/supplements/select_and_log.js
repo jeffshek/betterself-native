@@ -4,7 +4,7 @@ import { StackNavigator } from "react-navigation";
 import { HamburgerIconNavigation } from "../../constants/icons";
 import { SupplementsLogLabel } from "../../constants/labels";
 import { SupplementSelectionView } from "../../views/supplements/selection";
-import { SupplementLogView } from "../../views/supplements/log";
+import { SupplementLogView } from "../../views/supplements/log_stack";
 
 export const SupplementsAndLogTab = StackNavigator(
   {

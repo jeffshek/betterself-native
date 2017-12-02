@@ -4,6 +4,11 @@ import { StyleSheet, View, Button } from "react-native";
 import { FormLabel, FormInput, Text } from "react-native-elements";
 import t from "tcomb-form-native";
 import colors from "HSColors";
+import moment from "momentjs";
+
+const datetimeFormat = (format, datetime) => {
+  return moment(datetime).format(format);
+};
 
 const Form = t.form.Form;
 
@@ -30,7 +35,7 @@ const formStyles = {
       marginBottom: 7,
       fontWeight: "600"
     },
-    // the style applied when a validation error occours
+    // the style applied when a validation error occurs
     error: {
       color: "red",
       fontSize: 18,
@@ -38,6 +43,10 @@ const formStyles = {
       fontWeight: "600"
     }
   }
+};
+
+const defaultValues = {
+  quantity: 1
 };
 
 const options = {
@@ -77,8 +86,9 @@ export class SupplementLogView extends Component {
           ref={c => this._form = c}
           type={SupplementLogModel}
           options={options}
+          value={defaultValues}
         />
-        <Button title="Log Stack!" onPress={this.handleSubmit} />
+        <Button title="Log Stack!" onPress={log} />
       </View>
     );
   }
@@ -88,9 +98,8 @@ const styles = StyleSheet.create({
   heading: {
     color: "white",
     marginTop: 10,
-    fontSize: 40
+    fontSize: 30
   },
-  titleContainer: {},
   button: {
     marginTop: 15
   },

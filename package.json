@@ -9,6 +9,7 @@
     "@expo/vector-icons": "^6.1.0",
     "expo": "21.0.0",
     "lodash": "^4.17.4",
+    "moment": "^2.19.3",
     "react": "16.0.0-alpha.12",
     "react-native": "https://github.com/expo/react-native/archive/sdk-21.0.2.tar.gz",
     "react-native-elements": "^0.18.2",

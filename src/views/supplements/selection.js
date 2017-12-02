@@ -5,7 +5,7 @@ import { View, ScrollView, StyleSheet } from "react-native";
 import { Text, List, ListItem } from "react-native-elements";
 
 import colors from "HSColors";
-import { SupplementLogView } from "./log";
+import { SupplementLogView } from "./log_stack";
 
 const log = something => {
   console.log(something);

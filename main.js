@@ -5,6 +5,7 @@ import { DrawerNavigator, DrawerItems } from "react-navigation";
 
 import { SupplementsDrawer } from "./src/drawer/supplements";
 import { SignupView } from "./src/views/login/signup";
+import { LandingView } from "./src/views/initial/initial";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
@@ -32,10 +33,14 @@ const MainNavigator = DrawerNavigator(
     [SignupView.viewName]: {
       path: "/signUp",
       screen: SignupView
+    },
+    [LandingView.viewName]: {
+      path: "/landingView",
+      screen: LandingView
     }
   },
   {
-    initialRouteName: SignupView.viewName,
+    initialRouteName: LandingView.viewName,
     contentOptions: {
       //activeTintColor: "#548ff7",
       activeTintColor: "white",

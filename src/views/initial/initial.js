@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Platform } from "react-native";
 import { Icon } from "react-native-elements";
-import { Button } from "react-native-elements";
+import { Button, Card } from "react-native-elements";
+import Expo from "expo";
 
 import t from "tcomb-form-native"; // 0.6.9
 import colors from "HSColors";
+import SocialIcon from "react-native-elements/src/social/SocialIcon";
+import { fontFamilySelection } from "../../config/fonts";
 
 const Form = t.form.Form;
 
@@ -65,35 +68,78 @@ export class LandingView extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View />
+        <View>
+          <Text style={styles.loginStyle}>
+            Log in
+          </Text>
+        </View>
         <View style={styles.flexContainer}>
           <Image
-            source={require("../../images/apple-and-a-clipboard-with-notes-for-gymnast-diet-control.png")}
+            source={require("../../images/apple-and-a-clipboard-with-notes-for-gymnast-diet-control-64.png")}
             resizeMode="cover"
             style={styles.betterSelfLogo}
           />
           <Text style={styles.heading}>
             Welcome to BetterSelf.
           </Text>
-          {/*<Text style={styles.heading}>*/}
-          {/*Welcome to your body's dashboard.*/}
-          {/*</Text>*/}
         </View>
-        <View />
-        <View />
+        <View style={styles.flexContainer}>
+          <SocialIcon
+            title="Continue with Google"
+            light
+            button
+            fontWeight="400"
+            fontStyle={styles.defaultFontStyle}
+            type="google"
+          />
+          <SocialIcon
+            title="Continue With Facebook"
+            button
+            fontWeight="400"
+            type="facebook"
+          />
+          <SocialIcon
+            title="Continue With GitHub"
+            button
+            fontWeight="400"
+            type="github"
+          />
+          <SocialIcon
+            title="Create Account"
+            button
+            fontWeight="400"
+            underlayColor="black"
+            //fontFamily="Avenir"
+            style={styles.socialIcon}
+            fontStyle={styles.defaultFontStyle}
+          />
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  loginStyle: {
+    marginTop: 0,
+    color: "white",
+    textAlign: "right",
+    fontFamily: fontFamilySelection()
+  },
+  defaultFontStyle: {
+    color: colors.background
+  },
+  socialIcon: {
+    backgroundColor: "white"
+  },
   flexContainer: {
-    justifyContent: "center"
+    marginTop: 0
+    //justifyContent: "center"
   },
   betterSelfLogo: {
-    marginTop: 80,
-    marginBottom: 10,
-    marginLeft: -10
+    marginTop: 20,
+    marginBottom: 20,
+    marginLeft: 10
   },
   container: {
     //justifyContent: "center",
@@ -105,17 +151,14 @@ const styles = StyleSheet.create({
   heading: {
     color: "white",
     marginTop: 0,
+    marginLeft: 10,
+    marginBottom: 20,
     fontSize: 25,
-    fontFamily: "Avenir"
+    fontFamily: fontFamilySelection()
   },
   buttonStyle: {
     marginTop: 20
     //fontWeight: 35
-  },
-  hero: {
-    //justifyContent: "center",
-    //alignItems: "center",
-    //padding: 40
   },
   titleContainer: {},
   button: {

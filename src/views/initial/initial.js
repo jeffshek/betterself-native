@@ -9,56 +9,8 @@ import colors from "HSColors";
 import SocialIcon from "react-native-elements/src/social/SocialIcon";
 import { fontFamilySelection } from "../../config/fonts";
 
-const Form = t.form.Form;
-
-const User = t.struct({
-  email: t.maybe(t.String),
-  username: t.String,
-  password: t.String,
-  terms: t.Boolean
-});
-
-const formStyles = {
-  ...Form.stylesheet,
-  formGroup: {
-    normal: {
-      marginBottom: 10
-    }
-  },
-  controlLabel: {
-    normal: {
-      color: colors.primary,
-      fontSize: 18,
-      marginBottom: 7,
-      fontWeight: "600"
-    },
-    // the style applied when a validation error occurs
-    error: {
-      color: "red",
-      fontSize: 18,
-      marginBottom: 7,
-      fontWeight: "600"
-    }
-  }
-};
-
-const options = {
-  fields: {
-    email: {
-      error: "Without an email address how are you going to reset your password when you forget it?"
-    },
-    password: {
-      error: "Choose something you use on a dozen other sites or something you won't remember"
-    },
-    terms: {
-      label: "Agree to Terms"
-    }
-  },
-  stylesheet: formStyles
-};
-
 export class LandingView extends Component {
-  static viewName = "LandingView";
+  static viewName = "Home";
 
   handleSubmit = () => {
     const value = this._form.getValue();
@@ -69,13 +21,13 @@ export class LandingView extends Component {
     return (
       <View style={styles.container}>
         <View>
-          <Text style={styles.loginStyle}>
+          <Text style={styles.loginStyleText}>
             Log in
           </Text>
         </View>
         <View style={styles.flexContainer}>
           <Image
-            source={require("../../images/apple-and-a-clipboard-with-notes-for-gymnast-diet-control-64.png")}
+            source={require("../../images/apple-and-a-clipboard-with-notes-for-gymnast-diet-control-256.png")}
             resizeMode="cover"
             style={styles.betterSelfLogo}
           />
@@ -109,7 +61,6 @@ export class LandingView extends Component {
             button
             fontWeight="400"
             underlayColor="black"
-            //fontFamily="Avenir"
             style={styles.socialIcon}
             fontStyle={styles.defaultFontStyle}
           />
@@ -120,11 +71,12 @@ export class LandingView extends Component {
 }
 
 const styles = StyleSheet.create({
-  loginStyle: {
-    marginTop: 0,
+  loginStyleText: {
+    marginTop: 10,
     color: "white",
     textAlign: "right",
-    fontFamily: fontFamilySelection()
+    fontFamily: fontFamilySelection(),
+    fontSize: 20
   },
   defaultFontStyle: {
     color: colors.background
@@ -139,7 +91,9 @@ const styles = StyleSheet.create({
   betterSelfLogo: {
     marginTop: 20,
     marginBottom: 20,
-    marginLeft: 10
+    marginLeft: 10,
+    width: 64,
+    height: 64
   },
   container: {
     //justifyContent: "center",

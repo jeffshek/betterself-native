@@ -1,3 +1,5 @@
+// Not sure if there's any use of this file
+
 import Expo from "expo";
 import React from "react";
 import { View, Image, Dimensions, Platform } from "react-native";
@@ -59,8 +61,8 @@ const MainNavigator = DrawerNavigator(
 
 const MainRoot = () => (
   <View style={{ flex: 1 }}>
-    <LandingView />
+    {Platform.OS === "android" &&
+      <View style={{ height: Expo.Constants.statusBarHeight }} />}
+    <MainNavigator />
   </View>
 );
-
-Expo.registerRootComponent(MainRoot);

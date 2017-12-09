@@ -41,12 +41,13 @@ export class LandingView extends Component {
             light
             button
             fontWeight="400"
-            fontStyle={styles.defaultFontStyle}
+            fontStyle={styles.socialIconWhiteText}
             type="google"
           />
           <SocialIcon
             title="Continue With Facebook"
             button
+            fontStyle={styles.socialRowFontStyle}
             fontWeight="400"
             type="facebook"
           />
@@ -55,6 +56,7 @@ export class LandingView extends Component {
             button
             fontWeight="400"
             type="github"
+            fontStyle={styles.socialRowFontStyle}
           />
           <SocialIcon
             title="Create Account"
@@ -62,7 +64,7 @@ export class LandingView extends Component {
             fontWeight="400"
             underlayColor="black"
             style={styles.socialIcon}
-            fontStyle={styles.defaultFontStyle}
+            fontStyle={styles.socialIconWhiteText}
           />
         </View>
       </View>
@@ -70,16 +72,19 @@ export class LandingView extends Component {
   }
 }
 
+const socialIconFontSize = 15;
+
 const styles = StyleSheet.create({
   loginStyleText: {
-    marginTop: 10,
+    marginTop: 15,
     color: "white",
     textAlign: "right",
     fontFamily: fontFamilySelection(),
     fontSize: 20
   },
-  defaultFontStyle: {
-    color: colors.background
+  socialIconWhiteText: {
+    color: colors.background,
+    fontSize: socialIconFontSize
   },
   socialIcon: {
     backgroundColor: "white"
@@ -110,20 +115,15 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: fontFamilySelection()
   },
-  buttonStyle: {
-    marginTop: 20
-    //fontWeight: 35
-  },
-  titleContainer: {},
-  button: {
-    marginTop: 15
-  },
-  title: {
-    textAlign: "center",
-    color: colors.primary
-  },
-  socialRow: {
-    flexDirection: "row",
-    justifyContent: "space-around"
+  //title: {
+  //  textAlign: "center",
+  //  color: colors.primary
+  //},
+  //socialRow: {
+  //  flexDirection: "row",
+  //  justifyContent: "space-around"
+  //},
+  socialRowFontStyle: {
+    fontSize: socialIconFontSize
   }
 });

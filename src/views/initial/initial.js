@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Image, Platform } from "react-native";
-import { Icon } from "react-native-elements";
-import { Button, Card } from "react-native-elements";
 import Expo from "expo";
 
-import t from "tcomb-form-native"; // 0.6.9
 import colors from "HSColors";
 import SocialIcon from "react-native-elements/src/social/SocialIcon";
 import { fontFamilySelection } from "../../config/fonts";
 
 export class LandingView extends Component {
-  static viewName = "Home";
+  static viewName = "LandingView";
 
   handleSubmit = () => {
     const value = this._form.getValue();
@@ -91,7 +88,6 @@ const styles = StyleSheet.create({
   },
   flexContainer: {
     marginTop: 0
-    //justifyContent: "center"
   },
   betterSelfLogo: {
     marginTop: 20,
@@ -101,7 +97,6 @@ const styles = StyleSheet.create({
     height: 64
   },
   container: {
-    //justifyContent: "center",
     marginTop: 0,
     padding: 20,
     backgroundColor: colors.background,
@@ -115,14 +110,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: fontFamilySelection()
   },
-  //title: {
-  //  textAlign: "center",
-  //  color: colors.primary
-  //},
-  //socialRow: {
-  //  flexDirection: "row",
-  //  justifyContent: "space-around"
-  //},
   socialRowFontStyle: {
     fontSize: socialIconFontSize
   }

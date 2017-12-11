@@ -9,6 +9,10 @@ import { fontFamilySelection } from "../../config/fonts";
 export class LandingView extends Component {
   static viewName = "LandingView";
 
+  static navigationOptions = {
+    header: null
+  };
+
   handleSubmit = () => {
     const value = this._form.getValue();
     console.log("value: ", value);

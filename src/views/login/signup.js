@@ -110,7 +110,6 @@ const styles = StyleSheet.create({
   },
   buttonStyle: {
     marginTop: 20
-    //fontWeight: 35
   },
   hero: {
     justifyContent: "center",

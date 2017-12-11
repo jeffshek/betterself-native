@@ -1,6 +1,6 @@
 import Expo from "expo";
 import React from "react";
-import { LandingView } from "./src/views/landing/initial";
+import { LandingView } from "./src/views/landing/landing";
 import { StackNavigator } from "react-navigation";
 import { SignupView } from "./src/views/login/signup";
 import { Button, View } from "react-native";

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { Button } from "react-native-elements";
-
+import Expo from "expo";
 import t from "tcomb-form-native"; // 0.6.9
 import colors from "HSColors";
 
@@ -23,7 +23,7 @@ export class LoginView extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.hero}>
+        <View style={styles.topHalf}>
           <Image
             source={require("../../images/color_logo_transparent_background_small.png")}
             resizeMode="contain"
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   buttonStyle: {
     marginTop: 20
   },
-  hero: {
+  topHalf: {
     justifyContent: "center",
     alignItems: "center"
   }

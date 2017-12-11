@@ -7,7 +7,7 @@ import { DrawerNavigator, DrawerItems } from "react-navigation";
 
 import { SupplementsDrawer } from "./src/drawer/supplements";
 import { SignupView } from "./src/views/login/signup";
-import { LandingView } from "./src/views/initial/initial";
+import { LandingView } from "./src/views/landing/landing";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 

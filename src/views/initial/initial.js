@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Image, Platform } from "react-native";
 import Expo from "expo";
+import { Button } from "react-native-elements";
+import { StackNavigator } from "react-navigation";
 
 import colors from "HSColors";
 import SocialIcon from "react-native-elements/src/social/SocialIcon";
 import { fontFamilySelection } from "../../config/fonts";
+import { SignupView } from "../login/signup";
 
 export class LandingView extends Component {
   static viewName = "LandingView";
@@ -19,10 +22,16 @@ export class LandingView extends Component {
   };
 
   render() {
+    const { navigate } = this.props.navigation;
+
     return (
       <View style={styles.container}>
         <View>
-          <Text style={styles.loginStyleText}>
+
+          <Text
+            style={styles.loginStyleText}
+            onPress={() => navigate(SignupView.viewName)}
+          >
             Log in
           </Text>
         </View>
@@ -66,6 +75,7 @@ export class LandingView extends Component {
             underlayColor="black"
             style={styles.socialIcon}
             fontStyle={styles.socialIconWhiteText}
+            onPress={() => navigate(SignupView.viewName)}
           />
         </View>
       </View>

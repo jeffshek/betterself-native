@@ -56,6 +56,9 @@ const options = {
 
 export class SignupView extends Component {
   static viewName = "SignupView";
+  //static navigationOptions = {
+  //  header: null
+  //};
 
   handleSubmit = () => {
     const value = this._form.getValue();

@@ -7,7 +7,8 @@ import { StackNavigator } from "react-navigation";
 import colors from "HSColors";
 import SocialIcon from "react-native-elements/src/social/SocialIcon";
 import { fontFamilySelection } from "../../config/fonts";
-import { SignupView } from "../login/signup";
+import { SignupView } from "./signup";
+import { LoginView } from "./login";
 
 export class LandingView extends Component {
   static viewName = "LandingView";
@@ -30,7 +31,7 @@ export class LandingView extends Component {
 
           <Text
             style={styles.loginStyleText}
-            onPress={() => navigate(SignupView.viewName)}
+            onPress={() => navigate(LoginView.viewName)}
           >
             Log in
           </Text>

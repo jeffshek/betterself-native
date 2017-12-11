@@ -1,9 +1,10 @@
 import Expo from "expo";
 import React from "react";
-import { LandingView } from "./src/views/landing/landing";
+import { LandingView } from "./src/views/login/landing";
 import { StackNavigator } from "react-navigation";
 import { SignupView } from "./src/views/login/signup";
-import { Button, View } from "react-native";
+import { View } from "react-native";
+import { LoginView } from "./src/views/login/login";
 
 const MainStack = StackNavigator(
   {
@@ -12,10 +13,12 @@ const MainStack = StackNavigator(
     },
     [SignupView.viewName]: {
       screen: SignupView
+    },
+    [LoginView.viewName]: {
+      screen: LoginView
     }
   },
   {
-    headerMode: "none", // weird dynamic where has to be a string of "none"/"null"
     initialRouteName: LandingView.viewName
   }
 );

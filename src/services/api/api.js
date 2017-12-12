@@ -1,6 +1,11 @@
 import { JSON_HEADERS } from "./constants";
 import { HOME_URL, REST_API_LOGIN_URL } from "./urls";
+import { AsyncStorage } from "react-native";
 import Expo from "expo";
+
+const LogAuthorized = () => {
+  console.log("Great!");
+};
 
 export const login = (username, password) => {
   let credentials = {
@@ -18,10 +23,10 @@ export const login = (username, password) => {
     })
     .then(responseData => {
       if ("key" in responseData) {
-        console.log("success!");
+        AsyncStorage.setItem("token", responseData["key"], LogAuthorized);
       }
     })
     .catch(error => {
-      alert("Network Issue Encountered");
+      alert("Network Issue Encountered" + error);
     });
 };

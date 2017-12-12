@@ -4,6 +4,7 @@ import { Button } from "react-native-elements";
 import Expo from "expo";
 import t from "tcomb-form-native"; // 0.6.9
 import colors from "HSColors";
+import { login } from "../../services/api/api";
 
 const Form = t.form.Form;
 
@@ -12,12 +13,48 @@ const LoginForm = t.struct({
   password: t.String
 });
 
+const formStyles = {
+  ...Form.stylesheet,
+  formGroup: {
+    normal: {
+      marginBottom: 10
+    }
+  },
+  controlLabel: {
+    error: {
+      color: "red",
+      fontSize: 18,
+      marginBottom: 7,
+      fontWeight: "600"
+    }
+  }
+};
+
+const options = {
+  fields: {
+    username: {
+      autoCorrect: false,
+      autoCapitalize: "none"
+    },
+    password: {
+      secureTextEntry: true,
+      autoCorrect: false,
+      autoCapitalize: "none"
+    }
+  },
+  stylesheet: formStyles
+};
+
 export class LoginView extends Component {
   static viewName = "LoginView";
 
   handleSubmit = () => {
     const value = this._form.getValue();
-    console.log("value: ", value);
+
+    const username = value["username"];
+    const password = value["password"];
+
+    login(username, password);
   };
 
   render() {
@@ -31,7 +68,7 @@ export class LoginView extends Component {
           />
         </View>
         <View style={styles.form}>
-          <Form ref={c => this._form = c} type={LoginForm} />
+          <Form ref={c => this._form = c} type={LoginForm} options={options} />
           <Button
             large
             icon={{ name: "cached" }}

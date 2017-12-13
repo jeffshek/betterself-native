@@ -67,6 +67,13 @@ const options = {
 export class SignupView extends Component {
   static viewName = "SignupView";
 
+  // Android comes with a default back button
+  // but iOS doesn't - so debate whatever feels better
+
+  //static navigationOptions = {
+  //  header: null
+  //};
+
   handleSubmit = () => {
     const value = this._form.getValue();
   };

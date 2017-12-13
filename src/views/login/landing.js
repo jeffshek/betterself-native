@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Image, Platform } from "react-native";
 import Expo from "expo";
-import { Button } from "react-native-elements";
-import { StackNavigator } from "react-navigation";
 
 import colors from "HSColors";
 import SocialIcon from "react-native-elements/src/social/SocialIcon";
@@ -15,11 +13,6 @@ export class LandingView extends Component {
 
   static navigationOptions = {
     header: null
-  };
-
-  handleSubmit = () => {
-    const value = this._form.getValue();
-    console.log("value: ", value);
   };
 
   render() {

@@ -5,6 +5,9 @@ import Expo from "expo";
 import t from "tcomb-form-native"; // 0.6.9
 import colors from "HSColors";
 import { login } from "../../services/api/api";
+import { AsyncStorage } from "react-native";
+import { SupplementsMainNavigator } from "../../drawer/logged_in";
+import { SupplementsDrawer } from "../../drawer/supplements";
 
 const Form = t.form.Form;
 
@@ -48,13 +51,22 @@ const options = {
 export class LoginView extends Component {
   static viewName = "LoginView";
 
-  handleSubmit = () => {
+  handleSubmit = async () => {
+    const { navigate } = this.props.navigation;
+
     const value = this._form.getValue();
 
     const username = value["username"];
     const password = value["password"];
 
     login(username, password);
+    const loggedIn = await AsyncStorage.getItem("token");
+    if (loggedIn) {
+      navigate(SupplementsDrawer.viewName);
+      //this.props.navigation(MainNavigator.viewName)
+    } else {
+      console.log("Couldn't log in");
+    }
   };
 
   render() {

@@ -1,13 +1,10 @@
 // Not sure if there's any use of this file
 
-import Expo from "expo";
 import React from "react";
-import { View, Image, Dimensions, Platform } from "react-native";
-import { DrawerNavigator, DrawerItems } from "react-navigation";
-
-import { SupplementsDrawer } from "./src/drawer/supplements";
-import { SignupView } from "./src/views/login/signup";
-import { LandingView } from "./src/views/landing/landing";
+import { Dimensions, Image, View } from "react-native";
+import { DrawerItems, DrawerNavigator } from "react-navigation";
+import { SupplementsDrawer } from "./supplements";
+import Expo from "expo";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
@@ -17,7 +14,7 @@ const CustomDrawerContentComponent = props => (
       style={{ marginTop: 40, justifyContent: "center", alignItems: "center" }}
     >
       <Image
-        source={require("./src/images/white_logo_transparent_background_small.png")}
+        source={require("../images/white_logo_transparent_background_small.png")}
         style={{ width: SCREEN_WIDTH * 0.5 }}
         resizeMode="contain"
       />
@@ -26,23 +23,15 @@ const CustomDrawerContentComponent = props => (
   </View>
 );
 
-const MainNavigator = DrawerNavigator(
+export const SupplementsMainNavigator = DrawerNavigator(
   {
     [SupplementsDrawer.viewName]: {
       path: "/home",
       screen: SupplementsDrawer
-    },
-    [SignupView.viewName]: {
-      path: "/signUp",
-      screen: SignupView
-    },
-    [LandingView.viewName]: {
-      path: "/landingView",
-      screen: LandingView
     }
   },
   {
-    initialRouteName: LandingView.viewName,
+    initialRouteName: SupplementsDrawer.viewName,
     contentOptions: {
       //activeTintColor: "#548ff7",
       activeTintColor: "white",
@@ -59,10 +48,4 @@ const MainNavigator = DrawerNavigator(
   }
 );
 
-const MainRoot = () => (
-  <View style={{ flex: 1 }}>
-    {Platform.OS === "android" &&
-      <View style={{ height: Expo.Constants.statusBarHeight }} />}
-    <MainNavigator />
-  </View>
-);
+SupplementsMainNavigator.viewName = "SupplementsMainNavigator";

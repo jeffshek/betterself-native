@@ -13,7 +13,7 @@ import Expo from "expo";
 
 import t from "tcomb-form-native"; // 0.6.9
 import colors from "HSColors";
-import { signupAPI, signupAPI } from "../../services/api/api";
+import { signupAPI } from "../../services/api/api";
 
 const Form = t.form.Form;
 

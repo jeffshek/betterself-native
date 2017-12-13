@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  FlatList,
+  ScrollView
+} from "react-native";
 import { Icon } from "react-native-elements";
 import { Button } from "react-native-elements";
 
@@ -41,10 +48,15 @@ const formStyles = {
 
 const options = {
   fields: {
+    username: {
+      help: 'Between 4-32 Characters. You can make it whatever you want. Just not "JustinBieber". That\'s taken.'
+    },
     email: {
+      help: "Used for password resets. It's oddly our most requested feature. Says a lot about self-improvement.",
       error: "Without an email address how are you going to reset your password when you forget it?"
     },
     password: {
+      help: "Minimum of eight characters. Think of it as protection from noisy neighbors. If you have more than eight noisy neighbors, you should probably move.",
       error: "Choose something you use on a dozen other sites or something you won't remember"
     },
     terms: {
@@ -63,14 +75,7 @@ export class SignupView extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.hero}>
-          <Image
-            source={require("../../images/color_logo_transparent_background_small.png")}
-            resizeMode="contain"
-            style={styles.betterSelfLogo}
-          />
-        </View>
+      <ScrollView style={styles.container}>
         <View style={styles.form}>
           <Form ref={c => this._form = c} type={User} options={options} />
           <Button
@@ -82,7 +87,7 @@ export class SignupView extends Component {
             onPress={this.handleSubmit}
           />
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -92,14 +97,14 @@ const styles = StyleSheet.create({
     marginBottom: 30
   },
   container: {
-    justifyContent: "center",
+    //justifyContent: "center",
     marginTop: 0,
     padding: 20,
     backgroundColor: "white",
-    flex: 1
+    flex: 2
   },
   form: {
-    justifyContent: "center",
+    //justifyContent: "center",
     backgroundColor: "white"
   },
   heading: {
@@ -111,7 +116,7 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   hero: {
-    justifyContent: "center",
+    //justifyContent: "center",
     alignItems: "center",
     padding: 40
   },
@@ -122,9 +127,5 @@ const styles = StyleSheet.create({
   title: {
     textAlign: "center",
     color: colors.primary
-  },
-  socialRow: {
-    flexDirection: "row",
-    justifyContent: "space-around"
   }
 });

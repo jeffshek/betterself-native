@@ -3,11 +3,13 @@ import { HOME_URL, REST_API_LOGIN_URL } from "./urls";
 import { AsyncStorage } from "react-native";
 import Expo from "expo";
 
-const LogAuthorized = () => {
-  console.log("We were able to login!");
+const LogAuthorized = async () => {
+  const value = await AsyncStorage.getItem("token");
+  console.log("This is the value we set");
+  console.log(value);
 };
 
-export const login = async (username, password) => {
+export const login = (username, password) => {
   let credentials = {
     username: username,
     password: password
@@ -21,13 +23,10 @@ export const login = async (username, password) => {
     .then(response => {
       return response.json();
     })
-    .then(responseData => {
+    .then(async responseData => {
       if ("key" in responseData) {
-        AsyncStorage.setItem("token", responseData["key"], LogAuthorized);
+        await AsyncStorage.setItem("token", responseData["key"], LogAuthorized);
       }
-    })
-    .then(async e => {
-      const value = await AsyncStorage.getItem("token");
     })
     .catch(error => {
       alert("Network Issue Encountered" + error);

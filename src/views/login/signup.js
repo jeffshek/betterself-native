@@ -91,39 +91,20 @@ export class SignupView extends Component {
 }
 
 const styles = StyleSheet.create({
-  betterSelfLogo: {
-    marginBottom: 30
-  },
   container: {
-    //justifyContent: "center",
     marginTop: 0,
     padding: 20,
     backgroundColor: "white",
     flex: 2
   },
   form: {
-    //justifyContent: "center",
     backgroundColor: "white"
-  },
-  heading: {
-    color: colors.primary,
-    marginTop: 30,
-    fontSize: 25
   },
   buttonStyle: {
     marginTop: 20
   },
   hero: {
-    //justifyContent: "center",
     alignItems: "center",
     padding: 40
-  },
-  titleContainer: {},
-  button: {
-    marginTop: 15
-  },
-  title: {
-    textAlign: "center",
-    color: colors.primary
   }
 });

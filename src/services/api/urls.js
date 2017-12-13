@@ -1,5 +1,5 @@
-export const HOME_URL = "https://betterself.io/";
-//export const HOME_URL = "http://127.0.0.1:9000";
+//export const HOME_URL = "https://betterself.io/";
+export const HOME_URL = "http://127.0.0.1:9000";
 
 export const DASHBOARD_INDEX_URL = "/dashboard/";
 
@@ -41,6 +41,8 @@ export const DEMO_SIGNUP_URL = "/demo-signup/";
 export const REST_API_LOGOUT_URL = "/rest-auth/logout/";
 // rest-auth-login only returns a key of the token
 export const REST_API_LOGIN_URL = "/rest-auth/login/";
+// Custom URL for mobile signups since they won't require session authentication
+export const REST_API_MOBILE_SIGNUP_URL = "/api/v1/user-signup-mobile/";
 // returns all of the user info
 export const USER_INFO_URL = "/api/v1/user-info/";
 // session force logout will invalidate all sessions (token)

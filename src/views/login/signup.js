@@ -9,17 +9,18 @@ import {
 } from "react-native";
 import { Icon } from "react-native-elements";
 import { Button } from "react-native-elements";
+import Expo from "expo";
 
 import t from "tcomb-form-native"; // 0.6.9
 import colors from "HSColors";
+import { signupAPI, signupAPI } from "../../services/api/api";
 
 const Form = t.form.Form;
 
 const User = t.struct({
   email: t.maybe(t.String),
   username: t.String,
-  password: t.String,
-  terms: t.Boolean
+  password: t.String
 });
 
 const formStyles = {
@@ -49,16 +50,17 @@ const formStyles = {
 const options = {
   fields: {
     username: {
-      help: 'Between 4-32 Characters. You can make it whatever you want. Just not "JustinBieber". That\'s taken.'
+      help: 'Between 4-32 Characters. You can make it whatever you want. Just not "JustinBieber". That\'s taken.',
+      autoCapitalize: "none"
     },
     email: {
-      help: "Used for password resets. It's oddly our most requested feature. Says a lot about self-improvement."
+      help: "Used for password resets. It's oddly our most requested feature. Says a lot about self-improvement.",
+      autoCapitalize: "none"
     },
     password: {
+      secureTextEntry: true,
+      autoCapitalize: "none",
       help: "Minimum of eight characters. Think of it as protection from noisy neighbors. If you have more than eight noisy neighbors, you should probably move."
-    },
-    terms: {
-      label: "Agree to Terms"
     }
   },
   stylesheet: formStyles
@@ -76,6 +78,21 @@ export class SignupView extends Component {
 
   handleSubmit = () => {
     const value = this._form.getValue();
+
+    const username = value["username"];
+    const password = value["password"];
+    const email = value["email"];
+
+    let parameters = {
+      username: username,
+      password: password
+    };
+
+    if (email) {
+      parameters[email] = email;
+    }
+
+    signupAPI(parameters);
   };
 
   render() {
@@ -102,13 +119,14 @@ const styles = StyleSheet.create({
     marginTop: 0,
     padding: 20,
     backgroundColor: "white",
-    flex: 2
+    flex: 1
   },
   form: {
     backgroundColor: "white"
   },
   buttonStyle: {
-    marginTop: 20
+    marginTop: 20,
+    marginBottom: 40
   },
   hero: {
     alignItems: "center",

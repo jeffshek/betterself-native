@@ -52,12 +52,10 @@ const options = {
       help: 'Between 4-32 Characters. You can make it whatever you want. Just not "JustinBieber". That\'s taken.'
     },
     email: {
-      help: "Used for password resets. It's oddly our most requested feature. Says a lot about self-improvement.",
-      error: "Without an email address how are you going to reset your password when you forget it?"
+      help: "Used for password resets. It's oddly our most requested feature. Says a lot about self-improvement."
     },
     password: {
-      help: "Minimum of eight characters. Think of it as protection from noisy neighbors. If you have more than eight noisy neighbors, you should probably move.",
-      error: "Choose something you use on a dozen other sites or something you won't remember"
+      help: "Minimum of eight characters. Think of it as protection from noisy neighbors. If you have more than eight noisy neighbors, you should probably move."
     },
     terms: {
       label: "Agree to Terms"

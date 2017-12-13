@@ -48,7 +48,7 @@ export const SupplementsDrawer = TabNavigator(
     }
   },
   {
-    headerMode: "none",
+    //headerMode: "none",
     initialRouteName: SupplementsAndLogTab.viewName,
     animationEnabled: false,
     swipeEnabled: true,

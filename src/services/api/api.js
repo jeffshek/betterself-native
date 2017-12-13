@@ -4,10 +4,10 @@ import { AsyncStorage } from "react-native";
 import Expo from "expo";
 
 const LogAuthorized = () => {
-  console.log("Great!");
+  console.log("We were able to login!");
 };
 
-export const login = (username, password) => {
+export const login = async (username, password) => {
   let credentials = {
     username: username,
     password: password
@@ -25,6 +25,9 @@ export const login = (username, password) => {
       if ("key" in responseData) {
         AsyncStorage.setItem("token", responseData["key"], LogAuthorized);
       }
+    })
+    .then(async e => {
+      const value = await AsyncStorage.getItem("token");
     })
     .catch(error => {
       alert("Network Issue Encountered" + error);

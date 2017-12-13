@@ -28,7 +28,6 @@ export class LandingView extends Component {
     return (
       <View style={styles.container}>
         <View>
-
           <Text
             style={styles.loginStyleText}
             onPress={() => navigate(LoginView.viewName)}

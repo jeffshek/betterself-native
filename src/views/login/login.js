@@ -55,8 +55,12 @@ export class LoginView extends Component {
 
     const value = this._form.getValue();
 
-    const username = value["username"];
-    const password = value["password"];
+    //const username = value["username"];
+    //const password = value["password"];
+
+    // Hardcode this for much faster testing
+    const username = "potato";
+    const password = "baconbacon";
 
     login(username, password);
     const loggedIn = await AsyncStorage.getItem("token");

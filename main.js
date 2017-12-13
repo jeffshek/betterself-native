@@ -5,7 +5,6 @@ import { StackNavigator } from "react-navigation";
 import { SignupView } from "./src/views/login/signup";
 import { View } from "react-native";
 import { LoginView } from "./src/views/login/login";
-import { SupplementsMainNavigator } from "./src/drawer/logged_in";
 import { SupplementsDrawer } from "./src/drawer/supplements";
 
 const MainStack = StackNavigator(
@@ -24,7 +23,9 @@ const MainStack = StackNavigator(
     }
   },
   {
-    initialRouteName: LandingView.viewName
+    headerMode: "none",
+    // TODO - Swap this back out to LandingView when done
+    initialRouteName: LoginView.viewName
   }
 );
 

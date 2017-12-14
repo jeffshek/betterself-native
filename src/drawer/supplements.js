@@ -11,6 +11,7 @@ import {
 import { SupplementsAndLogTab } from "../tabs/supplements/select_and_log";
 import { SupplementsHistoryTab } from "../tabs/supplements/history";
 import { SupplementsRemindersTab } from "../tabs/supplements/reminders";
+import colors from "HSColors";
 
 const label = "Supplements & Medications";
 
@@ -56,6 +57,7 @@ export const SupplementsDrawer = TabNavigator(
     tabBarPosition: "bottom",
     tabBarOptions: {
       activeTintColor: "white",
+      activeBackgroundColor: colors.primary,
       // Android's default showing of icons is false whereas
       // iOS is true
       showIcon: true

@@ -2,7 +2,6 @@ import React from "react";
 
 import { StackNavigator } from "react-navigation";
 import { HamburgerIconNavigation } from "../../constants/icons";
-import { SupplementsLogLabel } from "../../constants/labels";
 import { SupplementHistoryView } from "../../views/supplements/history";
 
 export const SupplementsHistoryTab = StackNavigator({
@@ -10,7 +9,7 @@ export const SupplementsHistoryTab = StackNavigator({
     screen: SupplementHistoryView,
     path: `/${SupplementHistoryView.viewName}`,
     navigationOptions: ({ navigation }) => ({
-      title: SupplementsLogLabel,
+      title: "History",
       headerLeft: <HamburgerIconNavigation navigation={navigation} />
     })
   }

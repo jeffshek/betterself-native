@@ -2,7 +2,6 @@ import React from "react";
 
 import { StackNavigator } from "react-navigation";
 import { HamburgerIconNavigation } from "../../constants/icons";
-import { SupplementsRemindersLabel } from "../../constants/labels";
 import { SupplementRemindersView } from "../../views/supplements/reminders";
 
 export const SupplementsRemindersTab = StackNavigator({
@@ -10,7 +9,7 @@ export const SupplementsRemindersTab = StackNavigator({
     screen: SupplementRemindersView,
     path: `/${SupplementRemindersView.name}`,
     navigationOptions: ({ navigation }) => ({
-      title: SupplementsRemindersLabel,
+      title: "Reminders",
       headerLeft: <HamburgerIconNavigation navigation={navigation} />
     })
   }

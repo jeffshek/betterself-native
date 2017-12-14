@@ -6,14 +6,14 @@ import {
   HomeIcon,
   LogCheckboxIcon,
   RemindersCheckboxIcon,
-  SelectedTintColor
+  SupplementsIcon
 } from "../constants/icons";
 import { SupplementsAndLogTab } from "../tabs/supplements/select_and_log";
 import { SupplementsHistoryTab } from "../tabs/supplements/history";
 import { SupplementsRemindersTab } from "../tabs/supplements/reminders";
 import colors from "HSColors";
 
-const label = "Supplements & Medications";
+const label = "Supps. & Meds.";
 
 export const SupplementsTabNavigator = TabNavigator(
   {
@@ -67,7 +67,7 @@ export const SupplementsTabNavigator = TabNavigator(
 
 SupplementsTabNavigator.navigationOptions = {
   drawerLabel: label,
-  drawerIcon: ({ tintColor }) => <HomeIcon tintColor={tintColor} />
+  drawerIcon: ({ tintColor }) => <SupplementsIcon tintColor={tintColor} />
 };
 
 SupplementsTabNavigator.viewName = "SupplementsTabNavigator";

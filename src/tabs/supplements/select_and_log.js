@@ -12,7 +12,8 @@ export const SupplementsAndLogTab = StackNavigator(
       screen: SupplementSelectionView,
       path: `/${SupplementSelectionView.viewName}`,
       navigationOptions: ({ navigation }) => ({
-        title: SupplementsLogLabel,
+        //title: SupplementsLogLabel,
+        title: "Log It!",
         headerLeft: <HamburgerIconNavigation navigation={navigation} />
       })
     },

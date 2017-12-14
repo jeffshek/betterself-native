@@ -6,8 +6,9 @@ import { SignupView } from "./src/views/login/signup";
 import { View } from "react-native";
 import { LoginView } from "./src/views/login/login";
 import { SupplementsTabNavigator } from "./src/drawer/supplements";
+import { PrimaryDrawer } from "./src/drawer/primaryDrawer";
 
-const MainStack = StackNavigator(
+const InitialStackNavigator = StackNavigator(
   {
     [LandingView.viewName]: {
       screen: LandingView
@@ -18,8 +19,8 @@ const MainStack = StackNavigator(
     [LoginView.viewName]: {
       screen: LoginView
     },
-    [SupplementsTabNavigator.viewName]: {
-      screen: SupplementsTabNavigator
+    [PrimaryDrawer.viewName]: {
+      screen: PrimaryDrawer
     }
   },
   {
@@ -31,7 +32,7 @@ const MainStack = StackNavigator(
 
 const MainRoot = () => (
   <View style={{ flex: 1 }}>
-    <MainStack />
+    <InitialStackNavigator />
   </View>
 );
 

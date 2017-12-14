@@ -1,5 +1,7 @@
 import { Icon } from "react-native-elements";
 import React from "react";
+import { PILL_IMAGE } from "../../assets/icons/constants";
+import { AppRegistry, View, Image, StyleSheet } from "react-native";
 
 const IconSize = 25;
 export const HamburgerIconSize = 40;
@@ -43,6 +45,22 @@ export const HomeIcon = ({ tintColor }) => {
         justifyContent: "center"
       }}
       type="material-community"
+      color={tintColor}
+    />
+  );
+};
+
+export const SupplementsIcon = ({ tintColor }) => {
+  return (
+    <Image
+      source={PILL_IMAGE}
+      style={{
+        width: 26,
+        height: 26,
+        alignItems: "center",
+        justifyContent: "center"
+      }}
+      //type="material-community"
       color={tintColor}
     />
   );

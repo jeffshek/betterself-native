@@ -57,7 +57,7 @@ export const SupplementsDrawer = TabNavigator(
     tabBarPosition: "bottom",
     tabBarOptions: {
       activeTintColor: "white",
-      activeBackgroundColor: colors.primary,
+      activeBackgroundColor: colors.background,
       // Android's default showing of icons is false whereas
       // iOS is true
       showIcon: true

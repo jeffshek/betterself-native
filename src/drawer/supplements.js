@@ -15,7 +15,7 @@ import colors from "HSColors";
 
 const label = "Supplements & Medications";
 
-export const SupplementsDrawer = TabNavigator(
+export const SupplementsTabNavigator = TabNavigator(
   {
     [SupplementsAndLogTab.viewName]: {
       screen: SupplementsAndLogTab,
@@ -65,9 +65,9 @@ export const SupplementsDrawer = TabNavigator(
   }
 );
 
-SupplementsDrawer.navigationOptions = {
+SupplementsTabNavigator.navigationOptions = {
   drawerLabel: label,
   drawerIcon: ({ tintColor }) => <HomeIcon tintColor={tintColor} />
 };
 
-SupplementsDrawer.viewName = "SupplementsDrawer";
+SupplementsTabNavigator.viewName = "SupplementsTabNavigator";

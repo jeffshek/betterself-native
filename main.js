@@ -5,7 +5,7 @@ import { StackNavigator } from "react-navigation";
 import { SignupView } from "./src/views/login/signup";
 import { View } from "react-native";
 import { LoginView } from "./src/views/login/login";
-import { SupplementsDrawer } from "./src/drawer/supplements";
+import { SupplementsTabNavigator } from "./src/drawer/supplements";
 
 const MainStack = StackNavigator(
   {
@@ -18,8 +18,8 @@ const MainStack = StackNavigator(
     [LoginView.viewName]: {
       screen: LoginView
     },
-    [SupplementsDrawer.viewName]: {
-      screen: SupplementsDrawer
+    [SupplementsTabNavigator.viewName]: {
+      screen: SupplementsTabNavigator
     }
   },
   {

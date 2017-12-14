@@ -6,7 +6,7 @@ import t from "tcomb-form-native"; // 0.6.9
 import colors from "HSColors";
 import { login } from "../../services/api/api";
 import { AsyncStorage } from "react-native";
-import { SupplementsDrawer } from "../../drawer/supplements";
+import { SupplementsTabNavigator } from "../../drawer/supplements";
 
 const Form = t.form.Form;
 
@@ -65,7 +65,7 @@ export class LoginView extends Component {
     login(username, password);
     const loggedIn = await AsyncStorage.getItem("token");
     if (loggedIn) {
-      navigate(SupplementsDrawer.viewName);
+      navigate(SupplementsTabNavigator.viewName);
     } else {
       console.log("Couldn't log in");
     }

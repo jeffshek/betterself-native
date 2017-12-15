@@ -1,3 +1,4 @@
+import Expo from "expo";
 import { JSON_HEADERS } from "./constants";
 import {
   HOME_URL,
@@ -5,10 +6,10 @@ import {
   REST_API_MOBILE_SIGNUP_URL
 } from "./urls";
 import { AsyncStorage } from "react-native";
-import Expo from "expo";
 
 const LogAuthorized = async () => {
-  await AsyncStorage.getItem("token");
+  // A simple debugger as you grok Async
+  const value = await AsyncStorage.getItem("token");
 };
 
 export const login = (username, password) => {
@@ -27,11 +28,7 @@ export const login = (username, password) => {
     })
     .then(async responseData => {
       if ("key" in responseData) {
-        return await AsyncStorage.setItem(
-          "token",
-          responseData["key"],
-          LogAuthorized
-        );
+        return await AsyncStorage.setItem("token", responseData["key"]);
       }
     })
     .catch(error => {
@@ -50,7 +47,7 @@ export const signupAPI = signUpParams => {
     })
     .then(async responseData => {
       if ("key" in responseData) {
-        await AsyncStorage.setItem("token", responseData["key"], LogAuthorized);
+        await AsyncStorage.setItem("token", responseData["key"]);
       }
     });
 };

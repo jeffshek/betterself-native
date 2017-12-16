@@ -1,9 +1,10 @@
 import Expo from "expo";
-import { JSON_HEADERS } from "./constants";
+import { getAuthorizationHeader, JSON_HEADERS } from "./constants";
 import {
   HOME_URL,
   REST_API_LOGIN_URL,
-  REST_API_MOBILE_SIGNUP_URL
+  REST_API_MOBILE_SIGNUP_URL,
+  SUPPLEMENTS_RESOURCE_URL
 } from "./urls";
 import { AsyncStorage } from "react-native";
 
@@ -18,7 +19,7 @@ export const login = (username, password) => {
     password: password
   };
 
-  fetch(HOME_URL + REST_API_LOGIN_URL, {
+  return fetch(HOME_URL + REST_API_LOGIN_URL, {
     method: "POST",
     headers: JSON_HEADERS,
     body: JSON.stringify(credentials)
@@ -50,4 +51,19 @@ export const signupAPI = signUpParams => {
         await AsyncStorage.setItem("token", responseData["key"]);
       }
     });
+};
+
+export const getSupplements = async () => {
+  const token = await AsyncStorage.getItem("token");
+  const json_headers = getAuthorizationHeader(token);
+  const post_params = {
+    method: "GET",
+    headers: json_headers
+  };
+  return fetch(
+    HOME_URL + SUPPLEMENTS_RESOURCE_URL,
+    post_params
+  ).then(responseData => {
+    return responseData.json();
+  });
 };

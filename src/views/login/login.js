@@ -58,17 +58,19 @@ export class LoginView extends Component {
     //const username = value["username"];
     //const password = value["password"];
 
+    // Clear all previous tokens first
+    // await AsyncStorage.clear()
+
     // Hardcode this for much faster testing
     const username = "potato";
     const password = "baconbacon";
 
-    login(username, password);
-    const loggedIn = await AsyncStorage.getItem("token");
-    if (loggedIn) {
-      navigate(SupplementsTabNavigator.viewName);
-    } else {
-      console.log("Couldn't log in");
-    }
+    login(username, password).then(async e => {
+      const loggedIn = await AsyncStorage.getItem("token");
+      if (loggedIn) {
+        navigate(SupplementsTabNavigator.viewName);
+      }
+    });
   };
 
   render() {

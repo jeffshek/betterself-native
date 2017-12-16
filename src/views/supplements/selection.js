@@ -6,6 +6,7 @@ import { Text, List, ListItem } from "react-native-elements";
 
 import colors from "HSColors";
 import { SupplementLogView } from "./log_stack";
+import { getSupplements } from "../../services/api/api";
 
 const log = something => {
   console.log(something);
@@ -61,8 +62,18 @@ export class SupplementSelectionView extends Component {
 
     this.state = {
       selectedIndex: 0,
-      value: 0.5
+      value: 0.5,
+      supplements: [],
+      supplementStacks: []
     };
+  }
+
+  componentDidMount() {
+    getSupplements().then(results => {
+      this.setState({
+        supplements: results
+      });
+    });
   }
 
   renderSupplementStacks() {
@@ -95,7 +106,7 @@ export class SupplementSelectionView extends Component {
           <Text style={styles.heading}>Supplements & Medication</Text>
         </View>
         <List>
-          {SupplementSelection.map((l, i) => (
+          {this.state.supplements.map((l, i) => (
             <ListItem
               key={i}
               onPress={log}

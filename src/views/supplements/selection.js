@@ -6,53 +6,12 @@ import { Text, List, ListItem } from "react-native-elements";
 
 import colors from "HSColors";
 import { SupplementLogView } from "./log_stack";
-import { getSupplements } from "../../services/api/api";
+import { getSupplements, getSupplementStacks } from "../../services/api/api";
 
-const log = something => {
-  console.log(something);
-  console.log("this is an example method");
+const log = value => {
+  console.log("In Debugger Logging");
+  console.log(value);
 };
-
-const SupplementStackSelection = [
-  {
-    name: "Morning Stack",
-    subtitle: "Piracetam and Oxiracetam"
-  },
-  {
-    name: "Sleep Stack",
-    subtitle: "Melatonin & Tea"
-  }
-];
-
-const SupplementSelection = [
-  {
-    name: "Piracetam"
-  },
-  {
-    name: "Oxiracetam"
-  },
-  {
-    name: "Choline"
-  },
-  {
-    name: "Creatine"
-  },
-  {
-    name: "Ketotones"
-  },
-  {
-    name: "Protein"
-  },
-  {
-    name: "BCAA"
-  },
-  {
-    name: "Cheese"
-  },
-  {
-    name: "Potatos"
-  }
-];
 
 export class SupplementSelectionView extends Component {
   static viewName = "SupplementSelectionView";
@@ -61,8 +20,6 @@ export class SupplementSelectionView extends Component {
     super();
 
     this.state = {
-      selectedIndex: 0,
-      value: 0.5,
       supplements: [],
       supplementStacks: []
     };
@@ -72,6 +29,16 @@ export class SupplementSelectionView extends Component {
     getSupplements().then(results => {
       this.setState({
         supplements: results
+      });
+    });
+    getSupplementStacks().then(results => {
+      // if the stack doesn't have any compositions, it's not a valid one yet
+      const validStacks = results.filter(item => {
+        return item.compositions.length > 0;
+      });
+
+      this.setState({
+        supplementStacks: validStacks
       });
     });
   }
@@ -86,11 +53,11 @@ export class SupplementSelectionView extends Component {
           <Text style={styles.heading}>Supplement Stacks</Text>
         </View>
         <List>
-          {SupplementStackSelection.map((l, i) => (
+          {this.state.supplementStacks.map((l, i) => (
             <ListItem
               key={i}
               title={l.name}
-              subtitle={l.subtitle}
+              subtitle={l.description}
               onPress={() => navigation.navigate(routeName, { name: l.name })}
             />
           ))}
@@ -146,38 +113,5 @@ const styles = StyleSheet.create({
     color: "white",
     marginTop: 0,
     fontSize: 22
-  },
-  fonts: {
-    marginBottom: 8
-  },
-  user: {
-    flexDirection: "row",
-    marginBottom: 6
-  },
-  image: {
-    width: 30,
-    height: 30,
-    marginRight: 10
-  },
-  name: {
-    fontSize: 16,
-    marginTop: 5
-  },
-  social: {
-    flexDirection: "row",
-    justifyContent: "center"
-  },
-  subtitleView: {
-    flexDirection: "row",
-    paddingLeft: 10,
-    paddingTop: 5
-  },
-  ratingImage: {
-    height: 19.21,
-    width: 100
-  },
-  ratingText: {
-    paddingLeft: 10,
-    color: "grey"
   }
 });

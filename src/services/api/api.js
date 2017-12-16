@@ -4,6 +4,7 @@ import {
   HOME_URL,
   REST_API_LOGIN_URL,
   REST_API_MOBILE_SIGNUP_URL,
+  SUPPLEMENT_STACKS_RESOURCE_URL,
   SUPPLEMENTS_RESOURCE_URL
 } from "./urls";
 import { AsyncStorage } from "react-native";
@@ -62,6 +63,21 @@ export const getSupplements = async () => {
   };
   return fetch(
     HOME_URL + SUPPLEMENTS_RESOURCE_URL,
+    post_params
+  ).then(responseData => {
+    return responseData.json();
+  });
+};
+
+export const getSupplementStacks = async () => {
+  const token = await AsyncStorage.getItem("token");
+  const json_headers = getAuthorizationHeader(token);
+  const post_params = {
+    method: "GET",
+    headers: json_headers
+  };
+  return fetch(
+    HOME_URL + SUPPLEMENT_STACKS_RESOURCE_URL,
     post_params
   ).then(responseData => {
     return responseData.json();

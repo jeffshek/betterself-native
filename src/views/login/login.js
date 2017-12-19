@@ -80,7 +80,7 @@ export class LoginView extends Component {
           <Image
             source={require("../../images/color_logo_transparent_background_small.png")}
             resizeMode="contain"
-            style={styles.betterSelfLogo}
+            style={styles.loginLogo}
           />
         </View>
         <View style={styles.form}>
@@ -100,7 +100,7 @@ export class LoginView extends Component {
 }
 
 const styles = StyleSheet.create({
-  betterSelfLogo: {
+  loginLogo: {
     marginBottom: 30
   },
   container: {

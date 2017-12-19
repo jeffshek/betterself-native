@@ -69,11 +69,6 @@ export class SupplementLogView extends Component {
     super();
   }
 
-  getData = async () => {
-    const tryThis = await JSON_AUTHORIZATION_HEADERS();
-    return tryThis;
-  };
-
   render() {
     const { navigation } = this.props;
     const pageName = navigation.state.params.name;
@@ -82,7 +77,7 @@ export class SupplementLogView extends Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.shadedContainer}>
+        <View>
           <Text h3 style={styles.title}>
             Log {navigation.state.params.name} {postFix}
           </Text>
@@ -105,15 +100,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 30
   },
-  button: {
-    marginTop: 15
-  },
   title: {
     textAlign: "center",
     marginBottom: 20,
     color: "#193441"
   },
-  shadedContainer: {},
   container: {
     justifyContent: "center",
     marginTop: 0,

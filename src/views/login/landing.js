@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Image, Platform } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import Expo from "expo";
 
 import colors from "HSColors";
@@ -8,7 +8,6 @@ import { fontFamilySelection } from "../../config/fonts";
 import { SignupView } from "./signup";
 import { LoginView } from "./login";
 import { APPLE_CLIPBOARD_IMAGE_256 } from "../../images/constants";
-//import { APPLE_CLIPBOARD_IMAGE_256 } from "../../../assets/icons/constants";
 
 export class LandingView extends Component {
   static viewName = "LandingView";

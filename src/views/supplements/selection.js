@@ -7,7 +7,15 @@ import { Text, List, ListItem } from "react-native-elements";
 import colors from "HSColors";
 import { SupplementLogView } from "./log_stack";
 import { getSupplements, getSupplementStacks } from "../../services/api/api";
-import { ADD_NEW_PILL_IMAGE } from "../../../assets/icons/constants";
+import {
+  ADD_NEW_PILL_IMAGE,
+  ADD_NEW_SUPPLEMENT_STACK,
+  DRUGS_IMAGE,
+  INDIVIDUAL_VITAMIN,
+  MEDICINE_IMAGE,
+  STACKS_IMAGE,
+  VITAMINS_IMAGE
+} from "../../../assets/icons/constants";
 
 const log = value => {
   console.log("In Debugger Logging");
@@ -55,23 +63,30 @@ export class SupplementSelectionView extends Component {
     return (
       <ScrollView>
         <View style={styles.headerContainer}>
+          <Text />
           <Text style={styles.headerText}>Supplement Stacks </Text>
           <Image
             source={ADD_NEW_PILL_IMAGE}
             resizeMode="cover"
-            style={styles.logo}
+            style={styles.createNewSupplement}
           />
-
         </View>
-        <List>
+        <List style={styles.labelFontStyle}>
           {this.state.supplementStacks.map((l, i) => (
             <ListItem
               key={i}
+              avatar={STACKS_IMAGE}
+              avatarStyle={styles.avatarStyle}
               title={l.name}
               subtitle={l.description}
               onPress={() => navigation.navigate(routeName, { name: l.name })}
             />
           ))}
+          <ListItem
+            avatar={MEDICINE_IMAGE}
+            title={"Create Stack Type"}
+            avatarStyle={styles.avatarStyle}
+          />
         </List>
       </ScrollView>
     );
@@ -85,17 +100,30 @@ export class SupplementSelectionView extends Component {
     return (
       <ScrollView>
         <View style={styles.headerContainer}>
+          <Text />
           <Text style={styles.heading}>Supplements & Medication</Text>
+          <Image
+            source={ADD_NEW_PILL_IMAGE}
+            resizeMode="cover"
+            style={styles.createNewSupplement}
+          />
         </View>
         <List>
           {this.state.supplements.map((l, i) => (
             <ListItem
               key={i}
+              avatar={INDIVIDUAL_VITAMIN}
+              avatarStyle={styles.avatarStyle}
               onPress={log}
               title={l.name}
               subtitle={l.subtitle}
             />
           ))}
+          <ListItem
+            avatar={DRUGS_IMAGE}
+            title={"Create Supplement Type"}
+            avatarStyle={styles.avatarStyle}
+          />
         </List>
       </ScrollView>
     );
@@ -112,37 +140,35 @@ export class SupplementSelectionView extends Component {
 }
 
 const styles = StyleSheet.create({
-  logo: {
+  avatarStyle: {
+    backgroundColor: "white"
+  },
+  createNewSupplement: {
     height: 32,
     width: 32,
-    alignSelf: "flex-end",
-    justifyContent: "flex-end",
-    alignContent: "flex-end"
+    alignSelf: "flex-end"
   },
   container: {
     flex: 1
   },
   headerContainer: {
-    //flex: 1,
-    //justifyContent: "center",
-    //alignItems: "center",
     padding: 10,
     backgroundColor: colors.background,
-    flexDirection: "row"
-    //justifyContent: "center",
-    //alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
   },
   headerText: {
-    //order: 2,
-    justifyContent: "center",
-    alignItems: "center",
     color: "white",
     marginTop: 0,
-    fontSize: 22
+    fontSize: 20
   },
   heading: {
     color: "white",
     marginTop: 0,
-    fontSize: 22
+    fontSize: 20
+  },
+  labelFontStyle: {
+    fontSize: 40
   }
 });

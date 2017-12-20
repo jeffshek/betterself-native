@@ -64,7 +64,7 @@ export class SupplementSelectionView extends Component {
       <ScrollView>
         <View style={styles.headerContainer}>
           <Text />
-          <Text style={styles.headerText}>Supplement Stacks </Text>
+          <Text style={styles.headerText}>Supplement Stacks</Text>
           <Image
             source={ADD_NEW_PILL_IMAGE}
             resizeMode="cover"
@@ -79,7 +79,7 @@ export class SupplementSelectionView extends Component {
               avatarStyle={styles.avatarStyle}
               title={l.name}
               subtitle={l.description}
-              onPress={() => navigation.navigate(routeName, { name: l.name })}
+              onPress={() => navigation.navigate(routeName)}
             />
           ))}
           <ListItem

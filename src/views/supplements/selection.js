@@ -79,7 +79,7 @@ export class SupplementSelectionView extends Component {
               avatarStyle={styles.avatarStyle}
               title={l.name}
               subtitle={l.description}
-              onPress={() => navigation.navigate(routeName)}
+              onPress={() => navigation.navigate(routeName, l)}
             />
           ))}
           <ListItem

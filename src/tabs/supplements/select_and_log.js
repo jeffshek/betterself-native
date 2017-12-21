@@ -6,18 +6,18 @@ import { SupplementsLogLabel } from "../../constants/labels";
 import { SupplementSelectionView } from "../../views/supplements/selection";
 import { SupplementLogView } from "../../views/supplements/log_stack";
 
-export const SupplementsAndLogTab = StackNavigator(
+export const SelectAndLogStackNavigator = StackNavigator(
   {
     [SupplementSelectionView.viewName]: {
       screen: SupplementSelectionView,
       path: `/${SupplementSelectionView.viewName}`,
       navigationOptions: ({ navigation }) => ({
-        //title: SupplementsLogLabel,
         title: "Log It!",
+        // TODO - Change this to back arrow instead of hamburger
         headerLeft: <HamburgerIconNavigation navigation={navigation} />
       })
     },
-    SupplementLogView: {
+    [SupplementLogView.viewName]: {
       screen: SupplementLogView,
       path: `${SupplementLogView.viewName}`,
       navigationOptions: ({ navigation }) => ({
@@ -31,4 +31,4 @@ export const SupplementsAndLogTab = StackNavigator(
   }
 );
 
-SupplementsAndLogTab.viewName = "SupplementsAndLogTab";
+SelectAndLogStackNavigator.viewName = "SelectAndLogStackNavigator";

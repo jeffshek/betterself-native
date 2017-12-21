@@ -3,12 +3,11 @@ import { TabNavigator } from "react-navigation";
 import { HistoryLabel, LogLabel, RemindersLabel } from "../constants/labels";
 import {
   HistoryCheckboxIcon,
-  HomeIcon,
   LogCheckboxIcon,
   RemindersCheckboxIcon,
   SupplementsIcon
 } from "../constants/icons";
-import { SupplementsAndLogTab } from "../tabs/supplements/select_and_log";
+import { SelectAndLogStackNavigator } from "../tabs/supplements/select_and_log";
 import { SupplementsHistoryTab } from "../tabs/supplements/history";
 import { SupplementsRemindersTab } from "../tabs/supplements/reminders";
 import colors from "HSColors";
@@ -17,8 +16,8 @@ const label = "Supps. & Meds.";
 
 export const SupplementsTabNavigator = TabNavigator(
   {
-    [SupplementsAndLogTab.viewName]: {
-      screen: SupplementsAndLogTab,
+    [SelectAndLogStackNavigator.viewName]: {
+      screen: SelectAndLogStackNavigator,
       path: "/supplementSelect",
       navigationOptions: {
         tabBarLabel: LogLabel,
@@ -49,8 +48,8 @@ export const SupplementsTabNavigator = TabNavigator(
     }
   },
   {
-    //headerMode: "none",
-    initialRouteName: SupplementsAndLogTab.viewName,
+    headerMode: "none",
+    initialRouteName: SelectAndLogStackNavigator.viewName,
     animationEnabled: false,
     swipeEnabled: true,
     // Android's default option displays tabBars on top, but iOS is bottom

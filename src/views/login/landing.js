@@ -13,7 +13,7 @@ export class LandingView extends Component {
   static viewName = "LandingView";
 
   static navigationOptions = {
-    header: null
+    header: "none"
   };
 
   render() {

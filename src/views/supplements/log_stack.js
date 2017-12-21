@@ -3,8 +3,6 @@ import React, { Component } from "react";
 import { StyleSheet, View, Button } from "react-native";
 import { FormLabel, FormInput, Text } from "react-native-elements";
 import t from "tcomb-form-native";
-import colors from "HSColors";
-import { JSON_AUTHORIZATION_HEADERS } from "../../services/api/constants";
 
 const Form = t.form.Form;
 

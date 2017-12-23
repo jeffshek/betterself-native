@@ -4,6 +4,7 @@ import { StyleSheet, View, Button } from "react-native";
 import { Text } from "react-native-elements";
 import t from "tcomb-form-native";
 import { postSupplementStackLog } from "../../services/api/api";
+import { SupplementSelectionView } from "./selection";
 
 const Form = t.form.Form;
 
@@ -35,10 +36,6 @@ const formStyles = {
   }
 };
 
-//const defaultValues = {
-//  quantity: 1
-//};
-
 const options = {
   fields: {
     quantity: {
@@ -64,6 +61,7 @@ export class AddSupplementStackView extends Component {
   }
 
   submitSupplementStackLog = () => {
+    const { navigation } = this.props;
     const formValues = this.refs.form.getValue();
     const time = formValues["time"];
     const supplementStackUUID = this.props.navigation.state.params.uuid;
@@ -75,7 +73,9 @@ export class AddSupplementStackView extends Component {
     };
 
     postSupplementStackLog(postParams).then(responseData => {
-      console.log(responseData);
+      {
+        navigation.navigate(SupplementSelectionView.viewName);
+      }
     });
   };
 

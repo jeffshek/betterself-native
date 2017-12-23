@@ -4,6 +4,7 @@ import { StyleSheet, View, Button } from "react-native";
 import { Text } from "react-native-elements";
 import t from "tcomb-form-native";
 import { postSupplementLog } from "../../services/api/api";
+import { SupplementSelectionView } from "./selection";
 
 const Form = t.form.Form;
 
@@ -65,6 +66,7 @@ export class AddSupplementLogView extends Component {
   }
 
   submitSupplementLog = () => {
+    const { navigation } = this.props;
     const formValues = this.refs.form.getValue();
     const quantity = formValues["quantity"];
     const time = formValues["time"];
@@ -78,7 +80,9 @@ export class AddSupplementLogView extends Component {
     };
 
     postSupplementLog(postParams).then(responseData => {
-      console.log(responseData);
+      {
+        navigation.navigate(SupplementSelectionView.viewName);
+      }
     });
   };
 

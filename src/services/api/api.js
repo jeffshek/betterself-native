@@ -59,15 +59,27 @@ export const signupAPI = signUpParams => {
 
 export const getSupplements = async () => {
   const token = await AsyncStorage.getItem("token");
-  const json_headers = getAuthorizationHeader(token);
-  const post_params = {
+  const jsonHeaders = getAuthorizationHeader(token);
+  const params = {
     method: "GET",
-    headers: json_headers
+    headers: jsonHeaders
   };
-  return fetch(
-    HOME_URL + SUPPLEMENTS_RESOURCE_URL,
-    post_params
-  ).then(responseData => {
+  const url = HOME_URL + SUPPLEMENTS_RESOURCE_URL;
+  return fetch(url, params).then(responseData => {
+    return responseData.json();
+  });
+};
+
+export const createSupplement = async postParams => {
+  const token = await AsyncStorage.getItem("token");
+  const jsonHeaders = postAuthorizationHeader(token);
+  const params = {
+    method: "POST",
+    headers: jsonHeaders,
+    body: JSON.stringify(postParams)
+  };
+  const url = HOME_URL + SUPPLEMENTS_RESOURCE_URL;
+  return fetch(url, params).then(responseData => {
     return responseData.json();
   });
 };

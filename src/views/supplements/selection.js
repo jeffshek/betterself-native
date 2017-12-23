@@ -1,6 +1,12 @@
 import Expo from "expo";
 import React, { Component } from "react";
-import { Image, View, ScrollView, StyleSheet } from "react-native";
+import {
+  Image,
+  View,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity
+} from "react-native";
 
 import { Text, List, ListItem } from "react-native-elements";
 
@@ -17,6 +23,7 @@ import {
   VITAMINS_IMAGE
 } from "../../../assets/icons/constants";
 import { AddSupplementStackView } from "./add_supplement_stack";
+import { CreateSupplementView } from "./create_supplement";
 
 const log = value => {
   console.log("In Debugger Logging");
@@ -60,17 +67,22 @@ export class SupplementSelectionView extends Component {
 
     const { navigation } = this.props;
     const routeName = AddSupplementStackView.viewName;
+    const addSupplementStackRoute = CreateSupplementView.viewName;
 
     return (
       <ScrollView>
         <View style={styles.headerContainer}>
           <Text />
           <Text style={styles.headerText}>Supplement Stacks</Text>
-          <Image
-            source={ADD_NEW_PILL_IMAGE}
-            resizeMode="cover"
-            style={styles.createNewSupplement}
-          />
+          <TouchableOpacity
+            onPress={() => navigation.navigate(addSupplementStackRoute)}
+          >
+            <Image
+              source={ADD_NEW_PILL_IMAGE}
+              resizeMode="cover"
+              style={styles.createNewSupplement}
+            />
+          </TouchableOpacity>
         </View>
         <List style={styles.labelFontStyle}>
           {this.state.supplementStacks.map((l, i) => (

@@ -15,11 +15,6 @@ import {
 } from "./urls";
 import { AsyncStorage } from "react-native";
 
-const LogAuthorized = async () => {
-  // A simple debugger as you grok Async
-  const value = await AsyncStorage.getItem("token");
-};
-
 export const login = (username, password) => {
   let credentials = {
     username: username,
@@ -100,17 +95,7 @@ export const postSupplementLog = async postParams => {
   };
   const url = HOME_URL + SUPPLEMENT_EVENTS_RESOURCE_URL;
 
-  console.log(url);
-  console.log(params);
-
   return fetch(url, params).then(responseData => {
     return responseData.json();
   });
 };
-//
-//export const postFetchJSONAPI = (url, postParams) => {
-//  return fetch(url, {
-//    method: "POST",
-//    headers: JSON_POST_AUTHORIZATION_HEADERS,
-//    body: JSON.stringify(postParams)
-//  })

@@ -5,7 +5,7 @@ import { Image, View, ScrollView, StyleSheet } from "react-native";
 import { Text, List, ListItem } from "react-native-elements";
 
 import colors from "HSColors";
-import { SupplementLogView } from "./log_stack";
+import { AddSupplementLogView } from "./add_supplement_log";
 import { getSupplements, getSupplementStacks } from "../../services/api/api";
 import {
   ADD_NEW_PILL_IMAGE,
@@ -58,7 +58,7 @@ export class SupplementSelectionView extends Component {
     }
 
     const { navigation } = this.props;
-    const routeName = SupplementLogView.viewName;
+    const routeName = AddSupplementLogView.viewName;
 
     return (
       <ScrollView>
@@ -98,7 +98,7 @@ export class SupplementSelectionView extends Component {
     }
 
     const { navigation } = this.props;
-    const routeName = SupplementLogView.viewName;
+    const routeName = AddSupplementLogView.viewName;
 
     return (
       <ScrollView>

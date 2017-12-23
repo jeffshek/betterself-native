@@ -57,8 +57,8 @@ const options = {
   stylesheet: formStyles
 };
 
-export class AddSupplementLogView extends Component {
-  static viewName = "AddSupplementLogView";
+export class AddSupplementStackView extends Component {
+  static viewName = "AddSupplementStackView";
 
   constructor() {
     super();
@@ -84,12 +84,15 @@ export class AddSupplementLogView extends Component {
 
   render() {
     const { navigation } = this.props;
+    const pageName = navigation.state.params.name.trim();
+    const pageNameIncludedStack = pageName.toLowerCase().includes("stack");
+    const postFix = pageNameIncludedStack ? "" : "Stack";
 
     return (
       <View style={styles.container}>
         <View>
           <Text h3 style={styles.title}>
-            Log {navigation.state.params.name}
+            Log {navigation.state.params.name} {postFix}
           </Text>
         </View>
         <Form

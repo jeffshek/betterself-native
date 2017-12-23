@@ -97,6 +97,9 @@ export class SupplementSelectionView extends Component {
       return <View />;
     }
 
+    const { navigation } = this.props;
+    const routeName = SupplementLogView.viewName;
+
     return (
       <ScrollView>
         <View style={styles.headerContainer}>
@@ -114,7 +117,7 @@ export class SupplementSelectionView extends Component {
               key={i}
               avatar={INDIVIDUAL_VITAMIN}
               avatarStyle={styles.avatarStyle}
-              onPress={log}
+              onPress={() => navigation.navigate(routeName, l)}
               title={l.name}
               subtitle={l.subtitle}
             />

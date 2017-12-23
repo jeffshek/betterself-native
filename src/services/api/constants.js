@@ -16,10 +16,18 @@ export const getAuthorizationHeader = token => {
   };
 };
 
-export const JSON_AUTHORIZATION_HEADERS = async () => {
-  const token = await AsyncStorage.getItem("token");
-  return { Authorization: `Token ${token}` };
+export const postAuthorizationHeader = token => {
+  return {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    Authorization: `Token ${token}`
+  };
 };
+
+//export const JSON_AUTHORIZATION_HEADERS = async () => {
+//  const token = await AsyncStorage.getItem("token");
+//  return { Authorization: `Token ${token}` };
+//};
 //
 
 // Sample code from ReactJS

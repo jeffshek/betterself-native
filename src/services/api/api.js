@@ -1,9 +1,15 @@
 import Expo from "expo";
-import { getAuthorizationHeader, JSON_HEADERS } from "./constants";
+import {
+  getAuthorizationHeader,
+  JSON_HEADERS,
+  postAuthorizationHeader
+} from "./constants";
 import {
   HOME_URL,
   REST_API_LOGIN_URL,
   REST_API_MOBILE_SIGNUP_URL,
+  SUPPLEMENT_EVENTS_RESOURCE_URL,
+  SUPPLEMENT_RESOURCE_URL,
   SUPPLEMENT_STACKS_RESOURCE_URL,
   SUPPLEMENTS_RESOURCE_URL
 } from "./urls";
@@ -83,3 +89,28 @@ export const getSupplementStacks = async () => {
     return responseData.json();
   });
 };
+
+export const postSupplementLog = async postParams => {
+  const token = await AsyncStorage.getItem("token");
+  const jsonHeaders = postAuthorizationHeader(token);
+  const params = {
+    method: "POST",
+    headers: jsonHeaders,
+    body: JSON.stringify(postParams)
+  };
+  const url = HOME_URL + SUPPLEMENT_EVENTS_RESOURCE_URL;
+
+  console.log(url);
+  console.log(params);
+
+  return fetch(url, params).then(responseData => {
+    return responseData.json();
+  });
+};
+//
+//export const postFetchJSONAPI = (url, postParams) => {
+//  return fetch(url, {
+//    method: "POST",
+//    headers: JSON_POST_AUTHORIZATION_HEADERS,
+//    body: JSON.stringify(postParams)
+//  })

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { StyleSheet, View, Button } from "react-native";
 import { FormLabel, FormInput, Text } from "react-native-elements";
 import t from "tcomb-form-native";
+import { postSupplementLog } from "../../services/api/api";
 
 const Form = t.form.Form;
 
@@ -67,11 +68,44 @@ export class SupplementLogView extends Component {
     super();
   }
 
+  submitSupplementLog = () => {
+    const formValues = this.refs.form.getValue();
+    console.log(formValues);
+    const quantity = formValues["quantity"];
+    const time = formValues["time"];
+    //console.log(this.props.navigation.state.params)
+    const supplementUUID = this.props.navigation.state.params.uuid;
+
+    //const postParams = {
+    //  supplement_uuid: supplementUUID,
+    //  quantity: quantity,
+    //  time: time,
+    //  source: source,
+    //  duration_minutes: durationMinutes,
+    //  notes: notes
+    //};
+
+    const postParams = {
+      quantity: quantity,
+      supplement_uuid: supplementUUID,
+      time: time,
+      source: "mobile",
+      notes: "cheese"
+    };
+
+    postSupplementLog(postParams).then(responseData => {
+      console.log(responseData);
+    });
+
+    //console.log(postParams)
+  };
+
   render() {
     const { navigation } = this.props;
-    const pageName = navigation.state.params.name;
+    //console.log(navigation.state.params)
+    const pageName = navigation.state.params.name.trim();
     const pageNameIncludedStack = pageName.toLowerCase().includes("stack");
-    const postFix = pageNameIncludedStack ? "" : " Stack";
+    const postFix = pageNameIncludedStack ? "" : "Stack";
 
     return (
       <View style={styles.container}>
@@ -81,12 +115,12 @@ export class SupplementLogView extends Component {
           </Text>
         </View>
         <Form
-          ref={c => this._form = c}
+          ref="form"
           type={SupplementLogModel}
           options={options}
           value={defaultValues}
         />
-        <Button title="Log Stack!" onPress={log} />
+        <Button title="Log Stack!" onPress={this.submitSupplementLog} />
       </View>
     );
   }

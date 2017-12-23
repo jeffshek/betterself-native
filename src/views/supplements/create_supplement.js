@@ -4,6 +4,7 @@ import { StyleSheet, View, Button, ScrollView } from "react-native";
 import colors from "HSColors";
 import t from "tcomb-form-native";
 import { createSupplement } from "../../services/api/api";
+import { SupplementSelectionView } from "./selection";
 
 const Form = t.form.Form;
 
@@ -54,6 +55,7 @@ export class CreateSupplementView extends Component {
   }
 
   handleSubmit = () => {
+    const { navigation } = this.props;
     const value = this._form.getValue();
     const name = value["name"];
 
@@ -61,9 +63,9 @@ export class CreateSupplementView extends Component {
       name: name
     };
 
-    createSupplement(parameters).then(responseData =>
-      console.log(responseData)
-    );
+    createSupplement(parameters).then(responseData => {
+      navigation.navigate(SupplementSelectionView.viewName);
+    });
   };
 
   render() {

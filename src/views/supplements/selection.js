@@ -16,6 +16,7 @@ import {
   STACKS_IMAGE,
   VITAMINS_IMAGE
 } from "../../../assets/icons/constants";
+import { AddSupplementStackView } from "./add_supplement_stack";
 
 const log = value => {
   console.log("In Debugger Logging");
@@ -58,7 +59,7 @@ export class SupplementSelectionView extends Component {
     }
 
     const { navigation } = this.props;
-    const routeName = AddSupplementLogView.viewName;
+    const routeName = AddSupplementStackView.viewName;
 
     return (
       <ScrollView>

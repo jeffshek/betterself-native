@@ -3,12 +3,11 @@ import React, { Component } from "react";
 import { StyleSheet, View, Button } from "react-native";
 import { Text } from "react-native-elements";
 import t from "tcomb-form-native";
-import { postSupplementLog } from "../../services/api/api";
+import { postSupplementStackLog } from "../../services/api/api";
 
 const Form = t.form.Form;
 
-const SupplementLogModel = t.struct({
-  quantity: t.Number,
+const SupplementStackModel = t.struct({
   time: t.Date
 });
 
@@ -36,9 +35,9 @@ const formStyles = {
   }
 };
 
-const defaultValues = {
-  quantity: 1
-};
+//const defaultValues = {
+//  quantity: 1
+//};
 
 const options = {
   fields: {
@@ -64,20 +63,18 @@ export class AddSupplementStackView extends Component {
     super();
   }
 
-  submitSupplementLog = () => {
+  submitSupplementStackLog = () => {
     const formValues = this.refs.form.getValue();
-    const quantity = formValues["quantity"];
     const time = formValues["time"];
-    const supplementUUID = this.props.navigation.state.params.uuid;
+    const supplementStackUUID = this.props.navigation.state.params.uuid;
 
     const postParams = {
-      quantity: quantity,
-      supplement_uuid: supplementUUID,
+      stack_uuid: supplementStackUUID,
       time: time,
       source: "mobile"
     };
 
-    postSupplementLog(postParams).then(responseData => {
+    postSupplementStackLog(postParams).then(responseData => {
       console.log(responseData);
     });
   };
@@ -92,16 +89,17 @@ export class AddSupplementStackView extends Component {
       <View style={styles.container}>
         <View>
           <Text h3 style={styles.title}>
-            Log {navigation.state.params.name} {postFix}
+            {navigation.state.params.name} {postFix}
+          </Text>
+          <Text style={styles.subTitle}>
+            Composition
+          </Text>
+          <Text style={styles.composition}>
+            {navigation.state.params.description}
           </Text>
         </View>
-        <Form
-          ref="form"
-          type={SupplementLogModel}
-          options={options}
-          value={defaultValues}
-        />
-        <Button title="Log Stack!" onPress={this.submitSupplementLog} />
+        <Form ref="form" type={SupplementStackModel} options={options} />
+        <Button title="Log Stack!" onPress={this.submitSupplementStackLog} />
       </View>
     );
   }
@@ -117,6 +115,15 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 20,
     color: "#193441"
+  },
+  subTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#193441",
+    marginBottom: 5
+  },
+  composition: {
+    marginBottom: 20
   },
   container: {
     justifyContent: "center",

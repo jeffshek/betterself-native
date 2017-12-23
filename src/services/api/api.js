@@ -10,6 +10,7 @@ import {
   REST_API_MOBILE_SIGNUP_URL,
   SUPPLEMENT_EVENTS_RESOURCE_URL,
   SUPPLEMENT_RESOURCE_URL,
+  SUPPLEMENT_STACKS_RECORD_URL,
   SUPPLEMENT_STACKS_RESOURCE_URL,
   SUPPLEMENTS_RESOURCE_URL
 } from "./urls";
@@ -93,6 +94,20 @@ export const postSupplementLog = async postParams => {
     body: JSON.stringify(postParams)
   };
   const url = HOME_URL + SUPPLEMENT_EVENTS_RESOURCE_URL;
+  return fetch(url, params).then(responseData => {
+    return responseData.json();
+  });
+};
+
+export const postSupplementStackLog = async postParams => {
+  const token = await AsyncStorage.getItem("token");
+  const jsonHeaders = postAuthorizationHeader(token);
+  const params = {
+    method: "POST",
+    headers: jsonHeaders,
+    body: JSON.stringify(postParams)
+  };
+  const url = HOME_URL + SUPPLEMENT_STACKS_RECORD_URL;
   return fetch(url, params).then(responseData => {
     return responseData.json();
   });

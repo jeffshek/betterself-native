@@ -21,7 +21,8 @@ export const login = (username, password) => {
     password: password
   };
 
-  return fetch(HOME_URL + REST_API_LOGIN_URL, {
+  const url = HOME_URL + REST_API_LOGIN_URL;
+  return fetch(url, {
     method: "POST",
     headers: JSON_HEADERS,
     body: JSON.stringify(credentials)
@@ -77,10 +78,8 @@ export const getSupplementStacks = async () => {
     method: "GET",
     headers: json_headers
   };
-  return fetch(
-    HOME_URL + SUPPLEMENT_STACKS_RESOURCE_URL,
-    post_params
-  ).then(responseData => {
+  const url = HOME_URL + SUPPLEMENT_STACKS_RESOURCE_URL;
+  return fetch(url, post_params).then(responseData => {
     return responseData.json();
   });
 };
@@ -94,7 +93,6 @@ export const postSupplementLog = async postParams => {
     body: JSON.stringify(postParams)
   };
   const url = HOME_URL + SUPPLEMENT_EVENTS_RESOURCE_URL;
-
   return fetch(url, params).then(responseData => {
     return responseData.json();
   });

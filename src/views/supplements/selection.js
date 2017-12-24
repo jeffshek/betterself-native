@@ -11,13 +11,13 @@ import {
 import { List, ListItem, Text } from "react-native-elements";
 
 import colors from "HSColors";
-import { AddSupplementLogView } from "./log_supplement_log";
+import { LogSupplementLogView } from "./log_supplement_log";
 import { getSupplements, getSupplementStacks } from "../../services/api/api";
 import {
   INDIVIDUAL_VITAMIN,
   STACKS_IMAGE
 } from "../../../assets/icons/constants";
-import { AddSupplementStackLogView } from "./log_supplement_stack";
+import { LogSupplementStackView } from "./log_supplement_stack";
 import { CreateSupplementView } from "./create_supplement";
 import { CreateSupplementStackView } from "./create_supplement_stack";
 import { AddNewPill } from "./constants";
@@ -53,7 +53,7 @@ export class SupplementSelectionView extends Component {
     }
 
     const { navigation } = this.props;
-    const routeName = AddSupplementStackLogView.viewName;
+    const routeName = LogSupplementStackView.viewName;
     const addSupplementStackRoute = CreateSupplementStackView.viewName;
 
     return (
@@ -89,7 +89,7 @@ export class SupplementSelectionView extends Component {
     }
 
     const { navigation } = this.props;
-    const routeName = AddSupplementLogView.viewName;
+    const routeName = LogSupplementLogView.viewName;
     const addSupplementRoute = CreateSupplementView.viewName;
 
     return (

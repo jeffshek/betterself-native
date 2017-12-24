@@ -61,8 +61,8 @@ const options = {
   stylesheet: formStyles
 };
 
-export class AddSupplementLogView extends Component {
-  static viewName = "AddSupplementLogView";
+export class LogSupplementLogView extends Component {
+  static viewName = "LogSupplementLogView";
 
   submitSupplementLog = () => {
     const { navigation } = this.props;

@@ -69,8 +69,8 @@ const options = {
   stylesheet: formStyles
 };
 
-export class AddSupplementStackLogView extends Component {
-  static viewName = "AddSupplementStackLogView";
+export class LogSupplementStackView extends Component {
+  static viewName = "LogSupplementStackView";
 
   constructor() {
     super();

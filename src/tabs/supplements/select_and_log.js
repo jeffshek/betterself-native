@@ -8,10 +8,10 @@ import {
 import { SupplementsLogLabel } from "../../constants/labels";
 import { SupplementSelectionView } from "../../views/supplements/selection";
 import {
-  AddSupplementLogView
+  LogSupplementLogView
 } from "../../views/supplements/log_supplement_log";
 import {
-  AddSupplementStackLogView
+  LogSupplementStackView
 } from "../../views/supplements/log_supplement_stack";
 import {
   CreateSupplementView
@@ -34,17 +34,17 @@ export const SelectAndLogStackNavigator = StackNavigator(
         headerLeft: <HamburgerIconNavigation navigation={navigation} />
       })
     },
-    [AddSupplementLogView.viewName]: {
-      screen: AddSupplementLogView,
-      path: `${AddSupplementLogView.viewName}`,
+    [LogSupplementLogView.viewName]: {
+      screen: LogSupplementLogView,
+      path: `${LogSupplementLogView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: SupplementsLogLabel,
         headerLeft: <GoBackIconNavigation navigation={navigation} />
       })
     },
-    [AddSupplementStackLogView.viewName]: {
-      screen: AddSupplementStackLogView,
-      path: `${AddSupplementStackLogView.viewName}`,
+    [LogSupplementStackView.viewName]: {
+      screen: LogSupplementStackView,
+      path: `${LogSupplementStackView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Log",
         headerLeft: <GoBackIconNavigation navigation={navigation} />

@@ -47,6 +47,7 @@ const options = {
       error: "Let's try and keep it below 9000."
     },
     time: {
+      label: "Log Time",
       mode: "datetime",
       error: "It's time for you to get a watch instead of a smartphone. Invalid time entered."
       // At the moment you can't change datetime formats, only dates. So this is worthless

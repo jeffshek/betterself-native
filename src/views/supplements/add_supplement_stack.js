@@ -15,7 +15,8 @@ import { SupplementSelectionView } from "./selection";
 import colors from "HSColors";
 import {
   ADD_NEW_PILL_IMAGE,
-  INDIVIDUAL_VITAMIN
+  INDIVIDUAL_VITAMIN,
+  MEDICINE_IMAGE
 } from "../../../assets/icons/constants";
 
 const Form = t.form.Form;
@@ -33,19 +34,17 @@ const formStyles = {
   },
   controlLabel: {
     normal: {
-      padding: 10,
+      padding: 12,
       color: "white",
       backgroundColor: "#193441",
       fontSize: 20,
-      marginBottom: 7,
-      fontWeight: "600"
+      marginBottom: 7
     },
     // the style applied when a validation error occurs
     error: {
       color: "red",
       fontSize: 18,
-      marginBottom: 7,
-      fontWeight: "600"
+      marginBottom: 7
     }
   }
 };
@@ -99,8 +98,6 @@ export class AddSupplementStackView extends Component {
     const pageNameIncludedStack = pageName.toLowerCase().includes("stack");
     const postFix = pageNameIncludedStack ? "" : "Stack";
 
-    console.log(navigation.state.params);
-
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -133,6 +130,11 @@ export class AddSupplementStackView extends Component {
               subtitle={l.description}
             />
           ))}
+          <ListItem
+            avatar={MEDICINE_IMAGE}
+            title={"Add Supplement to Stack"}
+            avatarStyle={styles.avatarStyle}
+          />
         </List>
         <Form ref="form" type={SupplementStackModel} options={options} />
         <Button title="Log Stack!" onPress={this.submitSupplementStackLog} />
@@ -159,7 +161,6 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     marginTop: 0,
-    //padding: 10,
     backgroundColor: "#ffffff"
   },
   headerContainer: {

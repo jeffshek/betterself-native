@@ -2,25 +2,21 @@ import Expo from "expo";
 import React, { Component } from "react";
 import {
   Image,
-  View,
   ScrollView,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  View
 } from "react-native";
 
-import { Text, List, ListItem } from "react-native-elements";
+import { List, ListItem, Text } from "react-native-elements";
 
 import colors from "HSColors";
 import { AddSupplementLogView } from "./add_supplement_log";
 import { getSupplements, getSupplementStacks } from "../../services/api/api";
 import {
   ADD_NEW_PILL_IMAGE,
-  ADD_NEW_SUPPLEMENT_STACK,
-  DRUGS_IMAGE,
   INDIVIDUAL_VITAMIN,
-  MEDICINE_IMAGE,
-  STACKS_IMAGE,
-  VITAMINS_IMAGE
+  STACKS_IMAGE
 } from "../../../assets/icons/constants";
 import { AddSupplementStackView } from "./add_supplement_stack";
 import { CreateSupplementView } from "./create_supplement";
@@ -50,11 +46,6 @@ export class SupplementSelectionView extends Component {
       });
     });
     getSupplementStacks().then(results => {
-      // if the stack doesn't have any compositions, it's not a valid one yet
-      const validStacks = results.filter(item => {
-        return item.compositions.length > 0;
-      });
-
       this.setState({
         supplementStacks: results
       });
@@ -96,11 +87,6 @@ export class SupplementSelectionView extends Component {
               onPress={() => navigation.navigate(routeName, l)}
             />
           ))}
-          {/*<ListItem*/}
-          {/*avatar={MEDICINE_IMAGE}*/}
-          {/*title={"Create Stack Type"}*/}
-          {/*avatarStyle={styles.avatarStyle}*/}
-          {/*/>*/}
         </List>
       </ScrollView>
     );

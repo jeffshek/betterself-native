@@ -61,10 +61,6 @@ const options = {
 export class AddSupplementLogView extends Component {
   static viewName = "AddSupplementLogView";
 
-  constructor() {
-    super();
-  }
-
   submitSupplementLog = () => {
     const { navigation } = this.props;
     const formValues = this.refs.form.getValue();

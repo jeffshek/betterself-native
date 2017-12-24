@@ -3,6 +3,7 @@ import { Dimensions, Image, View } from "react-native";
 import { DrawerItems, DrawerNavigator } from "react-navigation";
 import { SupplementsTabNavigator } from "./supplements";
 import Expo from "expo";
+import colors from "HSColors";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
@@ -33,7 +34,7 @@ export const PrimaryDrawer = DrawerNavigator(
     contentOptions: {
       activeTintColor: "white",
       activeBackgroundColor: "transparent",
-      inactiveTintColor: "#ffffff",
+      inactiveTintColor: colors.primary,
       inactiveBackgroundColor: "transparent",
       labelStyle: {
         fontSize: 15,

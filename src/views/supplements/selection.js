@@ -24,6 +24,7 @@ import {
 } from "../../../assets/icons/constants";
 import { AddSupplementStackView } from "./add_supplement_stack";
 import { CreateSupplementView } from "./create_supplement";
+import { CreateSupplementStackView } from "./create_supplement_stack";
 
 const log = value => {
   console.log("In Debugger Logging");
@@ -55,7 +56,7 @@ export class SupplementSelectionView extends Component {
       });
 
       this.setState({
-        supplementStacks: validStacks
+        supplementStacks: results
       });
     });
   }
@@ -67,7 +68,7 @@ export class SupplementSelectionView extends Component {
 
     const { navigation } = this.props;
     const routeName = AddSupplementStackView.viewName;
-    const addSupplementStackRoute = CreateSupplementView.viewName;
+    const addSupplementStackRoute = CreateSupplementStackView.viewName;
 
     return (
       <ScrollView>
@@ -95,11 +96,11 @@ export class SupplementSelectionView extends Component {
               onPress={() => navigation.navigate(routeName, l)}
             />
           ))}
-          <ListItem
-            avatar={MEDICINE_IMAGE}
-            title={"Create Stack Type"}
-            avatarStyle={styles.avatarStyle}
-          />
+          {/*<ListItem*/}
+          {/*avatar={MEDICINE_IMAGE}*/}
+          {/*title={"Create Stack Type"}*/}
+          {/*avatarStyle={styles.avatarStyle}*/}
+          {/*/>*/}
         </List>
       </ScrollView>
     );
@@ -112,17 +113,22 @@ export class SupplementSelectionView extends Component {
 
     const { navigation } = this.props;
     const routeName = AddSupplementLogView.viewName;
+    const addSupplementRoute = CreateSupplementView.viewName;
 
     return (
       <ScrollView>
         <View style={styles.headerContainer}>
           <Text />
           <Text style={styles.heading}>Supplements & Medication</Text>
-          <Image
-            source={ADD_NEW_PILL_IMAGE}
-            resizeMode="cover"
-            style={styles.createNewSupplement}
-          />
+          <TouchableOpacity
+            onPress={() => navigation.navigate(addSupplementRoute)}
+          >
+            <Image
+              source={ADD_NEW_PILL_IMAGE}
+              resizeMode="cover"
+              style={styles.createNewSupplement}
+            />
+          </TouchableOpacity>
         </View>
         <List>
           {this.state.supplements.map((l, i) => (
@@ -135,11 +141,11 @@ export class SupplementSelectionView extends Component {
               subtitle={l.subtitle}
             />
           ))}
-          <ListItem
-            avatar={DRUGS_IMAGE}
-            title={"Create Supplement Type"}
-            avatarStyle={styles.avatarStyle}
-          />
+          {/*<ListItem*/}
+          {/*avatar={DRUGS_IMAGE}*/}
+          {/*title={"Create Supplement Type"}*/}
+          {/*avatarStyle={styles.avatarStyle}*/}
+          {/*/>*/}
         </List>
       </ScrollView>
     );

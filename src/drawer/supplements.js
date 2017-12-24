@@ -57,6 +57,8 @@ export const SupplementsTabNavigator = TabNavigator(
     tabBarOptions: {
       activeTintColor: "white",
       activeBackgroundColor: colors.background,
+      inactiveTintColor: colors.primary,
+      inactiveBackgroundColor: "transparent",
       // Android's default showing of icons is false whereas
       // iOS is true
       showIcon: true

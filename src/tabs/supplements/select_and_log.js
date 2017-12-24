@@ -13,6 +13,9 @@ import {
 import {
   CreateSupplementView
 } from "../../views/supplements/create_supplement";
+import {
+  CreateSupplementStackView
+} from "../../views/supplements/create_supplement_stack";
 
 export const SelectAndLogStackNavigator = StackNavigator(
   {
@@ -44,6 +47,14 @@ export const SelectAndLogStackNavigator = StackNavigator(
     [CreateSupplementView.viewName]: {
       screen: CreateSupplementView,
       path: `${CreateSupplementView.viewName}`,
+      navigationOptions: ({ navigation }) => ({
+        title: "Create",
+        headerLeft: <HamburgerIconNavigation navigation={navigation} />
+      })
+    },
+    [CreateSupplementStackView.viewName]: {
+      screen: CreateSupplementStackView,
+      path: `${CreateSupplementStackView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Create",
         headerLeft: <HamburgerIconNavigation navigation={navigation} />

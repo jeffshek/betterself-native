@@ -3,12 +3,15 @@ import React, { Component } from "react";
 import { StyleSheet, View, Button, ScrollView } from "react-native";
 import colors from "HSColors";
 import t from "tcomb-form-native";
-import { createSupplement } from "../../services/api/api";
+import {
+  createSupplement,
+  createSupplementStack
+} from "../../services/api/api";
 import { SupplementSelectionView } from "./selection";
 
 const Form = t.form.Form;
 
-const Supplement = t.struct({
+const SupplementStack = t.struct({
   name: t.String
 });
 
@@ -39,16 +42,16 @@ const formStyles = {
 const options = {
   fields: {
     name: {
-      label: "Supplement Name",
-      help: "Supplement or medication name. If your mates are noisy and go through your phone (losers), name it Waffles. And then get new friends.",
+      label: "Supplement Stack Name",
+      help: "Energy Stack, Sleep Stack, etc.",
       autoCapitalize: "none"
     }
   },
   stylesheet: formStyles
 };
 
-export class CreateSupplementView extends Component {
-  static viewName = "CreateSupplementView";
+export class CreateSupplementStackView extends Component {
+  static viewName = "CreateSupplementStackView";
 
   constructor() {
     super();
@@ -63,7 +66,7 @@ export class CreateSupplementView extends Component {
       name: name
     };
 
-    createSupplement(parameters).then(responseData => {
+    createSupplementStack(parameters).then(responseData => {
       navigation.navigate(SupplementSelectionView.viewName);
     });
   };
@@ -72,11 +75,15 @@ export class CreateSupplementView extends Component {
     return (
       <ScrollView style={styles.container}>
         <View style={styles.form}>
-          <Form ref={c => this._form = c} type={Supplement} options={options} />
+          <Form
+            ref={c => this._form = c}
+            type={SupplementStack}
+            options={options}
+          />
           <Button
             large
             icon={{ name: "cached" }}
-            title="Create Supplement!"
+            title="Create Stack!"
             backgroundColor={colors.backgroundColorComplimentary}
             style={styles.buttonStyle}
             onPress={this.handleSubmit}

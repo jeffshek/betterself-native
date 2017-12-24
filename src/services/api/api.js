@@ -84,6 +84,20 @@ export const createSupplement = async postParams => {
   });
 };
 
+export const createSupplementStack = async postParams => {
+  const token = await AsyncStorage.getItem("token");
+  const jsonHeaders = postAuthorizationHeader(token);
+  const params = {
+    method: "POST",
+    headers: jsonHeaders,
+    body: JSON.stringify(postParams)
+  };
+  const url = HOME_URL + SUPPLEMENT_STACKS_RESOURCE_URL;
+  return fetch(url, params).then(responseData => {
+    return responseData.json();
+  });
+};
+
 export const getSupplementStacks = async () => {
   const token = await AsyncStorage.getItem("token");
   const json_headers = getAuthorizationHeader(token);

@@ -11,14 +11,17 @@ import {
   AddSupplementLogView
 } from "../../views/supplements/add_supplement_log";
 import {
-  AddSupplementStackView
-} from "../../views/supplements/add_supplement_stack";
+  AddSupplementStackLogView
+} from "../../views/supplements/add_supplement_stack_log";
 import {
   CreateSupplementView
 } from "../../views/supplements/create_supplement";
 import {
   CreateSupplementStackView
 } from "../../views/supplements/create_supplement_stack";
+import {
+  CreateSupplementCompositionView
+} from "../../views/supplements/create_supplement_composition";
 
 export const SelectAndLogStackNavigator = StackNavigator(
   {
@@ -39,9 +42,9 @@ export const SelectAndLogStackNavigator = StackNavigator(
         headerLeft: <GoBackIconNavigation navigation={navigation} />
       })
     },
-    [AddSupplementStackView.viewName]: {
-      screen: AddSupplementStackView,
-      path: `${AddSupplementStackView.viewName}`,
+    [AddSupplementStackLogView.viewName]: {
+      screen: AddSupplementStackLogView,
+      path: `${AddSupplementStackLogView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Log",
         headerLeft: <GoBackIconNavigation navigation={navigation} />
@@ -58,6 +61,14 @@ export const SelectAndLogStackNavigator = StackNavigator(
     [CreateSupplementStackView.viewName]: {
       screen: CreateSupplementStackView,
       path: `${CreateSupplementStackView.viewName}`,
+      navigationOptions: ({ navigation }) => ({
+        title: "Create",
+        headerLeft: <GoBackIconNavigation navigation={navigation} />
+      })
+    },
+    [CreateSupplementCompositionView.viewName]: {
+      screen: CreateSupplementCompositionView,
+      path: `${CreateSupplementCompositionView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Create",
         headerLeft: <GoBackIconNavigation navigation={navigation} />

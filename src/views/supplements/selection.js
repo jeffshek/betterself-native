@@ -18,14 +18,9 @@ import {
   INDIVIDUAL_VITAMIN,
   STACKS_IMAGE
 } from "../../../assets/icons/constants";
-import { AddSupplementStackView } from "./add_supplement_stack";
+import { AddSupplementStackLogView } from "./add_supplement_stack_log";
 import { CreateSupplementView } from "./create_supplement";
 import { CreateSupplementStackView } from "./create_supplement_stack";
-
-const log = value => {
-  console.log("In Debugger Logging");
-  console.log(value);
-};
 
 export class SupplementSelectionView extends Component {
   static viewName = "SupplementSelectionView";
@@ -58,7 +53,7 @@ export class SupplementSelectionView extends Component {
     }
 
     const { navigation } = this.props;
-    const routeName = AddSupplementStackView.viewName;
+    const routeName = AddSupplementStackLogView.viewName;
     const addSupplementStackRoute = CreateSupplementStackView.viewName;
 
     return (

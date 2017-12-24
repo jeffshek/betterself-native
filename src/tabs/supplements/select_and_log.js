@@ -70,7 +70,6 @@ export const SelectAndLogStackNavigator = StackNavigator(
       screen: CreateSupplementCompositionView,
       path: `${CreateSupplementCompositionView.viewName}`,
       navigationOptions: ({ navigation }) => ({
-        title: "Create",
         headerLeft: <GoBackIconNavigation navigation={navigation} />
       })
     }

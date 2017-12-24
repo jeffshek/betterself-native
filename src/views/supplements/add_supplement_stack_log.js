@@ -38,8 +38,8 @@ const formStyles = {
   controlLabel: {
     normal: {
       padding: 12,
-      color: "white",
-      backgroundColor: "#193441",
+      color: colors.alternative,
+      backgroundColor: colors.background,
       fontSize: 20,
       marginBottom: 7
     },
@@ -145,6 +145,11 @@ export class AddSupplementStackLogView extends Component {
             avatar={MEDICINE_IMAGE}
             title={"Add Supplement to Stack"}
             avatarStyle={styles.avatarStyle}
+            onPress={() =>
+              navigation.navigate(
+                createSupplementCompositionRoute,
+                stackComposition
+              )}
           />
         </List>
         <Form ref="form" type={SupplementStackModel} options={options} />
@@ -156,7 +161,7 @@ export class AddSupplementStackLogView extends Component {
 
 const styles = StyleSheet.create({
   heading: {
-    color: "white",
+    color: colors.alternative,
     marginTop: 10,
     fontSize: 30
   },
@@ -164,15 +169,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 30,
     marginBottom: 20,
-    color: "#193441"
-  },
-  composition: {
-    marginBottom: 20
+    color: colors.background
   },
   container: {
     justifyContent: "center",
     marginTop: 0,
-    backgroundColor: "#ffffff"
+    backgroundColor: colors.alternative
   },
   headerContainer: {
     padding: 10,
@@ -192,6 +194,6 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end"
   },
   avatarStyle: {
-    backgroundColor: "white"
+    backgroundColor: colors.alternative
   }
 });

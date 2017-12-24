@@ -15,6 +15,9 @@ import { List, ListItem, Text } from "react-native-elements";
 
 import colors from "HSColors";
 
+// Show a list of Supplements
+// They select one, it creates the request then tells navigation to go back to the previous page
+
 export class CreateSupplementCompositionView extends Component {
   static viewName = "CreateSupplementCompositionView";
 

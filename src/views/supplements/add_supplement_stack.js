@@ -1,10 +1,22 @@
 import Expo from "expo";
 import React, { Component } from "react";
-import { StyleSheet, View, Button } from "react-native";
-import { Text } from "react-native-elements";
+import {
+  StyleSheet,
+  View,
+  Button,
+  ScrollView,
+  TouchableOpacity,
+  Image
+} from "react-native";
+import { Text, List, ListItem } from "react-native-elements";
 import t from "tcomb-form-native";
 import { postSupplementStackLog } from "../../services/api/api";
 import { SupplementSelectionView } from "./selection";
+import colors from "HSColors";
+import {
+  ADD_NEW_PILL_IMAGE,
+  INDIVIDUAL_VITAMIN
+} from "../../../assets/icons/constants";
 
 const Form = t.form.Form;
 
@@ -21,8 +33,10 @@ const formStyles = {
   },
   controlLabel: {
     normal: {
-      color: "#193441",
-      fontSize: 18,
+      padding: 10,
+      color: "white",
+      backgroundColor: "#193441",
+      fontSize: 20,
       marginBottom: 7,
       fontWeight: "600"
     },
@@ -88,21 +102,41 @@ export class AddSupplementStackView extends Component {
     console.log(navigation.state.params);
 
     return (
-      <View style={styles.container}>
-        <View>
+      <ScrollView>
+        <View style={styles.container}>
+
           <Text h3 style={styles.title}>
             {navigation.state.params.name} {postFix}
           </Text>
-          <Text style={styles.subTitle}>
-            Composition
-          </Text>
-          <Text style={styles.composition}>
-            {navigation.state.params.description}
-          </Text>
         </View>
+        <View style={styles.headerContainer}>
+          <Text style={styles.headerText}>Stack Compositions</Text>
+          <Text />
+          <TouchableOpacity
+            onPress={() => navigation.navigate(addSupplementRoute)}
+          >
+            <Image
+              source={ADD_NEW_PILL_IMAGE}
+              resizeMode="cover"
+              style={styles.createNewSupplement}
+            />
+          </TouchableOpacity>
+        </View>
+        <List>
+          {navigation.state.params.compositions.map((l, i) => (
+            <ListItem
+              key={i}
+              avatar={INDIVIDUAL_VITAMIN}
+              avatarStyle={styles.avatarStyle}
+              onPress={() => navigation.navigate(routeName, l)}
+              title={l.supplement.name}
+              subtitle={l.description}
+            />
+          ))}
+        </List>
         <Form ref="form" type={SupplementStackModel} options={options} />
         <Button title="Log Stack!" onPress={this.submitSupplementStackLog} />
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -115,14 +149,9 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: "center",
+    fontSize: 30,
     marginBottom: 20,
     color: "#193441"
-  },
-  subTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#193441",
-    marginBottom: 5
   },
   composition: {
     marginBottom: 20
@@ -130,7 +159,27 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     marginTop: 0,
-    padding: 20,
+    //padding: 10,
     backgroundColor: "#ffffff"
+  },
+  headerContainer: {
+    padding: 10,
+    backgroundColor: colors.background,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
+  },
+  headerText: {
+    color: "white",
+    marginTop: 0,
+    fontSize: 20
+  },
+  createNewSupplement: {
+    height: 32,
+    width: 32,
+    alignSelf: "flex-end"
+  },
+  avatarStyle: {
+    backgroundColor: "white"
   }
 });

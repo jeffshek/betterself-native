@@ -75,7 +75,7 @@ export class AddSupplementLogView extends Component {
       source: "mobile"
     };
 
-    postSupplementLog(postParams).then(responseData => {
+    postSupplementLog(postParams).then(() => {
       {
         navigation.navigate(SupplementSelectionView.viewName);
       }

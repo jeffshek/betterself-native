@@ -1,7 +1,10 @@
 import React from "react";
 
 import { StackNavigator } from "react-navigation";
-import { HamburgerIconNavigation } from "../../constants/icons";
+import {
+  GoBackIconNavigation,
+  HamburgerIconNavigation
+} from "../../constants/icons";
 import { SupplementsLogLabel } from "../../constants/labels";
 import { SupplementSelectionView } from "../../views/supplements/selection";
 import {
@@ -33,7 +36,7 @@ export const SelectAndLogStackNavigator = StackNavigator(
       path: `${AddSupplementLogView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: SupplementsLogLabel,
-        headerLeft: <HamburgerIconNavigation navigation={navigation} />
+        headerLeft: <GoBackIconNavigation navigation={navigation} />
       })
     },
     [AddSupplementStackView.viewName]: {
@@ -41,7 +44,7 @@ export const SelectAndLogStackNavigator = StackNavigator(
       path: `${AddSupplementStackView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Log",
-        headerLeft: <HamburgerIconNavigation navigation={navigation} />
+        headerLeft: <GoBackIconNavigation navigation={navigation} />
       })
     },
     [CreateSupplementView.viewName]: {
@@ -49,7 +52,7 @@ export const SelectAndLogStackNavigator = StackNavigator(
       path: `${CreateSupplementView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Create",
-        headerLeft: <HamburgerIconNavigation navigation={navigation} />
+        headerLeft: <GoBackIconNavigation navigation={navigation} />
       })
     },
     [CreateSupplementStackView.viewName]: {
@@ -57,7 +60,7 @@ export const SelectAndLogStackNavigator = StackNavigator(
       path: `${CreateSupplementStackView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Create",
-        headerLeft: <HamburgerIconNavigation navigation={navigation} />
+        headerLeft: <GoBackIconNavigation navigation={navigation} />
       })
     }
   },

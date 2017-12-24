@@ -85,6 +85,8 @@ export class AddSupplementStackView extends Component {
     const pageNameIncludedStack = pageName.toLowerCase().includes("stack");
     const postFix = pageNameIncludedStack ? "" : "Stack";
 
+    console.log(navigation.state.params);
+
     return (
       <View style={styles.container}>
         <View>

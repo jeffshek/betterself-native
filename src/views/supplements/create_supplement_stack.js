@@ -43,7 +43,7 @@ const options = {
   fields: {
     name: {
       label: "Supplement Stack Name",
-      help: "Energy Stack, Sleep Stack, etc.",
+      help: "Energy Stack, Sleep, Over 9000, etc.",
       autoCapitalize: "none"
     }
   },

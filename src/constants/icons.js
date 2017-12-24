@@ -77,3 +77,14 @@ export const HamburgerIconNavigation = ({ navigation }) => {
     />
   );
 };
+
+export const GoBackIconNavigation = ({ navigation }) => {
+  return (
+    <Icon
+      name="chevron-left"
+      size={HamburgerIconSize}
+      iconStyle={{ paddingLeft: 15 }}
+      onPress={() => navigation.goBack()}
+    />
+  );
+};

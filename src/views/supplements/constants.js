@@ -19,3 +19,10 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end"
   }
 });
+
+export const getCleanedStackLabel = stackName => {
+  const stackNameTrim = stackName.trim();
+  const pageNameIncludedStack = stackNameTrim.toLowerCase().includes("stack");
+  const postFix = pageNameIncludedStack ? "" : "Stack";
+  return `${stackNameTrim} ${postFix}`;
+};

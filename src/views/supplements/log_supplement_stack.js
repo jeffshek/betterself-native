@@ -5,8 +5,7 @@ import {
   View,
   Button,
   ScrollView,
-  TouchableOpacity,
-  Image
+  TouchableOpacity
 } from "react-native";
 import { Text, List, ListItem } from "react-native-elements";
 import t from "tcomb-form-native";
@@ -20,7 +19,7 @@ import {
 import {
   CreateSupplementCompositionView
 } from "./create_supplement_composition";
-import { AddNewPill } from "./constants";
+import { AddNewPill, getCleanedStackLabel } from "./constants";
 
 const Form = t.form.Form;
 
@@ -97,20 +96,16 @@ export class LogSupplementStackView extends Component {
 
   render() {
     const { navigation } = this.props;
-
-    const pageName = navigation.state.params.name.trim();
-    const pageNameIncludedStack = pageName.toLowerCase().includes("stack");
-    const postFix = pageNameIncludedStack ? "" : "Stack";
-
+    const stackLabel = getCleanedStackLabel(navigation.state.params.name);
     const createSupplementCompositionRoute =
       CreateSupplementCompositionView.viewName;
-    const stackComposition = navigation.state.param;
+    const stackComposition = navigation.state.params;
 
     return (
       <ScrollView>
         <View style={styles.container}>
           <Text h3 style={styles.title}>
-            {navigation.state.params.name} {postFix}
+            {stackLabel}
           </Text>
         </View>
         <View style={styles.headerContainer}>
@@ -164,6 +159,7 @@ const styles = StyleSheet.create({
   title: {
     textAlign: "center",
     fontSize: 30,
+    marginTop: 20,
     marginBottom: 20,
     color: colors.background
   },
@@ -183,11 +179,6 @@ const styles = StyleSheet.create({
     color: "white",
     marginTop: 0,
     fontSize: 20
-  },
-  createNewSupplement: {
-    height: 32,
-    width: 32,
-    alignSelf: "flex-end"
   },
   avatarStyle: {
     backgroundColor: colors.alternative

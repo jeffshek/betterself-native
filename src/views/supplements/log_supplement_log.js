@@ -5,6 +5,7 @@ import { Text } from "react-native-elements";
 import t from "tcomb-form-native";
 import { postSupplementLog } from "../../services/api/api";
 import { SupplementSelectionView } from "./selection";
+import colors from "HSColors";
 
 // This file name is kind of stupid, sorry.
 
@@ -24,7 +25,7 @@ const formStyles = {
   },
   controlLabel: {
     normal: {
-      color: "#193441",
+      color: colors.primary,
       fontSize: 18,
       marginBottom: 7,
       fontWeight: "600"
@@ -109,19 +110,19 @@ export class LogSupplementLogView extends Component {
 
 const styles = StyleSheet.create({
   heading: {
-    color: "white",
+    color: colors.white,
     marginTop: 10,
     fontSize: 30
   },
   title: {
     textAlign: "center",
     marginBottom: 20,
-    color: "#193441"
+    color: colors.primary
   },
   container: {
     justifyContent: "center",
     marginTop: 0,
     padding: 20,
-    backgroundColor: "#ffffff"
+    backgroundColor: colors.alternative
   }
 });

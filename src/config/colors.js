@@ -13,5 +13,6 @@ export default {
   greyOutline: "#cbd2d9",
   background: "#193441",
   backgroundColorComplimentary: "#788E99",
-  alternative: "white"
+  alternative: "white",
+  white: "white"
 };

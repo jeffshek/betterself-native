@@ -9,10 +9,10 @@ import { SupplementsLogLabel } from "../../constants/labels";
 import { SupplementSelectionView } from "../../views/supplements/selection";
 import {
   AddSupplementLogView
-} from "../../views/supplements/add_supplement_log";
+} from "../../views/supplements/log_supplement_log";
 import {
   AddSupplementStackLogView
-} from "../../views/supplements/add_supplement_stack_log";
+} from "../../views/supplements/log_supplement_stack";
 import {
   CreateSupplementView
 } from "../../views/supplements/create_supplement";

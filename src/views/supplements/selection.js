@@ -11,16 +11,16 @@ import {
 import { List, ListItem, Text } from "react-native-elements";
 
 import colors from "HSColors";
-import { AddSupplementLogView } from "./add_supplement_log";
+import { AddSupplementLogView } from "./log_supplement_log";
 import { getSupplements, getSupplementStacks } from "../../services/api/api";
 import {
-  ADD_NEW_PILL_IMAGE,
   INDIVIDUAL_VITAMIN,
   STACKS_IMAGE
 } from "../../../assets/icons/constants";
-import { AddSupplementStackLogView } from "./add_supplement_stack_log";
+import { AddSupplementStackLogView } from "./log_supplement_stack";
 import { CreateSupplementView } from "./create_supplement";
 import { CreateSupplementStackView } from "./create_supplement_stack";
+import { AddNewPill } from "./constants";
 
 export class SupplementSelectionView extends Component {
   static viewName = "SupplementSelectionView";
@@ -64,11 +64,7 @@ export class SupplementSelectionView extends Component {
           <TouchableOpacity
             onPress={() => navigation.navigate(addSupplementStackRoute)}
           >
-            <Image
-              source={ADD_NEW_PILL_IMAGE}
-              resizeMode="cover"
-              style={styles.createNewSupplement}
-            />
+            <AddNewPill />
           </TouchableOpacity>
         </View>
         <List style={styles.labelFontStyle}>
@@ -104,11 +100,7 @@ export class SupplementSelectionView extends Component {
           <TouchableOpacity
             onPress={() => navigation.navigate(addSupplementRoute)}
           >
-            <Image
-              source={ADD_NEW_PILL_IMAGE}
-              resizeMode="cover"
-              style={styles.createNewSupplement}
-            />
+            <AddNewPill />
           </TouchableOpacity>
         </View>
         <List>
@@ -122,11 +114,6 @@ export class SupplementSelectionView extends Component {
               subtitle={l.subtitle}
             />
           ))}
-          {/*<ListItem*/}
-          {/*avatar={DRUGS_IMAGE}*/}
-          {/*title={"Create Supplement Type"}*/}
-          {/*avatarStyle={styles.avatarStyle}*/}
-          {/*/>*/}
         </List>
       </ScrollView>
     );
@@ -145,11 +132,6 @@ export class SupplementSelectionView extends Component {
 const styles = StyleSheet.create({
   avatarStyle: {
     backgroundColor: "white"
-  },
-  createNewSupplement: {
-    height: 32,
-    width: 32,
-    alignSelf: "flex-end"
   },
   container: {
     flex: 1

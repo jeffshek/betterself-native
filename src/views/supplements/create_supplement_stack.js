@@ -97,7 +97,7 @@ export class CreateSupplementStackView extends Component {
 const styles = StyleSheet.create({
   container: {
     marginTop: 0,
-    padding: 20,
+    padding: 10,
     backgroundColor: "white",
     flex: 1
   },

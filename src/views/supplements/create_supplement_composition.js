@@ -122,8 +122,7 @@ const styles = StyleSheet.create({
   title: {
     textAlign: "center",
     fontSize: 30,
-    marginBottom: 20,
-    marginTop: 20,
+    padding: 10,
     color: colors.background
   },
   headerContainer: {
@@ -138,7 +137,7 @@ const styles = StyleSheet.create({
   headerText: {
     color: "white",
     marginTop: 0,
-    fontSize: 20
+    fontSize: 15
   },
   avatarStyle: {
     backgroundColor: colors.alternative

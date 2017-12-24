@@ -153,14 +153,13 @@ export class LogSupplementStackView extends Component {
 const styles = StyleSheet.create({
   heading: {
     color: colors.alternative,
-    marginTop: 10,
+    marginTop: 5,
     fontSize: 30
   },
   title: {
     textAlign: "center",
     fontSize: 30,
-    marginTop: 20,
-    marginBottom: 20,
+    padding: 10,
     color: colors.background
   },
   container: {

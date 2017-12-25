@@ -16,53 +16,6 @@ import colors from "HSColors";
 import { getCleanedStackLabel } from "./constants";
 import { INDIVIDUAL_VITAMIN } from "../../../assets/icons/constants";
 
-// Show a list of Supplements
-// They select one, it creates the request then tells navigation to go back to the previous page
-
-//const Form = t.form.Form;
-//const QuantityForm = t.struct({
-//  quantity: t.Number,
-//});
-
-//const formStyles = {
-//  ...Form.stylesheet,
-//  formGroup: {
-//    normal: {
-//      marginTop: 0,
-//      marginBottom: 0
-//    }
-//  },
-//  controlLabel: {
-//    normal: {
-//      color: colors.primary,
-//      fontSize: 18,
-//      marginBottom: 0,
-//      fontWeight: "600"
-//    },
-//    // the style applied when a validation error occurs
-//    error: {
-//      color: "red",
-//      fontSize: 18,
-//      marginBottom: 7,
-//      fontWeight: "600"
-//    }
-//  }
-//};
-//
-//const defaultValues = {
-//  quantity: 1
-//};
-//
-//const options = {
-//  fields: {
-//    quantity: {
-//      label: "Quantity",
-//      error: "Let's try and keep it below 9000."
-//    },
-//  },
-//  stylesheet: formStyles
-//};
-
 export class CreateSupplementCompositionView extends Component {
   static viewName = "CreateSupplementCompositionView";
 

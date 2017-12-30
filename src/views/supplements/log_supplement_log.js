@@ -4,7 +4,7 @@ import { StyleSheet, View, Button } from "react-native";
 import { Text } from "react-native-elements";
 import t from "tcomb-form-native";
 import { postSupplementLog } from "../../services/api/api";
-import { SupplementSelectionView } from "./selection";
+import { SupplementsAndStacksSelectionView } from "./selection";
 import colors from "HSColors";
 
 // This file name is kind of stupid, sorry.
@@ -81,7 +81,7 @@ export class LogSupplementLogView extends Component {
 
     postSupplementLog(postParams).then(() => {
       {
-        navigation.navigate(SupplementSelectionView.viewName);
+        navigation.navigate(SupplementsAndStacksSelectionView.viewName);
       }
     });
   };

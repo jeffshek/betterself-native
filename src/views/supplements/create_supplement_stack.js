@@ -7,7 +7,7 @@ import {
   createSupplement,
   createSupplementStack
 } from "../../services/api/api";
-import { SupplementSelectionView } from "./selection";
+import { SupplementsAndStacksSelectionView } from "./selection";
 
 const Form = t.form.Form;
 
@@ -67,7 +67,7 @@ export class CreateSupplementStackView extends Component {
     };
 
     createSupplementStack(parameters).then(responseData => {
-      navigation.navigate(SupplementSelectionView.viewName);
+      navigation.navigate(SupplementsAndStacksSelectionView.viewName);
     });
   };
 

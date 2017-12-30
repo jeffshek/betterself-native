@@ -1,4 +1,9 @@
-import { getSupplements } from "../../services/api/api";
+import {
+  createSupplement,
+  createSupplementComposition,
+  getSupplements,
+  getSupplementStacksByFilters
+} from "../../services/api/api";
 import t from "tcomb-form-native";
 import Expo from "expo";
 import React, { Component } from "react";
@@ -15,6 +20,8 @@ import { List, ListItem, Text } from "react-native-elements";
 import colors from "HSColors";
 import { getCleanedStackLabel } from "./constants";
 import { INDIVIDUAL_VITAMIN } from "../../../assets/icons/constants";
+import { SupplementsAndStacksSelectionView } from "./selection";
+import { LogSupplementStackView } from "./log_supplement_stack";
 
 export class CreateSupplementCompositionView extends Component {
   static viewName = "CreateSupplementCompositionView";
@@ -35,6 +42,25 @@ export class CreateSupplementCompositionView extends Component {
     });
   }
 
+  handleSubmit = supplement => {
+    const { navigation } = this.props;
+    const stackUUID = navigation.state.params.uuid;
+
+    const parameters = {
+      stack_uuid: stackUUID,
+      supplement_uuid: supplement.uuid
+    };
+
+    createSupplementComposition(parameters).then(responseData => {
+      const filterParams = { uuid: stackUUID };
+
+      getSupplementStacksByFilters(filterParams).then(responseData => {
+        const updatedStack = responseData[0];
+        navigation.navigate(LogSupplementStackView.viewName, updatedStack);
+      });
+    });
+  };
+
   render() {
     const { navigation } = this.props;
     const stackLabel = getCleanedStackLabel(navigation.state.params.name);
@@ -50,14 +76,16 @@ export class CreateSupplementCompositionView extends Component {
           <Text style={styles.headerText}>Add Supplement to {stackLabel}</Text>
         </View>
         <List>
-          {this.state.supplements.map((l, i) => (
+          {this.state.supplements.map((supplement, i) => (
             <ListItem
               key={i}
               avatar={INDIVIDUAL_VITAMIN}
               avatarStyle={styles.avatarStyle}
-              onPress={() => navigation.navigate(routeName, l)}
-              title={l.name}
-              subtitle={l.subtitle}
+              onPress={() => {
+                this.handleSubmit(supplement);
+              }}
+              title={supplement.name}
+              subtitle={supplement.subtitle}
             />
           ))}
         </List>

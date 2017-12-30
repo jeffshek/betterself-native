@@ -9,8 +9,11 @@ import {
 } from "react-native";
 import { Text, List, ListItem } from "react-native-elements";
 import t from "tcomb-form-native";
-import { postSupplementStackLog } from "../../services/api/api";
-import { SupplementSelectionView } from "./selection";
+import {
+  getSupplementStacks,
+  postSupplementStackLog
+} from "../../services/api/api";
+import { SupplementsAndStacksSelectionView } from "./selection";
 import colors from "HSColors";
 import {
   INDIVIDUAL_VITAMIN,
@@ -89,7 +92,7 @@ export class LogSupplementStackView extends Component {
 
     postSupplementStackLog(postParams).then(responseData => {
       {
-        navigation.navigate(SupplementSelectionView.viewName);
+        navigation.navigate(SupplementsAndStacksSelectionView.viewName);
       }
     });
   };

@@ -22,8 +22,8 @@ import { CreateSupplementView } from "./create_supplement";
 import { CreateSupplementStackView } from "./create_supplement_stack";
 import { AddNewPill } from "./constants";
 
-export class SupplementSelectionView extends Component {
-  static viewName = "SupplementSelectionView";
+export class SupplementsAndStacksSelectionView extends Component {
+  static viewName = "SupplementsAndStacksSelectionView";
 
   constructor() {
     super();

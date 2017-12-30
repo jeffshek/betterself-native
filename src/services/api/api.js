@@ -10,6 +10,7 @@ import {
   REST_API_MOBILE_SIGNUP_URL,
   SUPPLEMENT_EVENTS_RESOURCE_URL,
   SUPPLEMENT_RESOURCE_URL,
+  SUPPLEMENT_STACK_COMPOSITIONS_RESOURCE_URL,
   SUPPLEMENT_STACKS_RECORD_URL,
   SUPPLEMENT_STACKS_RESOURCE_URL,
   SUPPLEMENTS_RESOURCE_URL
@@ -106,7 +107,7 @@ export const createSupplementComposition = async postParams => {
     headers: jsonHeaders,
     body: JSON.stringify(postParams)
   };
-  const url = HOME_URL + SUPPLEMENT_STACKS_RESOURCE_URL;
+  const url = HOME_URL + SUPPLEMENT_STACK_COMPOSITIONS_RESOURCE_URL;
   return fetch(url, params).then(responseData => {
     return responseData.json();
   });
@@ -121,6 +122,28 @@ export const getSupplementStacks = async () => {
   };
   const url = HOME_URL + SUPPLEMENT_STACKS_RESOURCE_URL;
   return fetch(url, post_params).then(responseData => {
+    return responseData.json();
+  });
+};
+
+export const getSupplementStacksByFilters = async filterDetails => {
+  const token = await AsyncStorage.getItem("token");
+  const jsonHeaders = getAuthorizationHeader(token);
+  const postParams = {
+    method: "GET",
+    headers: jsonHeaders
+  };
+  const url = HOME_URL + SUPPLEMENT_STACKS_RESOURCE_URL + "?";
+
+  const filterDetailsKeys = Object.keys(filterDetails);
+  let filterParamsString = "";
+  for (let key of filterDetailsKeys) {
+    filterParamsString += `&${key}=${filterDetails[key]}`;
+  }
+
+  const urlWithFilter = url + filterParamsString;
+
+  return fetch(urlWithFilter, postParams).then(responseData => {
     return responseData.json();
   });
 };

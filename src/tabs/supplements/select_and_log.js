@@ -6,7 +6,9 @@ import {
   HamburgerIconNavigation
 } from "../../constants/icons";
 import { SupplementsLogLabel } from "../../constants/labels";
-import { SupplementSelectionView } from "../../views/supplements/selection";
+import {
+  SupplementsAndStacksSelectionView
+} from "../../views/supplements/selection";
 import {
   LogSupplementLogView
 } from "../../views/supplements/log_supplement_log";
@@ -25,9 +27,9 @@ import {
 
 export const SelectAndLogStackNavigator = StackNavigator(
   {
-    [SupplementSelectionView.viewName]: {
-      screen: SupplementSelectionView,
-      path: `/${SupplementSelectionView.viewName}`,
+    [SupplementsAndStacksSelectionView.viewName]: {
+      screen: SupplementsAndStacksSelectionView,
+      path: `/${SupplementsAndStacksSelectionView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Log It!",
         // TODO - Change this to back arrow instead of hamburger
@@ -75,7 +77,7 @@ export const SelectAndLogStackNavigator = StackNavigator(
     }
   },
   {
-    initialRouteName: "SupplementSelectionView"
+    initialRouteName: "SupplementsAndStacksSelectionView"
   }
 );
 

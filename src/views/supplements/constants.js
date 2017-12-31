@@ -38,13 +38,13 @@ export const AddSupplementListItem = ({ onPress, title, subtitle }) => {
       avatar={MEDICINE_IMAGE}
       title={title}
       subtitle={subtitle}
-      avatarStyle={addSupplementStyles.avatarStyle}
+      avatarStyle={ListItemStyles.avatarStyle}
       onPress={onPress}
     />
   );
 };
 
-const addSupplementStyles = StyleSheet.create({
+export const ListItemStyles = StyleSheet.create({
   avatarStyle: {
     backgroundColor: colors.alternative
   }

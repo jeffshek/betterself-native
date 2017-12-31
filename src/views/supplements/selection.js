@@ -20,7 +20,7 @@ import {
 import { LogSupplementStackView } from "./log_supplement_stack";
 import { CreateSupplementView } from "./create_supplement";
 import { CreateSupplementStackView } from "./create_supplement_stack";
-import { AddNewPill } from "./constants";
+import { AddNewPill, addSupplementStyles, ListItemStyles } from "./constants";
 import { HeaderText } from "../../config/fontsAndSizes";
 
 export class SupplementsAndStacksSelectionView extends Component {
@@ -62,19 +62,18 @@ export class SupplementsAndStacksSelectionView extends Component {
         <View style={styles.headerContainer}>
           <Text />
           <HeaderText label={"Supplement Stacks"} />
-          <Text style={styles.headerText}>Supplement Stacks</Text>
           <TouchableOpacity
             onPress={() => navigation.navigate(addSupplementStackRoute)}
           >
             <AddNewPill />
           </TouchableOpacity>
         </View>
-        <List style={styles.labelFontStyle}>
+        <List>
           {this.state.supplementStacks.map((l, i) => (
             <ListItem
               key={i}
               avatar={STACKS_IMAGE}
-              avatarStyle={styles.avatarStyle}
+              avatarStyle={ListItemStyles.avatarStyle}
               title={l.name}
               subtitle={l.description}
               onPress={() => navigation.navigate(routeName, l)}
@@ -98,7 +97,7 @@ export class SupplementsAndStacksSelectionView extends Component {
       <ScrollView>
         <View style={styles.headerContainer}>
           <Text />
-          <Text style={styles.heading}>Supplements & Medication</Text>
+          <HeaderText label={"Supplements & Medication"} />
           <TouchableOpacity
             onPress={() => navigation.navigate(addSupplementRoute)}
           >
@@ -110,7 +109,7 @@ export class SupplementsAndStacksSelectionView extends Component {
             <ListItem
               key={i}
               avatar={INDIVIDUAL_VITAMIN}
-              avatarStyle={styles.avatarStyle}
+              avatarStyle={ListItemStyles.avatarStyle}
               onPress={() => navigation.navigate(routeName, l)}
               title={l.name}
               subtitle={l.subtitle}
@@ -132,9 +131,6 @@ export class SupplementsAndStacksSelectionView extends Component {
 }
 
 const styles = StyleSheet.create({
-  avatarStyle: {
-    backgroundColor: "white"
-  },
   container: {
     flex: 1
   },
@@ -144,18 +140,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center"
-  },
-  headerText: {
-    color: "white",
-    marginTop: 0,
-    fontSize: 20
-  },
-  heading: {
-    color: "white",
-    marginTop: 0,
-    fontSize: 20
-  },
-  labelFontStyle: {
-    fontSize: 40
   }
 });

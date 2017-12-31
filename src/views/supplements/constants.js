@@ -1,6 +1,11 @@
 import React from "react";
 import { Image, StyleSheet } from "react-native";
-import { ADD_NEW_PILL_IMAGE } from "../../../assets/icons/constants";
+import {
+  ADD_NEW_PILL_IMAGE,
+  MEDICINE_IMAGE
+} from "../../../assets/icons/constants";
+import colors from "HSColors";
+import { Text, List, ListItem } from "react-native-elements";
 
 export const AddNewPill = () => {
   return (
@@ -26,3 +31,21 @@ export const getCleanedStackLabel = stackName => {
   const postFix = pageNameIncludedStack ? "" : "Stack";
   return `${stackNameTrim} ${postFix}`;
 };
+
+export const AddSupplementListItem = ({ onPress, title, subtitle }) => {
+  return (
+    <ListItem
+      avatar={MEDICINE_IMAGE}
+      title={title}
+      subtitle={subtitle}
+      avatarStyle={addSupplementStyles.avatarStyle}
+      onPress={onPress}
+    />
+  );
+};
+
+const addSupplementStyles = StyleSheet.create({
+  avatarStyle: {
+    backgroundColor: colors.alternative
+  }
+});

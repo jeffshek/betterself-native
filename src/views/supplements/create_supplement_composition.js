@@ -18,10 +18,11 @@ import {
 import { List, ListItem, Text } from "react-native-elements";
 
 import colors from "HSColors";
-import { getCleanedStackLabel } from "./constants";
+import { AddSupplementListItem, getCleanedStackLabel } from "./constants";
 import { INDIVIDUAL_VITAMIN } from "../../../assets/icons/constants";
 import { SupplementsAndStacksSelectionView } from "./selection";
 import { LogSupplementStackView } from "./log_supplement_stack";
+import { CreateSupplementView } from "./create_supplement";
 
 export class CreateSupplementCompositionView extends Component {
   static viewName = "CreateSupplementCompositionView";
@@ -36,8 +37,18 @@ export class CreateSupplementCompositionView extends Component {
 
   componentDidMount() {
     getSupplements().then(results => {
+      // It would be silly to show supplements that are already in the stack ... kind of a waste of time
+      const { navigation } = this.props;
+      const supplementUUIDsAlreadyInStack = navigation.state.params.compositions.map(
+        object => {
+          return object.supplement.uuid;
+        }
+      );
+      const supplementsThatCouldBeAddedToStack = results.filter(object => {
+        return !supplementUUIDsAlreadyInStack.includes(object.uuid);
+      });
       this.setState({
-        supplements: results
+        supplements: supplementsThatCouldBeAddedToStack
       });
     });
   }
@@ -61,6 +72,19 @@ export class CreateSupplementCompositionView extends Component {
     });
   };
 
+  renderIfNoSupplements = () => {
+    const { navigation } = this.props;
+
+    // if no supplements are listed on the stack, maybe let's give them the ability to add a new supplement
+    return (
+      <AddSupplementListItem
+        title={"Create New Supplement!"}
+        subtitle={"No Supplements Exist"}
+        onPress={() => navigation.navigate(CreateSupplementView.viewName)}
+      />
+    );
+  };
+
   render() {
     const { navigation } = this.props;
     const stackLabel = getCleanedStackLabel(navigation.state.params.name);
@@ -73,7 +97,7 @@ export class CreateSupplementCompositionView extends Component {
           </Text>
         </View>
         <View style={styles.headerContainer}>
-          <Text style={styles.headerText}>Add Supplement to {stackLabel}</Text>
+          <Text style={styles.headerText}>Add Supplement to This Stack</Text>
         </View>
         <List>
           {this.state.supplements.map((supplement, i) => (
@@ -88,6 +112,7 @@ export class CreateSupplementCompositionView extends Component {
               subtitle={supplement.subtitle}
             />
           ))}
+          {this.renderIfNoSupplements()}
         </List>
       </ScrollView>
     );

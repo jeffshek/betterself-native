@@ -21,6 +21,7 @@ import { LogSupplementStackView } from "./log_supplement_stack";
 import { CreateSupplementView } from "./create_supplement";
 import { CreateSupplementStackView } from "./create_supplement_stack";
 import { AddNewPill } from "./constants";
+import { HeaderText } from "../../config/fontsAndSizes";
 
 export class SupplementsAndStacksSelectionView extends Component {
   static viewName = "SupplementsAndStacksSelectionView";
@@ -60,6 +61,7 @@ export class SupplementsAndStacksSelectionView extends Component {
       <ScrollView>
         <View style={styles.headerContainer}>
           <Text />
+          <HeaderText label={"Supplement Stacks"} />
           <Text style={styles.headerText}>Supplement Stacks</Text>
           <TouchableOpacity
             onPress={() => navigation.navigate(addSupplementStackRoute)}

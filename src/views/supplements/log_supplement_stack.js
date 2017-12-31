@@ -22,7 +22,11 @@ import {
 import {
   CreateSupplementCompositionView
 } from "./create_supplement_composition";
-import { AddNewPill, getCleanedStackLabel } from "./constants";
+import {
+  AddNewPill,
+  AddSupplementListItem,
+  getCleanedStackLabel
+} from "./constants";
 
 const Form = t.form.Form;
 
@@ -82,7 +86,7 @@ export class LogSupplementStackView extends Component {
     const { navigation } = this.props;
     const formValues = this.refs.form.getValue();
     const time = formValues["time"];
-    const supplementStackUUID = this.props.navigation.state.params.uuid;
+    const supplementStackUUID = navigation.state.params.uuid;
 
     const postParams = {
       stack_uuid: supplementStackUUID,
@@ -135,10 +139,8 @@ export class LogSupplementStackView extends Component {
               subtitle={l.description}
             />
           ))}
-          <ListItem
-            avatar={MEDICINE_IMAGE}
-            title={"Add Supplement to Stack"}
-            avatarStyle={styles.avatarStyle}
+          <AddSupplementListItem
+            title={"Select New Supplement"}
             onPress={() =>
               navigation.navigate(
                 createSupplementCompositionRoute,

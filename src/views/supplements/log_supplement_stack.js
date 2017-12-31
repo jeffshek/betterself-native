@@ -1,13 +1,7 @@
 import Expo from "expo";
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  View,
-  Button,
-  ScrollView,
-  TouchableOpacity
-} from "react-native";
-import { Text, List, ListItem } from "react-native-elements";
+import { StyleSheet, View, ScrollView, TouchableOpacity } from "react-native";
+import { Text, List, ListItem, Button } from "react-native-elements";
 import t from "tcomb-form-native";
 import {
   getSupplementStacks,
@@ -25,7 +19,8 @@ import {
 import {
   AddNewPill,
   AddSupplementListItem,
-  getCleanedStackLabel
+  getCleanedStackLabel,
+  LogButton
 } from "./constants";
 
 const Form = t.form.Form;
@@ -149,7 +144,10 @@ export class LogSupplementStackView extends Component {
           />
         </List>
         <Form ref="form" type={SupplementStackModel} options={options} />
-        <Button title="Log Stack!" onPress={this.submitSupplementStackLog} />
+        <LogButton
+          title={"Log Stack"}
+          onPress={this.submitSupplementStackLog}
+        />
       </ScrollView>
     );
   }

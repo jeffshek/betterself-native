@@ -6,6 +6,7 @@ import t from "tcomb-form-native";
 import { postSupplementLog } from "../../services/api/api";
 import { SupplementsAndStacksSelectionView } from "./selection";
 import colors from "HSColors";
+import { LogButton } from "./constants";
 
 // This file name is kind of stupid, sorry.
 
@@ -102,7 +103,10 @@ export class LogSupplementLogView extends Component {
           options={options}
           value={defaultValues}
         />
-        <Button title="Log Stack!" onPress={this.submitSupplementLog} />
+        <LogButton
+          title={"Log Supplement"}
+          onPress={this.submitSupplementLog}
+        />
       </View>
     );
   }

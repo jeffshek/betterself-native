@@ -6,6 +6,7 @@ import {
 } from "../../../assets/icons/constants";
 import colors from "HSColors";
 import { Text, List, ListItem } from "react-native-elements";
+import Button from "react-native-elements/src/buttons/Button";
 
 export const AddNewPill = () => {
   return (
@@ -49,3 +50,14 @@ export const ListItemStyles = StyleSheet.create({
     backgroundColor: colors.alternative
   }
 });
+
+export const LogButton = ({ onPress, title }) => {
+  return (
+    <Button
+      title={title}
+      onPress={onPress}
+      icon={{ name: "edit", type: "font-awesome" }}
+      backgroundColor={colors.backgroundColorComplimentary}
+    />
+  );
+};

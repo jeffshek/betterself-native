@@ -1,20 +1,9 @@
 import {
-  createSupplement,
   createSupplementComposition,
-  getSupplements,
-  getSupplementStacksByFilters
+  getSupplements
 } from "../../services/api/api";
-import t from "tcomb-form-native";
-import Expo from "expo";
 import React, { Component } from "react";
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View
-} from "react-native";
-
+import { ScrollView, StyleSheet, View } from "react-native";
 import { List, ListItem, Text } from "react-native-elements";
 
 import colors from "HSColors";
@@ -24,10 +13,11 @@ import {
   ListItemStyles
 } from "./constants";
 import { INDIVIDUAL_VITAMIN } from "../../../assets/icons/constants";
-import { SupplementsAndStacksSelectionView } from "./selection";
-import { LogSupplementStackView } from "./log_supplement_stack";
 import { CreateSupplementView } from "./create_supplement";
 import { HeaderText } from "../../config/fontsAndSizes";
+import {
+  getUpdatedSupplementStackAndNavigate
+} from "../../services/api/navigate_utils";
 
 export class CreateSupplementCompositionView extends Component {
   static viewName = "CreateSupplementCompositionView";
@@ -60,20 +50,15 @@ export class CreateSupplementCompositionView extends Component {
 
   handleSubmit = supplement => {
     const { navigation } = this.props;
-    const stackUUID = navigation.state.params.uuid;
+    const stack = navigation.state.params;
 
     const parameters = {
-      stack_uuid: stackUUID,
+      stack_uuid: stack.uuid,
       supplement_uuid: supplement.uuid
     };
 
     createSupplementComposition(parameters).then(responseData => {
-      const filterParams = { uuid: stackUUID };
-
-      getSupplementStacksByFilters(filterParams).then(responseData => {
-        const updatedStack = responseData[0];
-        navigation.navigate(LogSupplementStackView.viewName, updatedStack);
-      });
+      getUpdatedSupplementStackAndNavigate(stack, navigation);
     });
   };
 

@@ -6,7 +6,8 @@ import {
 } from "../../../assets/icons/constants";
 import colors from "HSColors";
 import { ListItem } from "react-native-elements";
-import Button from "react-native-elements/src/buttons/Button";
+import { Button } from "react-native-elements";
+import { Icon } from "react-native-elements";
 
 export const AddNewPill = () => {
   return (
@@ -55,9 +56,22 @@ export const LogButton = ({ onPress, title }) => {
   return (
     <Button
       title={title}
+      rounded={true}
       onPress={onPress}
       icon={{ name: "edit", type: "font-awesome" }}
-      backgroundColor={colors.backgroundColorComplimentary}
+      backgroundColor={colors.approve}
+    />
+  );
+};
+
+export const DeleteButton = ({ onPress, title }) => {
+  return (
+    <Button
+      title={title}
+      rounded={true}
+      onPress={onPress}
+      icon={{ name: "x", type: "octicon" }}
+      backgroundColor={colors.delete}
     />
   );
 };

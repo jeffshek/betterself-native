@@ -113,6 +113,34 @@ export const createSupplementComposition = async postParams => {
   });
 };
 
+export const updateSupplementComposition = async postParams => {
+  const token = await AsyncStorage.getItem("token");
+  const jsonHeaders = postAuthorizationHeader(token);
+  const params = {
+    method: "PUT",
+    headers: jsonHeaders,
+    body: JSON.stringify(postParams)
+  };
+  const url = HOME_URL + SUPPLEMENT_STACK_COMPOSITIONS_RESOURCE_URL;
+  return fetch(url, params).then(responseData => {
+    return responseData;
+  });
+};
+
+export const deleteSupplementComposition = async postParams => {
+  const token = await AsyncStorage.getItem("token");
+  const jsonHeaders = postAuthorizationHeader(token);
+  const params = {
+    method: "DELETE",
+    headers: jsonHeaders,
+    body: JSON.stringify(postParams)
+  };
+  const url = HOME_URL + SUPPLEMENT_STACK_COMPOSITIONS_RESOURCE_URL;
+  return fetch(url, params).then(responseData => {
+    return responseData;
+  });
+};
+
 export const getSupplementStacks = async () => {
   const token = await AsyncStorage.getItem("token");
   const json_headers = getAuthorizationHeader(token);

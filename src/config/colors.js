@@ -14,5 +14,8 @@ export default {
   background: "#193441",
   backgroundColorComplimentary: "#788E99",
   alternative: "white",
-  white: "white"
+  white: "white",
+  delete: "red",
+  approve: "#4EA3CC",
+  error: "red"
 };

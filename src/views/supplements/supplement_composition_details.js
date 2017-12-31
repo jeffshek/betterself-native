@@ -1,21 +1,27 @@
-import Expo from "expo";
 import React, { Component } from "react";
-import { StyleSheet, View, Button, ScrollView } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import colors from "HSColors";
 import t from "tcomb-form-native";
-import { createSupplement } from "../../services/api/api";
-import { SupplementsAndStacksSelectionView } from "./selection";
+import {
+  deleteSupplementComposition,
+  updateSupplementComposition
+} from "../../services/api/api";
 import { FONT_SIZE, FONT_WEIGHT } from "../../config/forms";
 import {
   TitleWithWhiteBackground,
   WhiteHeaderText
 } from "../../constants/labels";
-import { getCleanedStackLabel, LogButton } from "./constants";
+import { DeleteButton, getCleanedStackLabel, LogButton } from "./constants";
+import {
+  getUpdatedSupplementStackAndNavigate
+} from "../../services/api/navigate_utils";
+import Expo from "expo";
+import colors from "HSColors";
 
 const Form = t.form.Form;
 
 const SupplementComposition = t.struct({
-  quantity: t.String
+  quantity: t.Number
 });
 
 const formStyles = {
@@ -34,7 +40,7 @@ const formStyles = {
     },
     // the style applied when a validation error occurs
     error: {
-      color: "red",
+      color: colors.error,
       fontSize: FONT_SIZE,
       marginBottom: 7,
       fontWeight: FONT_WEIGHT
@@ -54,17 +60,29 @@ const options = {
 export class SupplementCompositionDetailView extends Component {
   static viewName = "SupplementCompositionDetailView";
 
+  handleRemove = () => {
+    const { navigation } = this.props;
+    const { stack, composition } = navigation.state.params;
+    const params = { uuid: composition.uuid };
+
+    deleteSupplementComposition(params).then(responseData => {
+      getUpdatedSupplementStackAndNavigate(stack, navigation);
+    });
+  };
+
   handleSubmit = () => {
     const { navigation } = this.props;
+    const { stack, composition } = navigation.state.params;
     const value = this._form.getValue();
-    const name = value["name"];
+    const quantity = value["quantity"];
 
     let parameters = {
-      name: name
+      quantity: quantity,
+      uuid: composition.uuid
     };
 
-    createSupplement(parameters).then(responseData => {
-      navigation.navigate(SupplementsAndStacksSelectionView.viewName);
+    updateSupplementComposition(parameters).then(responseData => {
+      getUpdatedSupplementStackAndNavigate(stack, navigation);
     });
   };
 
@@ -73,6 +91,7 @@ export class SupplementCompositionDetailView extends Component {
     const { stack, composition } = navigation.state.params;
     const stackLabel = getCleanedStackLabel(stack.name);
     const updateLabel = `Update ${composition.supplement.name} Details`;
+    const previousQuantity = { quantity: composition.quantity };
 
     return (
       <ScrollView style={styles.container}>
@@ -87,9 +106,10 @@ export class SupplementCompositionDetailView extends Component {
             ref={c => this._form = c}
             type={SupplementComposition}
             options={options}
+            value={previousQuantity}
           />
           <View style={styles.groupedButtons}>
-            <LogButton title={"Delete"} onPress={this.handleSubmit} />
+            <DeleteButton title={"Remove"} onPress={this.handleRemove} />
             <LogButton title={"Update"} onPress={this.handleSubmit} />
           </View>
         </View>
@@ -101,7 +121,8 @@ export class SupplementCompositionDetailView extends Component {
 const styles = StyleSheet.create({
   groupedButtons: {
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "space-around",
+    marginBottom: 10
   },
   container: {
     backgroundColor: colors.alternative,

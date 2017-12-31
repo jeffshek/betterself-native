@@ -82,7 +82,7 @@ const socialIconFontSize = 15;
 const styles = StyleSheet.create({
   loginStyleText: {
     marginTop: 15,
-    color: "white",
+    color: colors.white,
     textAlign: "right",
     fontFamily: fontFamilySelection(),
     fontSize: 20
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     fontSize: socialIconFontSize
   },
   socialIcon: {
-    backgroundColor: "white"
+    backgroundColor: colors.white
   },
   flexContainer: {
     marginTop: 0
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     flex: 3
   },
   heading: {
-    color: "white",
+    color: colors.white,
     marginTop: 0,
     marginLeft: 10,
     marginBottom: 20,

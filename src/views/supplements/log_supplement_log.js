@@ -124,7 +124,8 @@ const styles = StyleSheet.create({
     color: colors.primary
   },
   container: {
-    justifyContent: "center",
+    flex: 1,
+    justifyContent: "flex-start",
     marginTop: 0,
     padding: 20,
     backgroundColor: colors.alternative

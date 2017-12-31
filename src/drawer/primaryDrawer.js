@@ -32,7 +32,7 @@ export const PrimaryDrawer = DrawerNavigator(
   {
     initialRouteName: SupplementsTabNavigator.viewName,
     contentOptions: {
-      activeTintColor: "white",
+      activeTintColor: colors.white,
       activeBackgroundColor: "transparent",
       inactiveTintColor: colors.primary,
       inactiveBackgroundColor: "transparent",

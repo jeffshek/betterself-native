@@ -49,7 +49,7 @@ export class SupplementsAndStacksSelectionView extends Component {
   }
 
   renderSupplementStacks() {
-    if (!this.state.supplementStacks) {
+    if (!this.state.supplementStacks.length) {
       return <View />;
     }
 
@@ -85,7 +85,7 @@ export class SupplementsAndStacksSelectionView extends Component {
   }
 
   renderSupplements() {
-    if (!this.state.supplements) {
+    if (!this.state.supplements.length) {
       return <View />;
     }
 

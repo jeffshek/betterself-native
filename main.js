@@ -26,7 +26,8 @@ const InitialStackNavigator = StackNavigator(
   {
     headerMode: "none",
     // TODO - Swap this back out to LandingView when done
-    initialRouteName: PrimaryDrawer.viewName
+    //initialRouteName: PrimaryDrawer.viewName
+    initalRouteName: LandingView.viewName
   }
 );
 

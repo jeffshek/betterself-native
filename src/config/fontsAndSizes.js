@@ -1,14 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { StyleSheet } from "react-native";
-import { List, ListItem, Text } from "react-native-elements";
-
-export const TitleText = ({ label }) => {
-  return (
-    <Text h3 style={styles.title}>
-      {label}
-    </Text>
-  );
-};
+import { Text } from "react-native-elements";
 
 export const HeaderText = ({ label }) => {
   return (

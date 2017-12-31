@@ -24,6 +24,7 @@ import {
 import {
   CreateSupplementCompositionView
 } from "../../views/supplements/create_supplement_composition";
+import { Platform, StatusBar } from "react-native";
 
 export const SelectAndLogStackNavigator = StackNavigator(
   {
@@ -77,7 +78,12 @@ export const SelectAndLogStackNavigator = StackNavigator(
     }
   },
   {
-    initialRouteName: "SupplementsAndStacksSelectionView"
+    initialRouteName: "SupplementsAndStacksSelectionView",
+    // This is a hack to fix https://github.com/react-navigation/react-navigation/issues/1478
+    // Android has mismatching currentHeights (but happens in new iPhone too)
+    cardStyle: {
+      paddingTop: Platform.OS === "ios" ? 0 : StatusBar.currentHeight
+    }
   }
 );
 

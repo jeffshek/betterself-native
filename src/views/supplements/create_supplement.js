@@ -91,11 +91,11 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 0,
     padding: 20,
-    backgroundColor: "white",
+    backgroundColor: colors.alternative,
     flex: 1
   },
   form: {
-    backgroundColor: "white"
+    backgroundColor: colors.alternative
   },
   buttonStyle: {
     marginTop: 20,

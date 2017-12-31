@@ -18,11 +18,16 @@ import {
 import { List, ListItem, Text } from "react-native-elements";
 
 import colors from "HSColors";
-import { AddSupplementListItem, getCleanedStackLabel } from "./constants";
+import {
+  AddSupplementListItem,
+  getCleanedStackLabel,
+  ListItemStyles
+} from "./constants";
 import { INDIVIDUAL_VITAMIN } from "../../../assets/icons/constants";
 import { SupplementsAndStacksSelectionView } from "./selection";
 import { LogSupplementStackView } from "./log_supplement_stack";
 import { CreateSupplementView } from "./create_supplement";
+import { HeaderText } from "../../config/fontsAndSizes";
 
 export class CreateSupplementCompositionView extends Component {
   static viewName = "CreateSupplementCompositionView";
@@ -72,14 +77,13 @@ export class CreateSupplementCompositionView extends Component {
     });
   };
 
-  renderIfNoSupplements = () => {
+  renderAddNewSupplement = () => {
     const { navigation } = this.props;
 
-    // if no supplements are listed on the stack, maybe let's give them the ability to add a new supplement
     return (
       <AddSupplementListItem
-        title={"Create New Supplement!"}
-        subtitle={"No Supplements Exist"}
+        title={"Create A Supplement"}
+        subtitle={"No Additional Supplements Exist"}
         onPress={() => navigation.navigate(CreateSupplementView.viewName)}
       />
     );
@@ -90,21 +94,21 @@ export class CreateSupplementCompositionView extends Component {
     const stackLabel = getCleanedStackLabel(navigation.state.params.name);
 
     return (
-      <ScrollView>
+      <ScrollView style={styles.flexOne}>
         <View style={styles.container}>
           <Text h3 style={styles.title}>
             {stackLabel}
           </Text>
         </View>
         <View style={styles.headerContainer}>
-          <Text style={styles.headerText}>Add Supplement to This Stack</Text>
+          <HeaderText label={"Add Supplement to This Stack"} />
         </View>
         <List>
           {this.state.supplements.map((supplement, i) => (
             <ListItem
               key={i}
               avatar={INDIVIDUAL_VITAMIN}
-              avatarStyle={styles.avatarStyle}
+              avatarStyle={ListItemStyles.avatarStyle}
               onPress={() => {
                 this.handleSubmit(supplement);
               }}
@@ -112,7 +116,7 @@ export class CreateSupplementCompositionView extends Component {
               subtitle={supplement.subtitle}
             />
           ))}
-          {this.renderIfNoSupplements()}
+          {this.renderAddNewSupplement()}
         </List>
       </ScrollView>
     );
@@ -120,10 +124,12 @@ export class CreateSupplementCompositionView extends Component {
 }
 
 const styles = StyleSheet.create({
+  flexOne: {
+    backgroundColor: colors.alternative
+  },
   container: {
     justifyContent: "center",
-    marginTop: 0,
-    backgroundColor: colors.alternative
+    marginTop: 0
   },
   title: {
     textAlign: "center",
@@ -144,8 +150,5 @@ const styles = StyleSheet.create({
     color: "white",
     marginTop: 0,
     fontSize: 15
-  },
-  avatarStyle: {
-    backgroundColor: colors.alternative
   }
 });

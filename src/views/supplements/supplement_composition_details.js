@@ -76,7 +76,7 @@ export class SupplementCompositionDetailView extends Component {
 
     return (
       <ScrollView style={styles.container}>
-        <View style={styles.container}>
+        <View>
           <TitleWithWhiteBackground label={stackLabel} />
         </View>
         <View style={styles.headerContainerWithBackground}>

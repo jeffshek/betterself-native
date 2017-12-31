@@ -20,8 +20,16 @@ import {
   AddNewPill,
   AddSupplementListItem,
   getCleanedStackLabel,
+  ListItemStyles,
   LogButton
 } from "./constants";
+import {
+  SupplementCompositionDetailView
+} from "./supplement_composition_details";
+import {
+  TitleWithWhiteBackground,
+  WhiteHeaderText
+} from "../../constants/labels";
 
 const Form = t.form.Form;
 
@@ -98,20 +106,18 @@ export class LogSupplementStackView extends Component {
 
   render() {
     const { navigation } = this.props;
+    const stack = navigation.state.params;
     const stackLabel = getCleanedStackLabel(navigation.state.params.name);
     const createSupplementCompositionRoute =
       CreateSupplementCompositionView.viewName;
     const stackComposition = navigation.state.params;
+    const routeName = SupplementCompositionDetailView.viewName;
 
     return (
       <ScrollView>
-        <View style={styles.container}>
-          <Text h3 style={styles.title}>
-            {stackLabel}
-          </Text>
-        </View>
-        <View style={styles.headerContainer}>
-          <Text style={styles.headerText}>Stack Compositions</Text>
+        <TitleWithWhiteBackground label={stackLabel} />
+        <View style={styles.headerContainerWithBackground}>
+          <WhiteHeaderText headerText={"Stack Compositions"} />
           <Text />
           <TouchableOpacity
             onPress={() =>
@@ -124,14 +130,18 @@ export class LogSupplementStackView extends Component {
           </TouchableOpacity>
         </View>
         <List>
-          {navigation.state.params.compositions.map((l, i) => (
+          {navigation.state.params.compositions.map((composition, i) => (
             <ListItem
               key={i}
               avatar={INDIVIDUAL_VITAMIN}
-              avatarStyle={styles.avatarStyle}
-              onPress={() => navigation.navigate(routeName, l)}
-              title={l.supplement.name}
-              subtitle={l.description}
+              avatarStyle={ListItemStyles.avatarStyle}
+              onPress={() =>
+                navigation.navigate(routeName, {
+                  composition: composition,
+                  stack: stack
+                })}
+              title={composition.supplement.name}
+              subtitle={composition.description}
             />
           ))}
           <AddSupplementListItem
@@ -154,35 +164,11 @@ export class LogSupplementStackView extends Component {
 }
 
 const styles = StyleSheet.create({
-  heading: {
-    color: colors.alternative,
-    marginTop: 5,
-    fontSize: 30
-  },
-  title: {
-    textAlign: "center",
-    fontSize: 30,
-    padding: 10,
-    color: colors.background
-  },
-  container: {
-    justifyContent: "center",
-    marginTop: 0,
-    backgroundColor: colors.alternative
-  },
-  headerContainer: {
+  headerContainerWithBackground: {
     padding: 10,
     backgroundColor: colors.background,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center"
-  },
-  headerText: {
-    color: "white",
-    marginTop: 0,
-    fontSize: 20
-  },
-  avatarStyle: {
-    backgroundColor: colors.alternative
   }
 });

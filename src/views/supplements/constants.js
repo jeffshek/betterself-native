@@ -5,7 +5,7 @@ import {
   MEDICINE_IMAGE
 } from "../../../assets/icons/constants";
 import colors from "HSColors";
-import { Text, List, ListItem } from "react-native-elements";
+import { ListItem } from "react-native-elements";
 import Button from "react-native-elements/src/buttons/Button";
 
 export const AddNewPill = () => {

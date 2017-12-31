@@ -25,6 +25,9 @@ import {
   CreateSupplementCompositionView
 } from "../../views/supplements/create_supplement_composition";
 import { Platform, StatusBar } from "react-native";
+import {
+  SupplementCompositionDetailView
+} from "../../views/supplements/supplement_composition_details";
 
 export const SelectAndLogStackNavigator = StackNavigator(
   {
@@ -72,6 +75,13 @@ export const SelectAndLogStackNavigator = StackNavigator(
     [CreateSupplementCompositionView.viewName]: {
       screen: CreateSupplementCompositionView,
       path: `${CreateSupplementCompositionView.viewName}`,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <GoBackIconNavigation navigation={navigation} />
+      })
+    },
+    [SupplementCompositionDetailView.viewName]: {
+      screen: SupplementCompositionDetailView,
+      path: `${SupplementCompositionDetailView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         headerLeft: <GoBackIconNavigation navigation={navigation} />
       })

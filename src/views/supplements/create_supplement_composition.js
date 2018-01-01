@@ -68,7 +68,6 @@ export class CreateSupplementCompositionView extends Component {
     return (
       <AddSupplementListItem
         title={"Create A Supplement"}
-        subtitle={"No Additional Supplements Exist"}
         onPress={() => navigation.navigate(CreateSupplementView.viewName)}
       />
     );

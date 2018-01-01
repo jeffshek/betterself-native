@@ -59,10 +59,10 @@ export class LoginView extends Component {
     //const password = value["password"];
 
     // Clear all previous tokens first
-    // await AsyncStorage.clear()
+    //await AsyncStorage.clear()
 
     // Hardcode this for much faster testing
-    const username = "potato";
+    const username = "bacon";
     const password = "baconbacon";
 
     login(username, password).then(async e => {

@@ -20,8 +20,16 @@ import {
 import { LogSupplementStackView } from "./log_supplement_stack";
 import { CreateSupplementView } from "./create_supplement";
 import { CreateSupplementStackView } from "./create_supplement_stack";
-import { AddNewPill, addSupplementStyles, ListItemStyles } from "./constants";
+import {
+  AddNewPill,
+  AddSupplementListItem,
+  addSupplementStyles,
+  ListItemStyles
+} from "./constants";
 import { HeaderText } from "../../config/fontsAndSizes";
+import {
+  CreateSupplementCompositionView
+} from "./create_supplement_composition";
 
 export class SupplementsAndStacksSelectionView extends Component {
   static viewName = "SupplementsAndStacksSelectionView";
@@ -48,14 +56,37 @@ export class SupplementsAndStacksSelectionView extends Component {
     });
   }
 
-  renderSupplementStacks() {
-    if (!this.state.supplementStacks.length) {
-      return <View />;
-    }
+  renderSupplementStacksHeader() {
+    return (
+      <ScrollView>
+        <View style={styles.headerContainer}>
+          <Text />
+          <HeaderText label={"Supplement Stacks"} />
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate(CreateSupplementStackView.viewName)}
+          >
+            <AddNewPill />
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    );
+  }
 
+  renderSupplementStacks() {
     const { navigation } = this.props;
-    const routeName = LogSupplementStackView.viewName;
-    const addSupplementStackRoute = CreateSupplementStackView.viewName;
+
+    if (!this.state.supplementStacks.length) {
+      return (
+        <List>
+          <AddSupplementListItem
+            title={"Include Additional Supplement"}
+            onPress={() =>
+              navigation.navigate(CreateSupplementStackView.viewName)}
+          />
+        </List>
+      );
+    }
 
     return (
       <ScrollView>
@@ -63,20 +94,22 @@ export class SupplementsAndStacksSelectionView extends Component {
           <Text />
           <HeaderText label={"Supplement Stacks"} />
           <TouchableOpacity
-            onPress={() => navigation.navigate(addSupplementStackRoute)}
+            onPress={() =>
+              navigation.navigate(CreateSupplementStackView.viewName)}
           >
             <AddNewPill />
           </TouchableOpacity>
         </View>
         <List>
-          {this.state.supplementStacks.map((l, i) => (
+          {this.state.supplementStacks.map((stack, i) => (
             <ListItem
-              key={i}
+              key={stack}
               avatar={STACKS_IMAGE}
               avatarStyle={ListItemStyles.avatarStyle}
-              title={l.name}
-              subtitle={l.description}
-              onPress={() => navigation.navigate(routeName, l)}
+              title={stack.name}
+              subtitle={stack.description}
+              onPress={() =>
+                navigation.navigate(LogSupplementStackView.viewName, stack)}
             />
           ))}
         </List>
@@ -105,14 +138,14 @@ export class SupplementsAndStacksSelectionView extends Component {
           </TouchableOpacity>
         </View>
         <List>
-          {this.state.supplements.map((l, i) => (
+          {this.state.supplements.map((supplement, i) => (
             <ListItem
               key={i}
               avatar={INDIVIDUAL_VITAMIN}
               avatarStyle={ListItemStyles.avatarStyle}
-              onPress={() => navigation.navigate(routeName, l)}
-              title={l.name}
-              subtitle={l.subtitle}
+              onPress={() => navigation.navigate(routeName, supplement)}
+              title={supplement.name}
+              subtitle={supplement.subtitle}
             />
           ))}
         </List>
@@ -123,6 +156,7 @@ export class SupplementsAndStacksSelectionView extends Component {
   render() {
     return (
       <ScrollView>
+        {this.renderSupplementStacksHeader()}
         {this.renderSupplementStacks()}
         {this.renderSupplements()}
       </ScrollView>

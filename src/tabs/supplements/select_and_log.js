@@ -36,7 +36,6 @@ export const SelectAndLogStackNavigator = StackNavigator(
       path: `/${SupplementsAndStacksSelectionView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Log It!",
-        // TODO - Change this to back arrow instead of hamburger
         headerLeft: <HamburgerIconNavigation navigation={navigation} />
       })
     },
@@ -52,7 +51,7 @@ export const SelectAndLogStackNavigator = StackNavigator(
       path: `${LogSupplementStackView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Log",
-        headerLeft: <GoBackIconNavigation navigation={navigation} />
+        headerLeft: <HamburgerIconNavigation navigation={navigation} />
       })
     },
     [CreateSupplementView.viewName]: {

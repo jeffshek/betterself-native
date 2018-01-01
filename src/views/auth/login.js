@@ -106,12 +106,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 0,
     padding: 20,
-    backgroundColor: "white",
+    backgroundColor: colors.white,
     flex: 1
   },
   form: {
     justifyContent: "center",
-    backgroundColor: "white"
+    backgroundColor: colors.white
   },
   heading: {
     color: colors.primary,

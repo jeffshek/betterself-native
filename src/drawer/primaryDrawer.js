@@ -5,6 +5,10 @@ import { SupplementsTabNavigator } from "./supplements";
 import Expo from "expo";
 import colors from "HSColors";
 import { LogoutView } from "../views/auth/logout";
+import { SelectAndLogStackNavigator } from "../tabs/supplements/select_and_log";
+import {
+  SupplementsAndStacksSelectionView
+} from "../views/supplements/selection";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 

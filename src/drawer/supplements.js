@@ -11,6 +11,9 @@ import { SelectAndLogStackNavigator } from "../tabs/supplements/select_and_log";
 import { SupplementsHistoryTab } from "../tabs/supplements/history";
 import { SupplementsRemindersTab } from "../tabs/supplements/reminders";
 import colors from "HSColors";
+import {
+  SupplementsAndStacksSelectionView
+} from "../views/supplements/selection";
 
 const label = "Supps. & Meds.";
 

@@ -3,7 +3,8 @@ import React from "react";
 import { StackNavigator } from "react-navigation";
 import {
   GoBackIconNavigation,
-  HamburgerIconNavigation
+  HamburgerIconNavigation,
+  HomeIconNavigation
 } from "../../constants/icons";
 import { SupplementsLogLabel } from "../../constants/labels";
 import {
@@ -35,15 +36,16 @@ export const SelectAndLogStackNavigator = StackNavigator(
       screen: SupplementsAndStacksSelectionView,
       path: `/${SupplementsAndStacksSelectionView.viewName}`,
       navigationOptions: ({ navigation }) => ({
-        title: "Log It!",
-        headerLeft: <HamburgerIconNavigation navigation={navigation} />
+        title: "Log",
+        headerRight: <HamburgerIconNavigation navigation={navigation} />
       })
     },
     [LogSupplementLogView.viewName]: {
       screen: LogSupplementLogView,
       path: `${LogSupplementLogView.viewName}`,
       navigationOptions: ({ navigation }) => ({
-        headerLeft: <GoBackIconNavigation navigation={navigation} />
+        headerLeft: <GoBackIconNavigation navigation={navigation} />,
+        headerRight: <HamburgerIconNavigation navigation={navigation} />
       })
     },
     [LogSupplementStackView.viewName]: {
@@ -51,7 +53,8 @@ export const SelectAndLogStackNavigator = StackNavigator(
       path: `${LogSupplementStackView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Log",
-        headerLeft: <HamburgerIconNavigation navigation={navigation} />
+        headerLeft: <GoBackIconNavigation navigation={navigation} />,
+        headerRight: <HamburgerIconNavigation navigation={navigation} />
       })
     },
     [CreateSupplementView.viewName]: {
@@ -59,7 +62,8 @@ export const SelectAndLogStackNavigator = StackNavigator(
       path: `${CreateSupplementView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Create",
-        headerLeft: <GoBackIconNavigation navigation={navigation} />
+        headerLeft: <GoBackIconNavigation navigation={navigation} />,
+        headerRight: <HamburgerIconNavigation navigation={navigation} />
       })
     },
     [CreateSupplementStackView.viewName]: {
@@ -67,26 +71,29 @@ export const SelectAndLogStackNavigator = StackNavigator(
       path: `${CreateSupplementStackView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Create",
-        headerLeft: <GoBackIconNavigation navigation={navigation} />
+        headerLeft: <GoBackIconNavigation navigation={navigation} />,
+        headerRight: <HamburgerIconNavigation navigation={navigation} />
       })
     },
     [CreateSupplementCompositionView.viewName]: {
       screen: CreateSupplementCompositionView,
       path: `${CreateSupplementCompositionView.viewName}`,
       navigationOptions: ({ navigation }) => ({
-        headerLeft: <GoBackIconNavigation navigation={navigation} />
+        headerLeft: <GoBackIconNavigation navigation={navigation} />,
+        headerRight: <HamburgerIconNavigation navigation={navigation} />
       })
     },
     [SupplementCompositionDetailView.viewName]: {
       screen: SupplementCompositionDetailView,
       path: `${SupplementCompositionDetailView.viewName}`,
       navigationOptions: ({ navigation }) => ({
-        headerLeft: <GoBackIconNavigation navigation={navigation} />
+        headerLeft: <GoBackIconNavigation navigation={navigation} />,
+        headerRight: <HamburgerIconNavigation navigation={navigation} />
       })
     }
   },
   {
-    initialRouteName: "SupplementsAndStacksSelectionView",
+    initialRouteName: SupplementsAndStacksSelectionView.viewName,
     // This is a hack to fix https://github.com/react-navigation/react-navigation/issues/1478
     // Android has mismatching currentHeights (but happens in new iPhone too)
     cardStyle: {

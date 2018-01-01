@@ -72,7 +72,18 @@ export const HamburgerIconNavigation = ({ navigation }) => {
       name="menu"
       size={HamburgerIconSize}
       type="entypo"
-      iconStyle={{ paddingLeft: 15 }}
+      iconStyle={IconStyles.navigationIconStyle}
+      onPress={() => navigation.navigate("DrawerOpen")}
+    />
+  );
+};
+
+export const HomeIconNavigation = ({ navigation }) => {
+  return (
+    <Icon
+      name="home"
+      size={HamburgerIconSize}
+      iconStyle={IconStyles.navigationIconStyle}
       onPress={() => navigation.navigate("DrawerOpen")}
     />
   );
@@ -83,8 +94,15 @@ export const GoBackIconNavigation = ({ navigation }) => {
     <Icon
       name="chevron-left"
       size={HamburgerIconSize}
-      iconStyle={{ paddingLeft: 15 }}
+      iconStyle={IconStyles.navigationIconStyle}
       onPress={() => navigation.goBack()}
     />
   );
 };
+
+const IconStyles = StyleSheet.create({
+  navigationIconStyle: {
+    paddingLeft: 15,
+    paddingRight: 15
+  }
+});

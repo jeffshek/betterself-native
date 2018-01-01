@@ -100,7 +100,6 @@ export class LogSupplementStackView extends Component {
   _onRefresh() {
     this.setState({ refreshing: true });
     refreshStackDetails(this.state.stack).then(responseData => {
-      console.log(responseData);
       this.setState({
         refreshing: false,
         stack: responseData

@@ -24,6 +24,12 @@ const alertUnauthenticated = response => {
   }
 };
 
+const genericNetworkErrorAlert = error => {
+  alert(
+    "Oh no! Issue with Internet Connectivity! Sometimes, I take my phone and raise it really high for a better signal because my provider is so bad. In the meanwhile, is there a wifi hot-spot you can connect to?"
+  );
+};
+
 export const login = (username, password) => {
   let credentials = {
     username: username,
@@ -44,9 +50,7 @@ export const login = (username, password) => {
         return await AsyncStorage.setItem("token", responseData["key"]);
       }
     })
-    .catch(error => {
-      alert("Network Issue Encountered" + error);
-    });
+    .catch(genericNetworkErrorAlert);
 };
 
 export const signupAPI = signUpParams => {
@@ -78,9 +82,7 @@ export const getSupplements = async () => {
       alertUnauthenticated(responseData);
       return responseData.json();
     })
-    .catch(error => {
-      alert("Network Issue Encountered" + error);
-    });
+    .catch(genericNetworkErrorAlert);
 };
 
 export const createSupplement = async postParams => {
@@ -92,14 +94,15 @@ export const createSupplement = async postParams => {
     body: JSON.stringify(postParams)
   };
   const url = HOME_URL + SUPPLEMENTS_RESOURCE_URL;
-  return fetch(url, params).then(responseData => {
-    alertUnauthenticated(responseData);
-    return responseData.json();
-  });
+  return fetch(url, params)
+    .then(responseData => {
+      alertUnauthenticated(responseData);
+      return responseData.json();
+    })
+    .catch(genericNetworkErrorAlert);
 };
 
 export const deleteSupplement = async postParams => {
-  console.log("got called?");
   const token = await AsyncStorage.getItem("token");
   const jsonHeaders = postAuthorizationHeader(token);
   const params = {
@@ -108,9 +111,11 @@ export const deleteSupplement = async postParams => {
     body: JSON.stringify(postParams)
   };
   const url = HOME_URL + SUPPLEMENTS_RESOURCE_URL;
-  return fetch(url, params).then(responseData => {
-    return responseData;
-  });
+  return fetch(url, params)
+    .then(responseData => {
+      return responseData;
+    })
+    .catch(genericNetworkErrorAlert);
 };
 
 export const createSupplementStack = async postParams => {
@@ -122,10 +127,12 @@ export const createSupplementStack = async postParams => {
     body: JSON.stringify(postParams)
   };
   const url = HOME_URL + SUPPLEMENT_STACKS_RESOURCE_URL;
-  return fetch(url, params).then(responseData => {
-    alertUnauthenticated(responseData);
-    return responseData.json();
-  });
+  return fetch(url, params)
+    .then(responseData => {
+      alertUnauthenticated(responseData);
+      return responseData.json();
+    })
+    .catch(genericNetworkErrorAlert);
 };
 
 export const createSupplementComposition = async postParams => {
@@ -137,10 +144,12 @@ export const createSupplementComposition = async postParams => {
     body: JSON.stringify(postParams)
   };
   const url = HOME_URL + SUPPLEMENT_STACK_COMPOSITIONS_RESOURCE_URL;
-  return fetch(url, params).then(responseData => {
-    alertUnauthenticated(responseData);
-    return responseData.json();
-  });
+  return fetch(url, params)
+    .then(responseData => {
+      alertUnauthenticated(responseData);
+      return responseData.json();
+    })
+    .catch(genericNetworkErrorAlert);
 };
 
 export const updateSupplementComposition = async postParams => {
@@ -152,10 +161,12 @@ export const updateSupplementComposition = async postParams => {
     body: JSON.stringify(postParams)
   };
   const url = HOME_URL + SUPPLEMENT_STACK_COMPOSITIONS_RESOURCE_URL;
-  return fetch(url, params).then(responseData => {
-    alertUnauthenticated(responseData);
-    return responseData;
-  });
+  return fetch(url, params)
+    .then(responseData => {
+      alertUnauthenticated(responseData);
+      return responseData;
+    })
+    .catch(genericNetworkErrorAlert);
 };
 
 export const deleteSupplementComposition = async postParams => {
@@ -167,10 +178,12 @@ export const deleteSupplementComposition = async postParams => {
     body: JSON.stringify(postParams)
   };
   const url = HOME_URL + SUPPLEMENT_STACK_COMPOSITIONS_RESOURCE_URL;
-  return fetch(url, params).then(responseData => {
-    alertUnauthenticated(responseData);
-    return responseData;
-  });
+  return fetch(url, params)
+    .then(responseData => {
+      alertUnauthenticated(responseData);
+      return responseData;
+    })
+    .catch(genericNetworkErrorAlert);
 };
 
 export const getSupplementStacks = async () => {
@@ -181,10 +194,12 @@ export const getSupplementStacks = async () => {
     headers: json_headers
   };
   const url = HOME_URL + SUPPLEMENT_STACKS_RESOURCE_URL;
-  return fetch(url, post_params).then(responseData => {
-    alertUnauthenticated(responseData);
-    return responseData.json();
-  });
+  return fetch(url, post_params)
+    .then(responseData => {
+      alertUnauthenticated(responseData);
+      return responseData.json();
+    })
+    .catch(genericNetworkErrorAlert);
 };
 
 export const getSupplementStacksByFilters = async filterDetails => {
@@ -204,10 +219,12 @@ export const getSupplementStacksByFilters = async filterDetails => {
 
   const urlWithFilter = url + filterParamsString;
 
-  return fetch(urlWithFilter, postParams).then(responseData => {
-    alertUnauthenticated(responseData);
-    return responseData.json();
-  });
+  return fetch(urlWithFilter, postParams)
+    .then(responseData => {
+      alertUnauthenticated(responseData);
+      return responseData.json();
+    })
+    .catch(genericNetworkErrorAlert);
 };
 
 export const postSupplementLog = async postParams => {
@@ -219,10 +236,12 @@ export const postSupplementLog = async postParams => {
     body: JSON.stringify(postParams)
   };
   const url = HOME_URL + SUPPLEMENT_EVENTS_RESOURCE_URL;
-  return fetch(url, params).then(responseData => {
-    alertUnauthenticated(responseData);
-    return responseData.json();
-  });
+  return fetch(url, params)
+    .then(responseData => {
+      alertUnauthenticated(responseData);
+      return responseData.json();
+    })
+    .catch(genericNetworkErrorAlert);
 };
 
 export const postSupplementStackLog = async postParams => {
@@ -234,8 +253,10 @@ export const postSupplementStackLog = async postParams => {
     body: JSON.stringify(postParams)
   };
   const url = HOME_URL + SUPPLEMENT_STACKS_RECORD_URL;
-  return fetch(url, params).then(responseData => {
-    alertUnauthenticated(responseData);
-    return responseData.json();
-  });
+  return fetch(url, params)
+    .then(responseData => {
+      alertUnauthenticated(responseData);
+      return responseData.json();
+    })
+    .catch(genericNetworkErrorAlert);
 };

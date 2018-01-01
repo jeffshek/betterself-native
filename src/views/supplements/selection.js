@@ -80,7 +80,7 @@ export class SupplementsAndStacksSelectionView extends Component {
       return (
         <List>
           <AddSupplementListItem
-            title={"Include Additional Supplement"}
+            title={"Add A Stack"}
             onPress={() =>
               navigation.navigate(CreateSupplementStackView.viewName)}
           />
@@ -117,39 +117,49 @@ export class SupplementsAndStacksSelectionView extends Component {
     );
   }
 
-  renderSupplements() {
-    if (!this.state.supplements.length) {
-      return <View />;
-    }
-
+  renderSupplementsHeader() {
     const { navigation } = this.props;
-    const routeName = LogSupplementLogView.viewName;
-    const addSupplementRoute = CreateSupplementView.viewName;
 
     return (
-      <ScrollView>
-        <View style={styles.headerContainer}>
-          <Text />
-          <HeaderText label={"Supplements & Medication"} />
-          <TouchableOpacity
-            onPress={() => navigation.navigate(addSupplementRoute)}
-          >
-            <AddNewPill />
-          </TouchableOpacity>
-        </View>
+      <View style={styles.headerContainer}>
+        <Text />
+        <HeaderText label={"Supplements & Medication"} />
+        <TouchableOpacity
+          onPress={() => navigation.navigate(CreateSupplementView.viewName)}
+        >
+          <AddNewPill />
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  renderSupplements() {
+    const { navigation } = this.props;
+    if (!this.state.supplements.length) {
+      return (
         <List>
-          {this.state.supplements.map((supplement, i) => (
-            <ListItem
-              key={i}
-              avatar={INDIVIDUAL_VITAMIN}
-              avatarStyle={ListItemStyles.avatarStyle}
-              onPress={() => navigation.navigate(routeName, supplement)}
-              title={supplement.name}
-              subtitle={supplement.subtitle}
-            />
-          ))}
+          <AddSupplementListItem
+            title={"Add A Supplement"}
+            onPress={() => navigation.navigate(CreateSupplementView.viewName)}
+          />
         </List>
-      </ScrollView>
+      );
+    }
+
+    return (
+      <List>
+        {this.state.supplements.map((supplement, i) => (
+          <ListItem
+            key={i}
+            avatar={INDIVIDUAL_VITAMIN}
+            avatarStyle={ListItemStyles.avatarStyle}
+            onPress={() =>
+              navigation.navigate(LogSupplementLogView.viewName, supplement)}
+            title={supplement.name}
+            subtitle={supplement.subtitle}
+          />
+        ))}
+      </List>
     );
   }
 
@@ -158,6 +168,7 @@ export class SupplementsAndStacksSelectionView extends Component {
       <ScrollView>
         {this.renderSupplementStacksHeader()}
         {this.renderSupplementStacks()}
+        {this.renderSupplementsHeader()}
         {this.renderSupplements()}
       </ScrollView>
     );

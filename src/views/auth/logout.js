@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { AsyncStorage, View } from "react-native";
-import { SupplementsIcon } from "../../constants/icons";
+import { LogoutIcon, SupplementsIcon } from "../../constants/icons";
 import { LoginView } from "./login";
 import Expo from "expo";
 
@@ -10,7 +10,7 @@ export class LogoutView extends Component {
   static navigationOptions = {
     label: "Logout",
     drawerLabel: "Logout",
-    drawerIcon: ({ tintColor }) => <SupplementsIcon tintColor={tintColor} />
+    drawerIcon: ({ tintColor }) => <LogoutIcon tintColor={tintColor} />
   };
 
   componentDidMount() {

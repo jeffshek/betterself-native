@@ -1,11 +1,11 @@
 import { Icon } from "react-native-elements";
 import React from "react";
 import { PILL_IMAGE } from "../../assets/icons/constants";
-import { AppRegistry, View, Image, StyleSheet } from "react-native";
+import { Image, StyleSheet } from "react-native";
+import colors from "HSColors";
 
 const IconSize = 25;
 export const HamburgerIconSize = 40;
-export const SelectedTintColor = "#e91e63";
 
 export const LogCheckboxIcon = ({ tintColor }) => {
   return (
@@ -37,7 +37,7 @@ export const HomeIcon = ({ tintColor }) => {
   return (
     <Icon
       name="home"
-      size={25}
+      size={IconSize}
       style={{
         width: 20,
         height: 40,
@@ -55,13 +55,21 @@ export const SupplementsIcon = ({ tintColor }) => {
     <Image
       source={PILL_IMAGE}
       style={{
-        width: 26,
-        height: 26,
-        alignItems: "center",
-        justifyContent: "center"
+        width: IconSize,
+        height: IconSize
       }}
-      //type="material-community"
       color={tintColor}
+    />
+  );
+};
+
+export const LogoutIcon = ({ tintColor }) => {
+  return (
+    <Icon
+      name="lock"
+      size={IconSize}
+      iconStyle={IconStyles.drawerIcon}
+      onPress={() => navigation.navigate("DrawerOpen")}
     />
   );
 };
@@ -104,5 +112,8 @@ const IconStyles = StyleSheet.create({
   navigationIconStyle: {
     paddingLeft: 15,
     paddingRight: 15
+  },
+  drawerIcon: {
+    color: colors.alternative
   }
 });

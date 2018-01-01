@@ -2,13 +2,9 @@ import React from "react";
 import { Dimensions, Image, View } from "react-native";
 import { DrawerItems, DrawerNavigator } from "react-navigation";
 import { SupplementsTabNavigator } from "./supplements";
-import Expo from "expo";
 import colors from "HSColors";
 import { LogoutView } from "../views/auth/logout";
-import { SelectAndLogStackNavigator } from "../tabs/supplements/select_and_log";
-import {
-  SupplementsAndStacksSelectionView
-} from "../views/supplements/selection";
+import Expo from "expo";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 

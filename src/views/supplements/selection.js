@@ -94,7 +94,7 @@ export class SupplementsAndStacksSelectionView extends Component {
       <List>
         {this.state.supplementStacks.map((stack, i) => (
           <ListItem
-            key={stack}
+            key={i}
             avatar={STACKS_IMAGE}
             avatarStyle={ListItemStyles.avatarStyle}
             title={stack.name}

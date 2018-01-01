@@ -37,6 +37,7 @@ export const getCleanedStackLabel = stackName => {
 export const AddSupplementListItem = ({ onPress, title, subtitle }) => {
   return (
     <ListItem
+      key={title}
       avatar={MEDICINE_IMAGE}
       title={title}
       subtitle={subtitle}

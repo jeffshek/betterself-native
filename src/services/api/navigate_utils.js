@@ -4,6 +4,14 @@ import {
   LogSupplementStackView
 } from "../../views/supplements/log_supplement_stack";
 
+export const refreshStackDetails = stack => {
+  const filterParams = { uuid: stack.uuid };
+  return getSupplementStacksByFilters(filterParams).then(responseData => {
+    const updatedStack = responseData[0];
+    return updatedStack;
+  });
+};
+
 export const getUpdatedSupplementStackAndNavigate = (stack, navigation) => {
   // after updating compositions, we want to re-query the stack and redirect back to the log page
   const filterParams = { uuid: stack.uuid };

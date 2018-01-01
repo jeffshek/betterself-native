@@ -1,6 +1,12 @@
 import Expo from "expo";
 import React, { Component } from "react";
-import { StyleSheet, View, ScrollView, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  TouchableOpacity,
+  RefreshControl
+} from "react-native";
 import { Text, List, ListItem, Button } from "react-native-elements";
 import t from "tcomb-form-native";
 import {
@@ -30,6 +36,7 @@ import {
   TitleWithWhiteBackground,
   WhiteHeaderText
 } from "../../constants/labels";
+import { refreshStackDetails } from "../../services/api/navigate_utils";
 
 const Form = t.form.Form;
 
@@ -81,8 +88,24 @@ const options = {
 export class LogSupplementStackView extends Component {
   static viewName = "LogSupplementStackView";
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      refreshing: false,
+      stack: this.props.navigation.state.params
+    };
+  }
+
+  _onRefresh() {
+    this.setState({ refreshing: true });
+    refreshStackDetails(this.state.stack).then(responseData => {
+      console.log(responseData);
+      this.setState({
+        refreshing: false,
+        stack: responseData
+      });
+    });
   }
 
   submitSupplementStackLog = () => {
@@ -114,7 +137,14 @@ export class LogSupplementStackView extends Component {
     const routeName = SupplementCompositionDetailView.viewName;
 
     return (
-      <ScrollView>
+      <ScrollView
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this._onRefresh.bind(this)}
+          />
+        }
+      >
         <TitleWithWhiteBackground label={stackLabel} />
         <View style={styles.headerContainerWithBackground}>
           <WhiteHeaderText headerText={"Stack Compositions"} />
@@ -130,7 +160,7 @@ export class LogSupplementStackView extends Component {
           </TouchableOpacity>
         </View>
         <List>
-          {navigation.state.params.compositions.map((composition, i) => (
+          {this.state.stack.compositions.map((composition, i) => (
             <ListItem
               key={i}
               avatar={INDIVIDUAL_VITAMIN}

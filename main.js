@@ -1,14 +1,15 @@
 import Expo from "expo";
 import React from "react";
-import { LandingView } from "./src/views/login/landing";
+import { LandingView } from "./src/views/auth/landing";
 import { StackNavigator } from "react-navigation";
-import { SignupView } from "./src/views/login/signup";
+import { SignupView } from "./src/views/auth/signup";
 import { View } from "react-native";
-import { LoginView } from "./src/views/login/login";
+import { LoginView } from "./src/views/auth/login";
 import { SupplementsTabNavigator } from "./src/drawer/supplements";
 import { PrimaryDrawer } from "./src/drawer/primaryDrawer";
+import { LogoutView } from "./src/views/auth/logout";
 
-const InitialStackNavigator = StackNavigator(
+export const InitialStackNavigator = StackNavigator(
   {
     [LandingView.viewName]: {
       screen: LandingView
@@ -21,6 +22,9 @@ const InitialStackNavigator = StackNavigator(
     },
     [PrimaryDrawer.viewName]: {
       screen: PrimaryDrawer
+    },
+    [LogoutView.viewName]: {
+      screen: LogoutView
     }
   },
   {

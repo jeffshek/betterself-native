@@ -4,11 +4,12 @@ import { DrawerItems, DrawerNavigator } from "react-navigation";
 import { SupplementsTabNavigator } from "./supplements";
 import Expo from "expo";
 import colors from "HSColors";
+import { LogoutView } from "../views/auth/logout";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
 const CustomDrawerContentComponent = props => (
-  <View style={{ flex: 1, backgroundColor: "#193441" }}>
+  <View style={{ flex: 1, backgroundColor: colors.primary }}>
     <View
       style={{ marginTop: 40, justifyContent: "center", alignItems: "center" }}
     >
@@ -25,8 +26,10 @@ const CustomDrawerContentComponent = props => (
 export const PrimaryDrawer = DrawerNavigator(
   {
     [SupplementsTabNavigator.viewName]: {
-      path: "/home",
       screen: SupplementsTabNavigator
+    },
+    [LogoutView.viewName]: {
+      screen: LogoutView
     }
   },
   {
@@ -34,7 +37,7 @@ export const PrimaryDrawer = DrawerNavigator(
     contentOptions: {
       activeTintColor: colors.white,
       activeBackgroundColor: "transparent",
-      inactiveTintColor: colors.primary,
+      inactiveTintColor: colors.white,
       inactiveBackgroundColor: "transparent",
       labelStyle: {
         fontSize: 15,

@@ -52,7 +52,6 @@ export class LoginView extends Component {
 
   handleSubmit = async () => {
     const { navigate } = this.props.navigation;
-
     const value = this._form.getValue();
 
     //const username = value["username"];
@@ -62,7 +61,7 @@ export class LoginView extends Component {
     //await AsyncStorage.clear()
 
     // Hardcode this for much faster testing
-    const username = "bacon";
+    const username = "potato";
     const password = "baconbacon";
 
     login(username, password).then(async e => {

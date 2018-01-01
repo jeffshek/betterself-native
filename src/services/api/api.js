@@ -1,4 +1,3 @@
-import Expo from "expo";
 import {
   getAuthorizationHeader,
   JSON_HEADERS,
@@ -6,16 +5,24 @@ import {
 } from "./constants";
 import {
   HOME_URL,
-  REST_API_LOGIN_URL,
   REST_API_MOBILE_SIGNUP_URL,
+  REST_API_LOGIN_URL,
   SUPPLEMENT_EVENTS_RESOURCE_URL,
-  SUPPLEMENT_RESOURCE_URL,
   SUPPLEMENT_STACK_COMPOSITIONS_RESOURCE_URL,
   SUPPLEMENT_STACKS_RECORD_URL,
   SUPPLEMENT_STACKS_RESOURCE_URL,
   SUPPLEMENTS_RESOURCE_URL
 } from "./urls";
-import { AsyncStorage } from "react-native";
+import { Alert, AsyncStorage } from "react-native";
+import Expo from "expo";
+
+const alertUnauthenticated = response => {
+  if (response.status === 401) {
+    Alert.alert(
+      "User has been logged out. Please close the app or logout and try again!"
+    );
+  }
+};
 
 export const login = (username, password) => {
   let credentials = {
@@ -66,9 +73,14 @@ export const getSupplements = async () => {
     headers: jsonHeaders
   };
   const url = HOME_URL + SUPPLEMENTS_RESOURCE_URL;
-  return fetch(url, params).then(responseData => {
-    return responseData.json();
-  });
+  return fetch(url, params)
+    .then(responseData => {
+      alertUnauthenticated(responseData);
+      return responseData.json();
+    })
+    .catch(error => {
+      alert("Network Issue Encountered" + error);
+    });
 };
 
 export const createSupplement = async postParams => {
@@ -81,6 +93,7 @@ export const createSupplement = async postParams => {
   };
   const url = HOME_URL + SUPPLEMENTS_RESOURCE_URL;
   return fetch(url, params).then(responseData => {
+    alertUnauthenticated(responseData);
     return responseData.json();
   });
 };
@@ -110,6 +123,7 @@ export const createSupplementStack = async postParams => {
   };
   const url = HOME_URL + SUPPLEMENT_STACKS_RESOURCE_URL;
   return fetch(url, params).then(responseData => {
+    alertUnauthenticated(responseData);
     return responseData.json();
   });
 };
@@ -124,6 +138,7 @@ export const createSupplementComposition = async postParams => {
   };
   const url = HOME_URL + SUPPLEMENT_STACK_COMPOSITIONS_RESOURCE_URL;
   return fetch(url, params).then(responseData => {
+    alertUnauthenticated(responseData);
     return responseData.json();
   });
 };
@@ -138,6 +153,7 @@ export const updateSupplementComposition = async postParams => {
   };
   const url = HOME_URL + SUPPLEMENT_STACK_COMPOSITIONS_RESOURCE_URL;
   return fetch(url, params).then(responseData => {
+    alertUnauthenticated(responseData);
     return responseData;
   });
 };
@@ -152,6 +168,7 @@ export const deleteSupplementComposition = async postParams => {
   };
   const url = HOME_URL + SUPPLEMENT_STACK_COMPOSITIONS_RESOURCE_URL;
   return fetch(url, params).then(responseData => {
+    alertUnauthenticated(responseData);
     return responseData;
   });
 };
@@ -165,6 +182,7 @@ export const getSupplementStacks = async () => {
   };
   const url = HOME_URL + SUPPLEMENT_STACKS_RESOURCE_URL;
   return fetch(url, post_params).then(responseData => {
+    alertUnauthenticated(responseData);
     return responseData.json();
   });
 };
@@ -187,6 +205,7 @@ export const getSupplementStacksByFilters = async filterDetails => {
   const urlWithFilter = url + filterParamsString;
 
   return fetch(urlWithFilter, postParams).then(responseData => {
+    alertUnauthenticated(responseData);
     return responseData.json();
   });
 };
@@ -201,6 +220,7 @@ export const postSupplementLog = async postParams => {
   };
   const url = HOME_URL + SUPPLEMENT_EVENTS_RESOURCE_URL;
   return fetch(url, params).then(responseData => {
+    alertUnauthenticated(responseData);
     return responseData.json();
   });
 };
@@ -215,6 +235,7 @@ export const postSupplementStackLog = async postParams => {
   };
   const url = HOME_URL + SUPPLEMENT_STACKS_RECORD_URL;
   return fetch(url, params).then(responseData => {
+    alertUnauthenticated(responseData);
     return responseData.json();
   });
 };

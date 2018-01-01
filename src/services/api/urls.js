@@ -31,16 +31,10 @@ export const DASHBOARD_SUPPLEMENT_OVERVIEW_ANALYTICS_URL =
   "/dashboard/analytics/supplements_overview/";
 
 // Auth
-export const DJANGO_BASE_LOGIN = "/login";
-export const LOGIN_URL = "/dashboard-login/";
-export const LOGOUT_URL = "/dashboard-logout/";
-export const SIGNUP_URL = "/dashboard-signup/";
-export const AUTHENTICATE_URL = "/dashboard/authenticate/";
-
 export const DEMO_SIGNUP_URL = "/demo-signup/";
 export const REST_API_LOGOUT_URL = "/rest-auth/logout/";
-// rest-auth-login only returns a key of the token
 export const REST_API_LOGIN_URL = "/rest-auth/login/";
+
 // Custom URL for mobile signups since they won't require session authentication
 export const REST_API_MOBILE_SIGNUP_URL = "/api/v1/user-signup-mobile/";
 // returns all of the user info

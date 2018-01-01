@@ -103,10 +103,7 @@ export class LogSupplementLogView extends Component {
           options={options}
           value={defaultValues}
         />
-        <LogButton
-          title={"Log Supplement"}
-          onPress={this.submitSupplementLog}
-        />
+        <LogButton title={"Log Event"} onPress={this.submitSupplementLog} />
       </View>
     );
   }

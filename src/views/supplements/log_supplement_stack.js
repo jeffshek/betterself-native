@@ -145,7 +145,7 @@ export class LogSupplementStackView extends Component {
             />
           ))}
           <AddSupplementListItem
-            title={"Select New Supplement"}
+            title={"Include Additional Supplement"}
             onPress={() =>
               navigation.navigate(
                 createSupplementCompositionRoute,

@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.alternative
   },
   headerText: {
-    color: "white",
+    color: colors.alternative,
     marginTop: 0,
     fontSize: 20
   }

@@ -8,6 +8,7 @@ import {
   createSupplementStack
 } from "../../services/api/api";
 import { SupplementsAndStacksSelectionView } from "./selection";
+import { CreateButton } from "./constants";
 
 const Form = t.form.Form;
 
@@ -80,14 +81,7 @@ export class CreateSupplementStackView extends Component {
             type={SupplementStack}
             options={options}
           />
-          <Button
-            large
-            icon={{ name: "cached" }}
-            title="Create Stack!"
-            backgroundColor={colors.backgroundColorComplimentary}
-            style={styles.buttonStyle}
-            onPress={this.handleSubmit}
-          />
+          <CreateButton onPress={this.handleSubmit} title={"Create Stack!"} />
         </View>
       </ScrollView>
     );

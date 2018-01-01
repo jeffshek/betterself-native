@@ -5,6 +5,7 @@ import colors from "HSColors";
 import t from "tcomb-form-native";
 import { createSupplement } from "../../services/api/api";
 import { SupplementsAndStacksSelectionView } from "./selection";
+import { CreateButton } from "./constants";
 
 const Form = t.form.Form;
 
@@ -73,13 +74,9 @@ export class CreateSupplementView extends Component {
       <ScrollView style={styles.container}>
         <View style={styles.form}>
           <Form ref={c => this._form = c} type={Supplement} options={options} />
-          <Button
-            large
-            icon={{ name: "cached" }}
-            title="Create Supplement!"
-            backgroundColor={colors.backgroundColorComplimentary}
-            style={styles.buttonStyle}
+          <CreateButton
             onPress={this.handleSubmit}
+            title={"Create Supplement!"}
           />
         </View>
       </ScrollView>

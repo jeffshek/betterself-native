@@ -75,3 +75,15 @@ export const DeleteButton = ({ onPress, title }) => {
     />
   );
 };
+
+export const CreateButton = ({ onPress, title }) => {
+  return (
+    <Button
+      title={title}
+      rounded={true}
+      onPress={onPress}
+      icon={{ name: "edit", type: "font-awesome" }}
+      backgroundColor={colors.approve}
+    />
+  );
+};

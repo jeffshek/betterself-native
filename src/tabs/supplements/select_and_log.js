@@ -44,7 +44,6 @@ export const SelectAndLogStackNavigator = StackNavigator(
       screen: LogSupplementLogView,
       path: `${LogSupplementLogView.viewName}`,
       navigationOptions: ({ navigation }) => ({
-        title: SupplementsLogLabel,
         headerLeft: <GoBackIconNavigation navigation={navigation} />
       })
     },

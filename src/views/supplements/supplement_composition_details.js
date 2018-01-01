@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
-import colors from "HSColors";
 import t from "tcomb-form-native";
 import {
   deleteSupplementComposition,

@@ -66,10 +66,9 @@ export const SupplementsIcon = ({ tintColor }) => {
 export const LogoutIcon = ({ tintColor }) => {
   return (
     <Icon
-      name="lock"
+      name="fingerprint"
       size={IconSize}
       iconStyle={IconStyles.drawerIcon}
-      onPress={() => navigation.navigate("DrawerOpen")}
     />
   );
 };

@@ -1,12 +1,12 @@
 import Expo from "expo";
 import React, { Component } from "react";
-import { StyleSheet, View, Button } from "react-native";
+import { StyleSheet, View, Button, Alert } from "react-native";
 import { Text } from "react-native-elements";
 import t from "tcomb-form-native";
-import { postSupplementLog } from "../../services/api/api";
+import { deleteSupplement, postSupplementLog } from "../../services/api/api";
 import { SupplementsAndStacksSelectionView } from "./selection";
 import colors from "HSColors";
-import { LogButton } from "./constants";
+import { DeleteButton, GroupedButtonsStyles, LogButton } from "./constants";
 
 // This file name is kind of stupid, sorry.
 
@@ -87,6 +87,37 @@ export class LogSupplementLogView extends Component {
     });
   };
 
+  handleRemove = () => {
+    const { navigation } = this.props;
+    const supplement = navigation.state.params;
+
+    const alertMsg = `WARNING : This will delete ${supplement.name} and ALL previous EVENTS related to this supplement forever.`;
+
+    Alert.alert(
+      "Warning!",
+      alertMsg,
+      [
+        {
+          text: "Cancel",
+          onPress: () => {},
+          style: "cancel"
+        },
+        { text: "OK", onPress: this.confirmDeleteSupplement }
+      ],
+      { cancelable: true }
+    );
+  };
+
+  confirmDeleteSupplement = () => {
+    const { navigation } = this.props;
+    const supplement = navigation.state.params;
+
+    const params = { uuid: supplement.uuid };
+    deleteSupplement(params).then(response => {
+      navigation.navigate(SupplementsAndStacksSelectionView.viewName);
+    });
+  };
+
   render() {
     const { navigation } = this.props;
 
@@ -103,7 +134,10 @@ export class LogSupplementLogView extends Component {
           options={options}
           value={defaultValues}
         />
-        <LogButton title={"Log Event"} onPress={this.submitSupplementLog} />
+        <View style={GroupedButtonsStyles.groupedButtons}>
+          <DeleteButton title={"Remove"} onPress={this.handleRemove} />
+          <LogButton title={"Log Event"} onPress={this.submitSupplementLog} />
+        </View>
       </View>
     );
   }

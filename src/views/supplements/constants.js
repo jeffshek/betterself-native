@@ -87,3 +87,11 @@ export const CreateButton = ({ onPress, title }) => {
     />
   );
 };
+
+export const GroupedButtonsStyles = StyleSheet.create({
+  groupedButtons: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginBottom: 10
+  }
+});

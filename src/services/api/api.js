@@ -85,6 +85,21 @@ export const createSupplement = async postParams => {
   });
 };
 
+export const deleteSupplement = async postParams => {
+  console.log("got called?");
+  const token = await AsyncStorage.getItem("token");
+  const jsonHeaders = postAuthorizationHeader(token);
+  const params = {
+    method: "DELETE",
+    headers: jsonHeaders,
+    body: JSON.stringify(postParams)
+  };
+  const url = HOME_URL + SUPPLEMENTS_RESOURCE_URL;
+  return fetch(url, params).then(responseData => {
+    return responseData;
+  });
+};
+
 export const createSupplementStack = async postParams => {
   const token = await AsyncStorage.getItem("token");
   const jsonHeaders = postAuthorizationHeader(token);

@@ -3,10 +3,8 @@ import React from "react";
 import { StackNavigator } from "react-navigation";
 import {
   GoBackIconNavigation,
-  HamburgerIconNavigation,
-  HomeIconNavigation
+  HamburgerIconNavigation
 } from "../../constants/icons";
-import { SupplementsLogLabel } from "../../constants/labels";
 import {
   SupplementsAndStacksSelectionView
 } from "../../views/supplements/selection";

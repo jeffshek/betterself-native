@@ -3,8 +3,7 @@ import React from "react";
 import { StackNavigator } from "react-navigation";
 import {
   GoBackIconNavigation,
-  HamburgerIconNavigation,
-  IconPadAmount
+  HamburgerIconNavigation
 } from "../../constants/icons";
 import {
   SupplementsAndStacksSelectionView
@@ -24,10 +23,11 @@ import {
 import {
   CreateSupplementCompositionView
 } from "../../views/supplements/create_supplement_composition";
-import { Platform, StatusBar, View } from "react-native";
+import { View } from "react-native";
 import {
   SupplementCompositionDetailView
 } from "../../views/supplements/supplement_composition_details";
+import { platformSupportCardStyle } from "../../constants/styles";
 
 export const SelectAndLogStackNavigator = StackNavigator(
   {
@@ -90,11 +90,7 @@ export const SelectAndLogStackNavigator = StackNavigator(
   },
   {
     initialRouteName: SupplementsAndStacksSelectionView.viewName,
-    // This is a hack to fix https://github.com/react-navigation/react-navigation/issues/1478
-    // Android has mismatching currentHeights (but happens in new iPhone too)
-    cardStyle: {
-      paddingTop: Platform.OS === "ios" ? 0 : StatusBar.currentHeight
-    }
+    cardStyle: platformSupportCardStyle
   }
 );
 

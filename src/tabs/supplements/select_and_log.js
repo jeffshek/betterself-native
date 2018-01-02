@@ -34,7 +34,6 @@ export const SelectAndLogStackNavigator = StackNavigator(
   {
     [SupplementsAndStacksSelectionView.viewName]: {
       screen: SupplementsAndStacksSelectionView,
-      path: `/${SupplementsAndStacksSelectionView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Log",
         headerRight: <HamburgerIconNavigation navigation={navigation} />
@@ -42,7 +41,6 @@ export const SelectAndLogStackNavigator = StackNavigator(
     },
     [LogSupplementLogView.viewName]: {
       screen: LogSupplementLogView,
-      path: `${LogSupplementLogView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         headerLeft: <GoBackIconNavigation navigation={navigation} />,
         headerRight: <HamburgerIconNavigation navigation={navigation} />
@@ -50,7 +48,6 @@ export const SelectAndLogStackNavigator = StackNavigator(
     },
     [LogSupplementStackView.viewName]: {
       screen: LogSupplementStackView,
-      path: `${LogSupplementStackView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Log",
         headerLeft: <GoBackIconNavigation navigation={navigation} />,
@@ -59,7 +56,6 @@ export const SelectAndLogStackNavigator = StackNavigator(
     },
     [CreateSupplementView.viewName]: {
       screen: CreateSupplementView,
-      path: `${CreateSupplementView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Create",
         headerLeft: <GoBackIconNavigation navigation={navigation} />,
@@ -68,7 +64,6 @@ export const SelectAndLogStackNavigator = StackNavigator(
     },
     [CreateSupplementStackView.viewName]: {
       screen: CreateSupplementStackView,
-      path: `${CreateSupplementStackView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         title: "Create",
         headerLeft: <GoBackIconNavigation navigation={navigation} />,
@@ -77,7 +72,6 @@ export const SelectAndLogStackNavigator = StackNavigator(
     },
     [CreateSupplementCompositionView.viewName]: {
       screen: CreateSupplementCompositionView,
-      path: `${CreateSupplementCompositionView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         headerLeft: <GoBackIconNavigation navigation={navigation} />,
         headerRight: <HamburgerIconNavigation navigation={navigation} />
@@ -85,7 +79,6 @@ export const SelectAndLogStackNavigator = StackNavigator(
     },
     [SupplementCompositionDetailView.viewName]: {
       screen: SupplementCompositionDetailView,
-      path: `${SupplementCompositionDetailView.viewName}`,
       navigationOptions: ({ navigation }) => ({
         headerLeft: <GoBackIconNavigation navigation={navigation} />,
         headerRight: <HamburgerIconNavigation navigation={navigation} />

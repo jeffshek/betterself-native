@@ -26,7 +26,7 @@ const alertUnauthenticated = response => {
 
 const genericNetworkErrorAlert = error => {
   alert(
-    "Oh no! Issue with Internet Connectivity! Sometimes, I take my phone and raise it really high for a better signal because my provider is so bad. In the meanwhile, is there a wifi hot-spot you can connect to?"
+    "Oh no! We're sorry, but we're having issues connecting. Are you connected to the Internet?"
   );
 };
 

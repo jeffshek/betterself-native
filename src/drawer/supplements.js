@@ -58,13 +58,16 @@ export const SupplementsTabNavigator = TabNavigator(
     // Android's default option displays tabBars on top, but iOS is bottom
     tabBarPosition: "bottom",
     tabBarOptions: {
-      activeTintColor: "white",
-      activeBackgroundColor: colors.background,
+      activeTintColor: colors.background, // these active & inactive don't work on Android
+      activeBackgroundColor: colors.white,
       inactiveTintColor: colors.primary,
       inactiveBackgroundColor: "transparent",
       // Android's default showing of icons is false whereas
       // iOS is true
-      showIcon: true
+      showIcon: true,
+      style: {
+        backgroundColor: colors.white // Makes Android tab bar white instead of standard blue, which is ugly
+      }
     }
   }
 );

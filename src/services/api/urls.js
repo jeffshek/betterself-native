@@ -1,5 +1,6 @@
 //export const HOME_URL = "https://betterself.io/";
-export const HOME_URL = "http://127.0.0.1:9000";
+//export const HOME_URL = "http://127.0.0.1:9000";
+export const HOME_URL = "http://192.168.0.102:9000";
 
 export const DASHBOARD_INDEX_URL = "/dashboard/";
 

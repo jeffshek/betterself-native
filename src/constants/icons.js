@@ -107,10 +107,12 @@ export const GoBackIconNavigation = ({ navigation }) => {
   );
 };
 
+export const IconPadAmount = 15;
+
 const IconStyles = StyleSheet.create({
   navigationIconStyle: {
-    paddingLeft: 15,
-    paddingRight: 15
+    paddingLeft: IconPadAmount,
+    paddingRight: IconPadAmount
   },
   drawerIcon: {
     color: colors.alternative

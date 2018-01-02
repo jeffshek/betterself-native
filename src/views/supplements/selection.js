@@ -1,12 +1,5 @@
-import Expo from "expo";
 import React, { Component } from "react";
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View
-} from "react-native";
+import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 
 import { List, ListItem, Text } from "react-native-elements";
 
@@ -27,9 +20,7 @@ import {
   ListItemStyles
 } from "./constants";
 import { HeaderText } from "../../config/fontsAndSizes";
-import {
-  CreateSupplementCompositionView
-} from "./create_supplement_composition";
+import Expo from "expo";
 
 export class SupplementsAndStacksSelectionView extends Component {
   static viewName = "SupplementsAndStacksSelectionView";

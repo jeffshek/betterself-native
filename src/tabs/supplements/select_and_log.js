@@ -3,7 +3,8 @@ import React from "react";
 import { StackNavigator } from "react-navigation";
 import {
   GoBackIconNavigation,
-  HamburgerIconNavigation
+  HamburgerIconNavigation,
+  IconPadAmount
 } from "../../constants/icons";
 import {
   SupplementsAndStacksSelectionView
@@ -23,7 +24,7 @@ import {
 import {
   CreateSupplementCompositionView
 } from "../../views/supplements/create_supplement_composition";
-import { Platform, StatusBar } from "react-native";
+import { Platform, StatusBar, View } from "react-native";
 import {
   SupplementCompositionDetailView
 } from "../../views/supplements/supplement_composition_details";
@@ -34,7 +35,11 @@ export const SelectAndLogStackNavigator = StackNavigator(
       screen: SupplementsAndStacksSelectionView,
       navigationOptions: ({ navigation }) => ({
         title: "Log",
-        headerRight: <HamburgerIconNavigation navigation={navigation} />
+        headerTitleStyle: {
+          alignSelf: "center"
+        },
+        headerRight: <HamburgerIconNavigation navigation={navigation} />,
+        headerLeft: <View /> // Because this is being aligned as center, having a headerRight without a left, it will center incorrectly
       })
     },
     [LogSupplementLogView.viewName]: {
